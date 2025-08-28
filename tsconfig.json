@@ -9,20 +9,10 @@
   "files": [],
   "include": ["apps", "jest.setup.*.ts", "packages", "tests"],
   "references": [
-    {
-      "path": "./apps/api"
-    },
-    {
-      "path": "./apps/web/tsconfig.build.json"
-    },
-    {
-      "path": "./packages/ui"
-    },
-    {
-      "path": "./packages/utils"
-    },
-    {
-      "path": "./packages/config"
-    }
+    { "path": "apps/web" },
+    { "path": "apps/api" },
+    { "path": "packages/ui" },
+    { "path": "packages/utils" },
+    { "path": "packages/config" }
   ]
 }
