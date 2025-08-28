@@ -19,7 +19,12 @@
     "strictNullChecks": true,
     "types": ["jest", "node"],
     "useUnknownInCatchVariables": true,
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [".next", ".turbo", "build", "coverage", "dist", "node_modules"],
   "extends": "../../tsconfig.base.json",
@@ -30,6 +35,7 @@
     "next.config.*",
     "postcss.config.*",
     "src/**/*",
-    "tailwind.config.*"
+    "tailwind.config.*",
+    ".next/types/**/*.ts"
   ]
 }

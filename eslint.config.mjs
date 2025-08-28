@@ -2,10 +2,8 @@ import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import next from "@next/eslint-plugin-next";
 
 export default [
-  ...next.configs["core-web-vitals"],
   {
     ignores: [
       "**/node_modules/**",
