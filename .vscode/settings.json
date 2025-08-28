@@ -1,3 +1,24 @@
 {
-  "cSpell.words": ["chakra", "Cleanout", "eslintcache", "Manideep", "Phong", "qstash", "Turborepo", "vercel"]
+  "cSpell.words": [
+    "chakra",
+    "changeme",
+    "chorechamp",
+    "Cleanout",
+    "eslintcache",
+    "Manideep",
+    "NEXTAUTH",
+    "Phong",
+    "qstash",
+    "Turborepo",
+    "vercel"
+  ],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.useFlatConfig": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.watcherExclude": {
+    "**/dist/**": true,
+    "**/.next/**": true,
+    "**/.turbo/**": true,
+    "**/coverage/**": true
+  }
 }

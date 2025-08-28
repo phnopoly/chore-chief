@@ -41,4 +41,25 @@ export default [
     },
     settings: { react: { version: "detect" } },
   },
+  {
+    files: [
+      "**/*.config.{js,cjs,mjs,ts}",
+      "**/*config.cjs",
+      "**/*rc.cjs",
+      "apps/**/jest.config.cjs",
+      "jest.config.cjs",
+      "next.config.*",
+      "cypress.config.*",
+      "turbo.config.*",
+    ],
+    languageOptions: {
+      sourceType: "commonjs",
+      globals: {
+        module: "readonly",
+        require: "readonly",
+        __dirname: "readonly",
+        process: "readonly",
+      },
+    },
+  },
 ];

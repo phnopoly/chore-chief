@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "isolatedModules": false,
+    "types": ["jest", "node", "@testing-library/jest-dom"]
+  },
+  "include": ["**/__tests__/**/*.ts", "**/__tests__/**/*.tsx", "**/*.test.ts", "**/*.test.tsx"]
+}
