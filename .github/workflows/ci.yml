@@ -1,9 +1,6 @@
 # .github/workflows/ci.yml
 name: CI
-
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   build-test:
@@ -11,21 +8,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Install Node and enable pnpm caching (uses pnpm-lock.yaml)
       - uses: actions/setup-node@v4
         with:
-          node-version: 20 # or 22/24 if you prefer
+          node-version: 20
           check-latest: true
-          cache: "pnpm" # 👈 important
+          cache: pnpm # caches via pnpm-lock.yaml
           cache-dependency-path: pnpm-lock.yaml
 
-      # Use pnpm via Corepack (recommended)
+      # Make pnpm available
       - name: Enable Corepack
         run: corepack enable
 
-      # Pin the pnpm version (optional; or rely on package.json "packageManager")
+      # Pin pnpm (or rely on package.json "packageManager")
       - name: Activate pnpm
         run: corepack prepare pnpm@10.15.0 --activate
+
+      - name: Show pnpm version
+        run: pnpm -v
 
       - name: Install
         run: pnpm install --frozen-lockfile
