@@ -8,10 +8,12 @@
     "start": "next start -p 3001",
     "lint": "eslint .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "jest -c ../../jest.config.ts --selectProjects api --passWithNoTests"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@chore-champ/utils": "^0.0.0",
+    "@chore-champ/config": "workspace:*",
+    "@chore-champ/ui": "workspace:*",
+    "@chore-champ/utils": "workspace:*",
     "@sentry/nextjs": "^10.7.0",
     "@upstash/qstash": "^2.8.2",
     "@upstash/ratelimit": "2.0.6",
@@ -26,10 +28,11 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.19.11",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.8",
-    "eslint": "^8.57.1",
+    "eslint": "^9.34.0",
     "eslint-config-next": "^15.5.2",
     "typescript": "^5.9.2"
   }

@@ -10,6 +10,7 @@
     "Phong",
     "qstash",
     "Turborepo",
+    "USERPROFILE",
     "vercel"
   ],
   "eslint.workingDirectories": [{ "mode": "auto" }],

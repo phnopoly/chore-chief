@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const nextJest = require("next/jest");
 const createJestConfig = nextJest({ dir: __dirname });
 
@@ -9,7 +10,11 @@ const config = {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
     "^@/(.*)$": "<rootDir>/src/$1",
   },
-  testMatch: ["<rootDir>/src/**/__tests__/**/*.(test|spec).(ts|tsx)", "<rootDir>/src/**/*.(test|spec).(ts|tsx)"],
+  testMatch: [
+    "<rootDir>/src/**/__tests__/**/*.(test|spec).(ts|tsx)",
+    "<rootDir>/src/**/*.(test|spec).(ts|tsx)",
+    "<rootDir>/__tests__/**/*.(test|spec).(ts|tsx)",
+  ],
 };
 
 module.exports = createJestConfig(config);

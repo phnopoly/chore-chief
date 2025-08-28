@@ -1,6 +1,6 @@
 # ChoreChamp (Monorepo)
 
-A full‑stack household management app that makes chores, bills, and shopping **fair, fast, and fun**—for roommates and for solo use.
+A full-stack household management app that makes chores, bills, and shopping **fair, fast, and fun**—for roommates and for solo use.
 
 ---
 
@@ -8,45 +8,33 @@ A full‑stack household management app that makes chores, bills, and shopping *
 
 ```powershell
 # Requirements
-# Node >= 18.17, npm >= 10
+# Node >= 18.17 (LTS recommended)
+# Package manager: pnpm (preferred)
 
-# install all workspaces\ npm install
+# 1. Enable pnpm
+# If Node.js has Corepack (default for v16.13+):
+corepack enable
+corepack prepare pnpm@latest --activate
 
-# dev all apps via Turborepo (web=:3000, api=:3001)
-npm run dev
+# Or install manually (PowerShell on Windows):
+$pnpmHome = "$env:USERPROFILE\AppData\Local\pnpm"
+mkdir $pnpmHome -Force | Out-Null
+[System.Environment]::SetEnvironmentVariable("PNPM_HOME", $pnpmHome, "User")
+[System.Environment]::SetEnvironmentVariable("Path", "$pnpmHome;$env:Path", "User")
+pnpm self-update
 
-# or target a single workspace
-npm run dev -w apps/web
-npm run dev -w apps/api
+# 2. Install all workspaces
+pnpm install
 
-# lint / format / test
-npm run lint
-npm run format
-npm run test --workspaces --if-present
+# 3. Dev all apps via Turborepo (web=:3000, api=:3001)
+pnpm dev
+
+# Or target a single workspace
+pnpm dev -w apps/web
+pnpm dev -w apps/api
+
+# 4. Lint / format / test
+pnpm lint
+pnpm format
+pnpm test --workspaces --if-present
 ```
-
-> Workspaces you can target with `-w`: `apps/web`, `apps/api`, `@chore-champ/ui`, `@chore-champ/utils`, `@chore-champ/config`.
-
----
-
-## Objective
-
-**ChoreChamp** eliminates daily friction in shared living by unifying smart chore rotation, expense tracking, shopping lists, reminders, and gamification in one seamless app. It’s purpose‑built for students and young professionals—the group most prone to “whose turn is it?” conflicts—and it also shines in **Solo Mode** as a personal productivity tool. A freemium model supports sustainable monetization with premium analytics, exports, and household rewards.
-
----
-
-## Why ChoreChamp
-
-- **Universal pain point**: chores, bills, and supplies are daily headaches.
-- **Unique combo**: fairness + gamification + expenses + shopping in one flow.
-- **Hook**: leaderboards and streaks turn chores into motivation.
-- **Campus wedge**: ideal for shared housing.
-- **Solo fallback**: valuable even after roommates move out.
-
----
-
-## Architecture Overview
-
-- **Framework**: Next.js (App Router)
-- **Monorepo**: Turborepo (caching, parallel tasks); shared packages in `packages/*`
-- **Web App**: Next.js + TypeScript + Sass + Chakra UI (RCL), React
