@@ -6,7 +6,9 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start -p 3001",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "jest -c ../../jest.config.ts --selectProjects api --passWithNoTests"
   },
   "dependencies": {
     "@chore-champ/utils": "^0.0.0",
