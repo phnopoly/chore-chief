@@ -1,0 +1,16 @@
+{
+  "name": "@chore-champ/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "eslint.cjs",
+  "exports": {
+    "./eslint": "./eslint.cjs",
+    "./prettier": "./prettier.json"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.2",
+    "prettier": "^3.6.2"
+  }
+}

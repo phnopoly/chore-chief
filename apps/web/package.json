@@ -1,0 +1,35 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "4.0.2",
+    "@chakra-ui/react": "^3.25.0",
+    "@chore-champ/ui": "^0.0.0",
+    "@chore-champ/utils": "^0.0.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@sentry/nextjs": "^10.7.0",
+    "framer-motion": "^12.23.12",
+    "graphql": "^16.11.0",
+    "mixpanel-browser": "^2.69.1",
+    "next": "15.5.2",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "sass": "^1.91.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.11",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.8",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.2",
+    "typescript": "^5.9.2"
+  }
+}

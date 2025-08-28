@@ -1,0 +1,13 @@
+node_modules/
+**/node_modules/
+dist/
+build/
+.next/
+out/
+.turbo/
+.vercel/
+coverage/
+.nyc_output/
+cypress/
+playwright-report/
+test-results/

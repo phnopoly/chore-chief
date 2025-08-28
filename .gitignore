@@ -1,0 +1,56 @@
+# ---- Node / monorepo ----
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+.eslintcache
+.cache/
+.parcel-cache/
+
+# ---- Turborepo ----
+.turbo/
+
+# ---- Build outputs (apps & packages) ----
+dist/
+build/
+
+# ---- Next.js (any app) ----
+.next/
+out/
+
+# ---- Env files (keep .env.example) ----
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+
+# ---- Vercel ----
+.vercel/
+
+# ---- Tests & coverage ----
+coverage/
+.nyc_output/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Playwright (if you add it later)
+playwright-report/
+test-results/
+.playwright/
+
+# ---- Editors / OS junk ----
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---- Misc ----
+*.log
+*.log.*
