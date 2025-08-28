@@ -12,19 +12,15 @@ jobs:
         with:
           node-version: 20
           check-latest: true
-          cache: pnpm # caches via pnpm-lock.yaml
+          cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      # Make pnpm available
-      - name: Enable Corepack
-        run: corepack enable
+      - name: Enable pnpm via Corepack
+        run: |
+          corepack enable
+          corepack install            # reads "packageManager" and activates pnpm
 
-      # Pin pnpm (or rely on package.json "packageManager")
-      - name: Activate pnpm
-        run: corepack prepare pnpm@10.15.0 --activate
-
-      - name: Show pnpm version
-        run: pnpm -v
+      - run: pnpm -v
 
       - name: Install
         run: pnpm install --frozen-lockfile
