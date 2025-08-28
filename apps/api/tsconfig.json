@@ -1,35 +1,35 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true,
-    "outDir": "dist",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "types": ["node", "jest"],
     "allowJs": false,
-    "skipLibCheck": true,
-    "noEmit": false,
-    "incremental": true,
+    "baseUrl": ".",
+    "composite": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
-    "verbatimModuleSyntax": false,
     "exactOptionalPropertyTypes": true,
-    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "noEmit": false,
     "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "types": ["jest", "node"],
     "useUnknownInCatchVariables": true,
-    "noPropertyAccessFromIndexSignature": true
+    "verbatimModuleSyntax": false
   },
+  "exclude": [".next", ".turbo", "build", "coverage", "dist", "node_modules"],
+  "extends": "../../tsconfig.base.json",
   "include": [
-    "src/**/*",
+    "__tests__/**/*",
+    "env.d.ts",
     "next-env.d.ts",
     "next.config.*",
-    "tailwind.config.*",
     "postcss.config.*",
-    "env.d.ts",
-    "__tests__/**/*"
-  ],
-  "exclude": ["node_modules", "dist", "build", ".next", "coverage", ".turbo"]
+    "src/**/*",
+    "tailwind.config.*"
+  ]
 }

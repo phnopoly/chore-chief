@@ -13,13 +13,17 @@
     "USERPROFILE",
     "vercel"
   ],
-  "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.useFlatConfig": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
   "files.watcherExclude": {
-    "**/dist/**": true,
     "**/.next/**": true,
     "**/.turbo/**": true,
-    "**/coverage/**": true
-  }
+    "**/coverage/**": true,
+    "**/dist/**": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

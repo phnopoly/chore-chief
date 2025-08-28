@@ -1,14 +1,14 @@
 {
-  "name": "@chore-champ/ui",
-  "version": "0.0.0",
-  "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
   "exports": "./src/index.ts",
+  "main": "dist/index.js",
+  "name": "@chore-champ/ui",
   "peerDependencies": {
+    "@chakra-ui/react": "^3",
     "react": "^18 || ^19",
-    "react-dom": "^18 || ^19",
-    "@chakra-ui/react": "^3"
-  }
+    "react-dom": "^18 || ^19"
+  },
+  "private": true,
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "0.0.0"
 }

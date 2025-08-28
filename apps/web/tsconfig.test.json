@@ -1,19 +1,19 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "jsx": "react-jsx",
-    "noEmit": true,
     "isolatedModules": false,
-    "types": ["jest", "node", "@testing-library/jest-dom"],
-    "moduleResolution": "Node"
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "rootDir": ".",
+    "types": ["@testing-library/jest-dom", "jest", "node"]
   },
+  "extends": "./tsconfig.json",
   "include": [
-    "next-env.d.ts",
-    "src",
-    "jest.setup.web.ts",
     "__tests__/**/*.ts",
     "__tests__/**/*.tsx",
+    "jest.setup.web.ts",
+    "next-env.d.ts",
+    "src",
     "src/**/*.(test|spec).ts",
     "src/**/*.(test|spec).tsx"
   ]

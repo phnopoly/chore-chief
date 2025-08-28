@@ -1,17 +1,17 @@
 {
-  "name": "@chore-champ/config",
-  "version": "0.0.0",
-  "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "commonjs",
-  "exports": {
-    "./eslint": "./eslint.cjs",
-    "./prettier": "./prettier.json"
-  },
   "devDependencies": {
     "eslint": "^9.34.0",
     "eslint-config-next": "^15.5.2",
     "prettier": "^3.6.2"
-  }
+  },
+  "exports": {
+    "./eslint": "./eslint.cjs",
+    "./prettier": "./prettier.json"
+  },
+  "main": "dist/index.js",
+  "name": "@chore-champ/config",
+  "private": true,
+  "type": "commonjs",
+  "types": "dist/index.d.ts",
+  "version": "0.0.0"
 }

@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "types": ["node"],
+    "composite": true,
     "declaration": true,
     "outDir": "dist",
-    "composite": true
+    "types": ["node"]
   },
-  "include": ["src"],
-  "exclude": ["**/__tests__/**", "**/*.test.*", "node_modules", "dist", "build", ".turbo", "coverage"]
+  "exclude": ["**/*.test.*", "**/__tests__/**", ".turbo", "build", "coverage", "dist", "node_modules"],
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"]
 }

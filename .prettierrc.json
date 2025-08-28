@@ -1,13 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/prettierrc",
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "printWidth": 120,
+  "proseWrap": "preserve",
   "semi": true,
   "singleQuote": false,
-  "printWidth": 120,
   "tabWidth": 2,
-  "trailingComma": "all",
-  "bracketSpacing": true,
-  "bracketSameLine": false,
-  "arrowParens": "always",
-  "proseWrap": "preserve",
-  "endOfLine": "lf"
+  "trailingComma": "all"
 }

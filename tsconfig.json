@@ -1,19 +1,28 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./apps/api" },
-    { "path": "./apps/web/tsconfig.build.json" },
-    { "path": "./packages/ui" },
-    { "path": "./packages/utils" },
-    { "path": "./packages/config" }
-  ],
-
   "compilerOptions": {
-    "jsx": "react",
-    "types": ["jest"],
-    "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "jsx": "react",
+    "skipLibCheck": true,
+    "strict": true,
+    "types": ["jest"]
   },
-  "include": ["apps", "packages", "tests", "jest.setup.*.ts"]
+  "files": [],
+  "include": ["apps", "jest.setup.*.ts", "packages", "tests"],
+  "references": [
+    {
+      "path": "./apps/api"
+    },
+    {
+      "path": "./apps/web/tsconfig.build.json"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/config"
+    }
+  ]
 }

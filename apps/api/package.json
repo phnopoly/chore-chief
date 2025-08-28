@@ -1,15 +1,4 @@
 {
-  "name": "api",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev -p 3001",
-    "build": "next build",
-    "start": "next start -p 3001",
-    "lint": "eslint .",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "jest --passWithNoTests"
-  },
   "dependencies": {
     "@chore-champ/config": "workspace:*",
     "@chore-champ/ui": "workspace:*",
@@ -35,5 +24,16 @@
     "eslint": "^9.34.0",
     "eslint-config-next": "^15.5.2",
     "typescript": "^5.9.2"
-  }
+  },
+  "name": "api",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev -p 3001",
+    "lint": "eslint .",
+    "start": "next start -p 3001",
+    "test": "jest --passWithNoTests",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "version": "0.0.0"
 }

@@ -1,24 +1,24 @@
 {
-  "name": "@chore-champ/utils",
-  "version": "0.0.0",
-  "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
-  "exports": "./src/index.ts",
   "dependencies": {
     "mongoose": "^8.18.0",
     "zod": "4.1.4"
-  },
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "lint": "eslint .",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "jest --passWithNoTests"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^20.19.11",
     "typescript": "^5.9.2"
-  }
+  },
+  "exports": "./src/index.ts",
+  "main": "dist/index.js",
+  "name": "@chore-champ/utils",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "0.0.0"
 }

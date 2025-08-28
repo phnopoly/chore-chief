@@ -1,24 +1,4 @@
 {
-  "name": "chore-champ",
-  "private": true,
-  "packageManager": "pnpm@9.12.0",
-  "engines": {
-    "node": ">=24.0.0",
-    "npm": ">=10"
-  },
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "test": "jest -c ./jest.config.cjs --passWithNoTests",
-    "typecheck": "turbo run typecheck",
-    "format": "prettier -w .",
-    "prepare": "husky",
-    "clean": "rimraf node_modules **/node_modules **/dist",
-    "test:watch": "jest -c ./jest.config.cjs --watch",
-    "lint:fix": "turbo run lint -- --fix",
-    "build:ci": "turbo run build --cache-dir=.turbo"
-  },
   "devDependencies": {
     "@babel/core": "^7.28.3",
     "@babel/preset-env": "^7.28.3",
@@ -46,11 +26,32 @@
     "lint-staged": "^16.1.5",
     "postman": "^0.2.0",
     "prettier": "^3.6.2",
+    "prettier-plugin-sort-json": "^4.1.1",
     "supertest": "^7.1.4",
     "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
     "turbo": "^2.5.6",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.41.0"
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=10"
+  },
+  "name": "chore-champ",
+  "packageManager": "pnpm@9.12.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "build:ci": "turbo run build --cache-dir=.turbo",
+    "clean": "rimraf node_modules **/node_modules **/dist",
+    "dev": "turbo run dev --parallel",
+    "format": "prettier -w .",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix",
+    "prepare": "husky",
+    "test": "jest -c ./jest.config.cjs --passWithNoTests",
+    "test:watch": "jest -c ./jest.config.cjs --watch",
+    "typecheck": "turbo run typecheck"
   }
 }
