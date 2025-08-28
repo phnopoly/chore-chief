@@ -1,4 +1,3 @@
-# .github/workflows/ci.yml
 name: CI
 on: [push, pull_request]
 
@@ -10,7 +9,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           check-latest: true
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
@@ -18,10 +17,8 @@ jobs:
       - name: Enable pnpm via Corepack
         run: |
           corepack enable
-          corepack install            # reads "packageManager" and activates pnpm
-
+          corepack prepare pnpm@10.15.0 --activate
       - run: pnpm -v
-
       - name: Install
         run: pnpm install --frozen-lockfile
 
