@@ -1,15 +1,4 @@
 import React, { useState } from "react";
-import {
-  Container,
-  Heading,
-  Text,
-  Stack,
-  VStack,
-  HStack,
-  Button,
-  Card,
-  Separator,
-} from "@chakra-ui/react";
 // @ts-expect-error - JSON module import
 import choresData from "../data/chores.json";
 
@@ -202,75 +191,96 @@ const ChoreForm: React.FC = () => {
   };
 
   return (
-    <Container maxW="4xl" py={10} bg="gray.50" minH="100vh">
-      <VStack align="start" gap={8}>
-        <VStack align="start" gap={2}>
-          <Heading as="h1" size="xl">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Chore Selection Form
-          </Heading>
-          <Text color="gray.600">
-            Select a category and choose the items you want to work with.
-          </Text>
-        </VStack>
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Select a category and choose the items you want to work with. 
+            Build your personalized chore routine with ease.
+          </p>
+        </div>
 
-        <Card.Root w="100%">
-          <Card.Header>
-            <Heading size="md">Step 1: Choose Categories</Heading>
-            <Text color="gray.600" mt={1}>
-              Select one or more categories to see available items
-            </Text>
-          </Card.Header>
-          <Card.Body>
-            <Stack gap={3}>
+        {/* Step 1: Category Selection */}
+        <div className="card mb-8 animate-fade-in">
+          <div className="form-section">
+            <div className="form-section-header">
+              <h2 className="form-section-title">Step 1: Choose Categories</h2>
+              <p className="form-section-description">
+                Select one or more categories to see available items
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {categories.map((category) => (
-                <label key={String(category.key)} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer' }}>
-                  <input
-                    type="checkbox"
-                    checked={selectedCategories[String(category.key)] || false}
-                    onChange={(e) => handleCategoryChange(String(category.key), e.target.checked)}
-                    style={{ marginTop: '4px' }}
-                  />
-                  <VStack align="start" gap={1}>
-                    <Text fontWeight="medium">{category.name}</Text>
-                    <Text fontSize="sm" color="gray.600">
-                      {category.description}
-                    </Text>
-                  </VStack>
+                <label 
+                  key={String(category.key)} 
+                  className={`category-card ${
+                    selectedCategories[String(category.key)] 
+                      ? 'category-card-selected' 
+                      : 'category-card-unselected'
+                  }`}
+                >
+                  <div className="flex items-start space-x-3">
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories[String(category.key)] || false}
+                      onChange={(e) => handleCategoryChange(String(category.key), e.target.checked)}
+                      className="checkbox-custom mt-1"
+                    />
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        {category.name}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {category.description}
+                      </p>
+                    </div>
+                  </div>
                 </label>
               ))}
-            </Stack>
-          </Card.Body>
-        </Card.Root>
+            </div>
+          </div>
+        </div>
 
+        {/* Step 2: Items Selection */}
         {selectedCategoryKeys.length > 0 && (
-          <Card.Root w="100%">
-            <Card.Header>
-              <Heading size="md">Step 2: Choose Items</Heading>
-              <Text color="gray.600" mt={1}>
-                Select items from the selected categories
-              </Text>
-            </Card.Header>
-            <Card.Body>
-              <Stack gap={6}>
+          <div className="card mb-8 animate-slide-up">
+            <div className="form-section">
+              <div className="form-section-header">
+                <h2 className="form-section-title">Step 2: Choose Items</h2>
+                <p className="form-section-description">
+                  Select items from the selected categories
+                </p>
+              </div>
+              
+              <div className="space-y-8">
                 {selectedCategoryKeys.map(categoryKey => {
                   const categoryItems = currentCategoryItems.filter(item => item.categoryKey === categoryKey);
                   return (
-                    <Stack key={String(categoryKey)} gap={3}>
-                      <Text fontWeight="bold" color="blue.600" fontSize="md">
+                    <div key={String(categoryKey)} className="space-y-4">
+                      <h3 className="text-lg font-semibold text-primary-600 border-b border-primary-200 pb-2">
                         {choresData.categories[categoryKey].name}
-                      </Text>
-                      <Stack gap={3} pl={4}>
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         {categoryItems.map((item) => (
-                          <Stack key={String(item.key)} gap={2}>
-                            <VStack align="start" gap={1}>
-                              <Text fontWeight="bold" color="green.600" fontSize="sm">
-                                {String(item.name || 'Unknown Item')}
-                              </Text>
-                              <Text fontSize="sm" color="gray.600">
-                                {String(item.description || 'No description')}
-                              </Text>
-                            </VStack>
-                            <Stack gap={2} pl={4}>
+                          <div key={String(item.key)} className="item-card">
+                            <div className="item-header">
+                              <div>
+                                <h4 className="item-title">
+                                  {String(item.name || 'Unknown Item')}
+                                </h4>
+                                <p className="item-description">
+                                  {String(item.description || 'No description')}
+                                </p>
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-3">
                               {item.chores && Array.isArray(item.chores) && item.chores.length > 0 ? (
                                 item.chores.map((chore: Chore) => {
                                   const fullChoreKey = `${String(item.categoryKey)}_${String(item.key)}_${chore.id}`;
@@ -278,187 +288,207 @@ const ChoreForm: React.FC = () => {
                                   const choreDetails = selectedChoreDetails[fullChoreKey];
                                   
                                   return (
-                                    <Stack key={chore.id} gap={2}>
-                                      <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer' }}>
+                                    <div key={chore.id} className="space-y-3">
+                                      <label className="flex items-start space-x-3 cursor-pointer">
                                         <input
                                           type="checkbox"
                                           checked={isChoreSelected}
                                           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChoreChange(chore.id, String(item.categoryKey), String(item.key), e.target.checked)}
-                                          style={{ marginTop: '4px' }}
+                                          className="checkbox-custom mt-1"
                                         />
-                                        <Text fontSize="sm" color="gray.700">
+                                        <span className="text-sm font-medium text-gray-700 flex-1">
                                           {chore.name}
-                                        </Text>
+                                        </span>
                                       </label>
                                       
                                       {isChoreSelected && (
-                                        <Stack gap={3} pl={6}>
+                                        <div className="chore-details animate-slide-up">
                                           {/* Frequency Selection */}
-                                          <Stack gap={2}>
-                                            <Text fontSize="xs" fontWeight="bold" color="blue.600">
-                                              Frequency:
-                                            </Text>
-                                            <HStack gap={4}>
+                                          <div className="mb-4">
+                                            <label className="block text-xs font-semibold text-primary-600 mb-2">
+                                              Frequency
+                                            </label>
+                                            <div className="flex space-x-4">
                                               {['daily', 'weekly', 'monthly'].map((freq) => (
-                                                <label key={freq} style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}>
+                                                <label key={freq} className="flex items-center space-x-2 cursor-pointer">
                                                   <input
                                                     type="radio"
                                                     name={`frequency_${fullChoreKey}`}
                                                     value={freq}
                                                     checked={choreDetails?.frequency === freq}
                                                     onChange={() => handleFrequencyChange(fullChoreKey, freq as 'daily' | 'weekly' | 'monthly')}
+                                                    className="radio-custom"
                                                   />
-                                                  <Text fontSize="xs" textTransform="capitalize">
+                                                  <span className="text-xs font-medium text-gray-700 capitalize">
                                                     {freq}
-                                                  </Text>
+                                                  </span>
                                                 </label>
                                               ))}
-                                            </HStack>
-                                          </Stack>
+                                            </div>
+                                          </div>
                                           
                                           {/* Points Selection */}
-                                          <Stack gap={2}>
-                                            <Text fontSize="xs" fontWeight="bold" color="green.600">
-                                              Points:
-                                            </Text>
-                                            <HStack gap={3}>
+                                          <div>
+                                            <label className="block text-xs font-semibold text-success-600 mb-2">
+                                              Points
+                                            </label>
+                                            <div className="flex space-x-3">
                                               {[1, 2, 3, 4, 5].map((point) => (
-                                                <label key={point} style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}>
+                                                <label key={point} className="flex items-center space-x-2 cursor-pointer">
                                                   <input
                                                     type="radio"
                                                     name={`points_${fullChoreKey}`}
                                                     value={point}
                                                     checked={choreDetails?.points === point}
                                                     onChange={() => handlePointsChange(fullChoreKey, point as 1 | 2 | 3 | 4 | 5)}
+                                                    className="radio-custom"
                                                   />
-                                                  <Text fontSize="xs">
+                                                  <span className="text-xs font-medium text-gray-700">
                                                     {point}
-                                                  </Text>
+                                                  </span>
                                                 </label>
                                               ))}
-                                            </HStack>
-                                          </Stack>
-                                        </Stack>
+                                            </div>
+                                          </div>
+                                        </div>
                                       )}
-                                    </Stack>
+                                    </div>
                                   );
                                 })
                               ) : (
-                                <Text fontSize="sm" color="gray.500" pl={4}>
+                                <p className="text-sm text-gray-500 italic">
                                   No chores available for this item
-                                </Text>
+                                </p>
                               )}
-                            </Stack>
-                          </Stack>
+                            </div>
+                          </div>
                         ))}
-                      </Stack>
-                    </Stack>
+                      </div>
+                    </div>
                   );
                 })}
-              </Stack>
-            </Card.Body>
-          </Card.Root>
+              </div>
+            </div>
+          </div>
         )}
 
+        {/* Summary Section */}
         {selectedCategoryKeys.length > 0 && (
-          <Card.Root w="100%">
-            <Card.Header>
-              <Heading size="md">Selected Items Summary</Heading>
-            </Card.Header>
-            <Card.Body>
-              <VStack align="start" gap={3}>
-                <Text>
-                  <strong>Selected Categories:</strong> {selectedCategoryKeys.map(key => choresData.categories[key].name).join(", ")}
-                </Text>
-                <Separator />
-                <Text>
-                  <strong>Selected Items:</strong>
-                </Text>
-                {Object.entries(selectedItems).filter(([, isSelected]) => isSelected).length > 0 ? (
-                  <Stack gap={2}>
-                    {selectedCategoryKeys.map(categoryKey => {
-                      console.log('Processing category:', categoryKey, 'name:', choresData.categories[categoryKey]?.name);
-                      const categorySelectedItems = Object.entries(selectedItems)
-                        .filter(([fullKey, isSelected]) => isSelected && fullKey.startsWith(`${String(categoryKey)}_`))
-                        .map(([fullKey]) => {
-                          const parts = fullKey.split('_');
-                          
-                          // Handle the new format: categoryKey_itemKey_choreId
-                          // Note: itemKey might contain underscores, so we need to handle this carefully
-                          if (parts.length >= 3) {
-                            // The choreId is always the last part
-                            const choreId = parts[parts.length - 1];
-                            // Everything between categoryKey and choreId is the itemKey
-                            const itemKey = parts.slice(1, -1).join('_');
-                            const category = choresData.categories[categoryKey];
-                            const item = category?.items?.[itemKey] as Record<string, unknown>;
-                            const chores = (item?.chores as Chore[]) || [];
-                            const chore = chores.find((c: Chore) => c.id === choreId);
+          <div className="card mb-8 animate-fade-in">
+            <div className="form-section">
+              <div className="form-section-header">
+                <h2 className="form-section-title">Selected Items Summary</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="summary-section">
+                  <h3 className="summary-title">Selected Categories</h3>
+                  <p className="text-sm text-gray-700">
+                    {selectedCategoryKeys.map(key => choresData.categories[key].name).join(", ")}
+                  </p>
+                </div>
+                
+                <div className="summary-section">
+                  <h3 className="summary-title">Selected Items</h3>
+                  {Object.entries(selectedItems).filter(([, isSelected]) => isSelected).length > 0 ? (
+                    <div className="space-y-4">
+                      {selectedCategoryKeys.map(categoryKey => {
+                        const categorySelectedItems = Object.entries(selectedItems)
+                          .filter(([fullKey, isSelected]) => isSelected && fullKey.startsWith(`${String(categoryKey)}_`))
+                          .map(([fullKey]) => {
+                            const parts = fullKey.split('_');
                             
-                            return { 
-                              itemKey, 
-                              choreId,
-                              itemName: (item?.name as string) || 'Unknown Item', 
-                              choreName: chore?.name || 'Unknown chore'
-                            };
-                          } else {
-                            // Handle old format or invalid keys
-                            return { 
-                              itemKey: 'unknown', 
-                              choreId: 'unknown',
-                              itemName: 'Invalid Key', 
-                              choreName: 'Invalid Key'
-                            };
-                          }
-                        });
-                      
-                      if (categorySelectedItems.length === 0) return null;
-                      
-                      return (
-                        <Stack key={String(categoryKey)} gap={1}>
-                          <Text fontWeight="bold" color="blue.600" fontSize="sm">
-                            {choresData.categories[categoryKey].name}:
-                          </Text>
-                          {categorySelectedItems.map(item => (
-                            <Text key={`${item.itemKey}_${item.choreId}`} fontSize="sm" color="gray.700" pl={4}>
-                              • {item.itemName} - {item.choreName}
-                            </Text>
-                          ))}
-                        </Stack>
-                      );
-                    })}
-                  </Stack>
-                ) : (
-                  <Text fontSize="sm" color="gray.500">
-                    No items selected
-                  </Text>
-                )}
-              </VStack>
-            </Card.Body>
-          </Card.Root>
+                            if (parts.length >= 3) {
+                              const choreId = parts[parts.length - 1];
+                              const itemKey = parts.slice(1, -1).join('_');
+                              const category = choresData.categories[categoryKey];
+                              const item = category?.items?.[itemKey] as Record<string, unknown>;
+                              const chores = (item?.chores as Chore[]) || [];
+                              const chore = chores.find((c: Chore) => c.id === choreId);
+                              const details = selectedChoreDetails[fullKey];
+                              
+                              return { 
+                                itemKey, 
+                                choreId,
+                                itemName: (item?.name as string) || 'Unknown Item', 
+                                choreName: chore?.name || 'Unknown chore',
+                                frequency: details?.frequency || '',
+                                points: details?.points || null
+                              };
+                            } else {
+                              return { 
+                                itemKey: 'unknown', 
+                                choreId: 'unknown',
+                                itemName: 'Invalid Key', 
+                                choreName: 'Invalid Key',
+                                frequency: '',
+                                points: null
+                              };
+                            }
+                          });
+                        
+                        if (categorySelectedItems.length === 0) return null;
+                        
+                        return (
+                          <div key={String(categoryKey)} className="space-y-2">
+                            <h4 className="text-sm font-semibold text-primary-600">
+                              {choresData.categories[categoryKey].name}
+                            </h4>
+                            <div className="space-y-1 pl-4">
+                              {categorySelectedItems.map(item => (
+                                <div key={`${item.itemKey}_${item.choreId}`} className="text-sm text-gray-700">
+                                  <span className="font-medium">• {item.itemName}</span>
+                                  <span className="text-gray-500"> - {item.choreName}</span>
+                                  {item.frequency && (
+                                    <span className="text-primary-600 font-medium"> ({item.frequency})</span>
+                                  )}
+                                  {item.points && (
+                                    <span className="text-success-600 font-medium"> [{item.points}pts]</span>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <p className="text-sm text-gray-500 italic">
+                      No items selected
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         )}
 
-        <HStack gap={4} w="100%" justify="center">
-          <Button
-            colorScheme="blue"
+        {/* Action Buttons */}
+        <div className="flex justify-center space-x-4">
+          <button
             onClick={handleSubmit}
             disabled={selectedCategoryKeys.length === 0 || Object.values(selectedItems).every(item => !item)}
+            className={
+              selectedCategoryKeys.length === 0 || Object.values(selectedItems).every(item => !item)
+                ? 'btn-disabled'
+                : 'btn-primary'
+            }
           >
             Submit Selection
-          </Button>
-          <Button
-            variant="outline"
+          </button>
+          <button
             onClick={() => {
               setSelectedCategories({});
               setSelectedItems({});
               setSelectedChoreDetails({});
             }}
+            className="btn-secondary"
           >
             Reset Form
-          </Button>
-        </HStack>
-      </VStack>
-    </Container>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
