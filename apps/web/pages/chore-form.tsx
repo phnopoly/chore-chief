@@ -71,22 +71,20 @@ const ChoreForm: React.FC = () => {
     ? selectedCategoryKeys.flatMap(categoryKey => {
         const category = choresData.categories[categoryKey];
         if (!category || !category.items) {
-          console.log(`Category ${String(categoryKey)} not found or has no items`);
           return [];
         }
         
         return Object.entries(category.items).map(([key, item]) => {
           // Add safety checks for the item structure
           const safeItem = item as Record<string, unknown>;
-          console.log(`Processing item ${String(key)}:`, safeItem);
           
           return {
             key,
             categoryKey,
             categoryName: category.name,
-            name: safeItem?.name || 'Unknown Item',
-            description: safeItem?.description || 'No description',
-            chores: safeItem?.chores || [],
+            name: (safeItem?.name as string) || 'Unknown Item',
+            description: (safeItem?.description as string) || 'No description',
+            chores: (safeItem?.chores as Chore[]) || [],
           };
         });
       })
@@ -103,11 +101,24 @@ const ChoreForm: React.FC = () => {
       setSelectedItems(prev => {
         const newItems = { ...prev };
         Object.keys(newItems).forEach(itemKey => {
+          // Only remove keys that start with the category key followed by underscore
+          // This ensures we only remove keys for this specific category
           if (itemKey.startsWith(`${categoryKey}_`)) {
             delete newItems[itemKey];
           }
         });
         return newItems;
+      });
+      
+      // Also remove chore details for deselected categories
+      setSelectedChoreDetails(prev => {
+        const newDetails = { ...prev };
+        Object.keys(newDetails).forEach(key => {
+          if (key.startsWith(`${categoryKey}_`)) {
+            delete newDetails[key];
+          }
+        });
+        return newDetails;
       });
     }
   };
@@ -168,15 +179,18 @@ const ChoreForm: React.FC = () => {
         
         if (parts.length >= 3) {
           const categoryKey = parts[0];
-          const itemKey = parts[1];
-          const choreId = parts[2];
+          // The choreId is always the last part
+          const choreId = parts[parts.length - 1];
+          // Everything between categoryKey and choreId is the itemKey
+          const itemKey = parts.slice(1, -1).join('_');
           const category = choresData.categories[categoryKey];
-          const item = category?.items?.[itemKey];
-          const chore = item?.chores?.find((c: Chore) => c.id === choreId);
+          const item = category?.items?.[itemKey] as Record<string, unknown>;
+          const chores = (item?.chores as Chore[]) || [];
+          const chore = chores.find((c: Chore) => c.id === choreId);
           const details = selectedChoreDetails[fullKey];
           const frequency = details?.frequency ? ` (${details.frequency})` : '';
           const points = details?.points ? ` [${details.points}pts]` : '';
-          return `${category?.name || 'Unknown Category'} - ${item?.name || 'Unknown Item'} - ${chore?.name || 'Unknown chore'}${frequency}${points}`;
+          return `${category?.name || 'Unknown Category'} - ${(item?.name as string) || 'Unknown Item'} - ${chore?.name || 'Unknown chore'}${frequency}${points}`;
         } else {
           return `Invalid Key: ${fullKey}`;
         }
@@ -363,21 +377,28 @@ const ChoreForm: React.FC = () => {
                 {Object.entries(selectedItems).filter(([, isSelected]) => isSelected).length > 0 ? (
                   <Stack gap={2}>
                     {selectedCategoryKeys.map(categoryKey => {
+                      console.log('Processing category:', categoryKey, 'name:', choresData.categories[categoryKey]?.name);
                       const categorySelectedItems = Object.entries(selectedItems)
                         .filter(([fullKey, isSelected]) => isSelected && fullKey.startsWith(`${String(categoryKey)}_`))
                         .map(([fullKey]) => {
                           const parts = fullKey.split('_');
                           
                           // Handle the new format: categoryKey_itemKey_choreId
+                          // Note: itemKey might contain underscores, so we need to handle this carefully
                           if (parts.length >= 3) {
-                            const itemKey = parts[1];
-                            const choreId = parts[2];
-                            const item = choresData.categories[categoryKey]?.items?.[itemKey];
-                            const chore = item?.chores?.find((c: Chore) => c.id === choreId);
+                            // The choreId is always the last part
+                            const choreId = parts[parts.length - 1];
+                            // Everything between categoryKey and choreId is the itemKey
+                            const itemKey = parts.slice(1, -1).join('_');
+                            const category = choresData.categories[categoryKey];
+                            const item = category?.items?.[itemKey] as Record<string, unknown>;
+                            const chores = (item?.chores as Chore[]) || [];
+                            const chore = chores.find((c: Chore) => c.id === choreId);
+                            
                             return { 
                               itemKey, 
                               choreId,
-                              itemName: item?.name || 'Unknown Item', 
+                              itemName: (item?.name as string) || 'Unknown Item', 
                               choreName: chore?.name || 'Unknown chore'
                             };
                           } else {
