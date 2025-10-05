@@ -34,3 +34,7 @@ interface SelectedFrequencies {
 interface SelectedChores {
   [choreId: string]: boolean;
 }
+
+interface SelectedCategories {
+  [categoryKey: string]: boolean;
+}

@@ -4,6 +4,23 @@ import { Box, Container, Heading, Stack, Text, Flex } from "@chakra-ui/react";
 import ChoreForm from "./ChoreForm";
 import HouseholdForm from "./HouseholdForm";
 
+const getDefaultCategories = (houseType: string): string[] => {
+  switch (houseType) {
+    case "apartment":
+      return ["kitchen", "bathroom", "bedrooms", "living_room"];
+    case "house":
+      return ["kitchen", "bathroom", "bedrooms", "living room", "dining room", "outdoor", "systems", "other areas"];
+    case "shared":
+      return ["kitchen", "bathroom", "bedrooms"];
+    case "townhouse":
+      return ["kitchen", "bathroom", "bedrooms", "dining room", "systems"];
+    case "dorm":
+      return ["kitchen", "bathroom"];
+    default:
+      return [];
+  }
+};
+
 const Home: React.FC = () => {
   const [setup, setSetup] = useState<{ householdSize: number; houseType: string } | null>(null);
 
@@ -45,7 +62,7 @@ const Home: React.FC = () => {
       <Container maxW="6xl" py={8}>
         <Stack align="center">
           {!setup ? (
-            <Box w="full" display="flex" justifyContent="center">
+            <Box w="full" display="flex" justifyContent="center" mt={8}>
               <HouseholdForm onSubmit={(data) => setSetup(data)} />
             </Box>
           ) : (
@@ -60,7 +77,7 @@ const Home: React.FC = () => {
                 </Text>
               </Box>
 
-              <ChoreForm filePath="/chores.json" />
+              <ChoreForm filePath="/chores.json" defaultChecked={getDefaultCategories(setup.houseType)} />
             </>
           )}
         </Stack>

@@ -40,7 +40,7 @@ const HouseholdForm: React.FC<HouseholdFormProps> = ({ onSubmit }) => {
             <option value="apartment">Apartment / Condo</option>
             <option value="house">Single-family House</option>
             <option value="shared">Shared Rental</option>
-            <option value="townhome">Townhome</option>
+            <option value="townhouse">Townhouse</option>
             <option value="dorm">Dorm / Studio</option>
           </select>
         </div>

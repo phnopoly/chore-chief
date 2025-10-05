@@ -27,10 +27,16 @@ interface CategoryFrequencies {
 interface ChoresData {
   [category: string]: CategoryFrequencies;
 }
+interface ChoreFormProps {
+  filePath: string;
+  defaultChecked?: string[];
+}
 
-const ChoreForm: React.FC<{ filePath: string }> = ({ filePath }) => {
+const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, defaultChecked = [] }) => {
   const choresData = useChores(filePath);
-  const [selectedCategories, setSelectedCategories] = useState<Record<string, boolean>>({});
+  const [selectedCategories, setSelectedCategories] = useState<SelectedCategories>(
+    Object.fromEntries((defaultChecked || []).map((key) => [key, true])),
+  );
   const [selectedChores, setSelectedChores] = useState<Record<string, boolean>>({});
 
   if (!choresData) {
