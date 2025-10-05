@@ -10,7 +10,10 @@
     "moduleResolution": "Bundler",
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "@api-client/*": ["packages/api-client/src/*"],
       "@config/*": ["packages/config/src/*"],
+      "@forms/*": ["packages/forms/src/*"],
+      "@types/*": ["packages/types/src/*"],
       "@ui/*": ["packages/ui/src/*"],
       "@utils/*": ["packages/utils/src/*"]
     },

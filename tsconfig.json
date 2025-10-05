@@ -11,8 +11,11 @@
   "references": [
     { "path": "apps/web" },
     { "path": "apps/api" },
+    { "path": "packages/api-client" },
+    { "path": "packages/config" },
+    { "path": "packages/forms" },
+    { "path": "packages/types" },
     { "path": "packages/ui" },
-    { "path": "packages/utils" },
-    { "path": "packages/config" }
+    { "path": "packages/utils" }
   ]
 }

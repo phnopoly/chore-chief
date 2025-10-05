@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "typescript": "^5.4.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "name": "api-client",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.json",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "codegen": "graphql-codegen",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "types": "dist/index.d.ts",
+  "version": "0.1.0"
+}
