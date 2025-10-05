@@ -1,9 +1,12 @@
 "use client";
-import React from "react";
-import { Box, Container, Heading, Stack, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Container, Heading, Stack } from "@chakra-ui/react";
 import ChoreForm from "./ChoreForm";
+import HouseholdForm from "./HouseholdForm";
 
 const Home: React.FC = () => {
+  const [setup, setSetup] = useState<{ householdSize: number; houseType: string } | null>(null);
+
   return (
     <Box bg="gray.50" minH="100vh" py={10}>
       <Container maxW="6xl">
@@ -12,11 +15,8 @@ const Home: React.FC = () => {
             Chore Champ
           </Heading>
 
-          <Text color="gray.600" fontSize="lg">
-            Simplify household management, track accountability, and gamify chores.
-          </Text>
-
-          <ChoreForm filePath={"/chores.json"}></ChoreForm>
+          {/* Show Household Form first, then ChoreForm */}
+          {!setup ? <HouseholdForm onSubmit={(data) => setSetup(data)} /> : <ChoreForm filePath="/chores.json" />}
         </Stack>
       </Container>
     </Box>
