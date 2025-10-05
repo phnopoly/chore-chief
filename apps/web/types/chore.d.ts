@@ -1,42 +1,36 @@
 enum Frequency {
   DAILY = "daily",
+  AFTER_USE = "after use",
   WEEKLY = "weekly",
   BIMONTHLY = "bimonthly",
   MONTHLY = "monthly",
   QUARTERLY = "quarterly",
   SEMIANNUAL = "semiannual",
   ANNUAL = "annual",
-  AS_NEEDED = "as needed",
-  AFTER_USE = "after use",
   SEASONAL = "seasonal",
+  AS_NEEDED = "as needed",
 }
+
 interface Chore {
   id: string;
   name: string;
-  frequency: Frequency;
   points: number;
+  frequency?: Frequency;
+  category?: string;
 }
 
-interface Item {
-  name: string;
-  description: string;
-  chores: Chore[];
-}
-
-interface Category {
-  name: string;
-  description: string;
-  items: Record<string, Item>;
-}
-
-interface SelectedCategories {
-  [categoryKey: string]: boolean;
-}
-
-interface SelectedItems {
-  [itemKey: string]: boolean;
+interface CategoryFrequencies {
+  [frequency: string]: Chore[];
 }
 
 interface ChoresData {
-  [categoryKey: string]: Category;
+  [category: string]: CategoryFrequencies;
+}
+
+interface SelectedFrequencies {
+  [frequency: string]: boolean;
+}
+
+interface SelectedChores {
+  [choreId: string]: boolean;
 }

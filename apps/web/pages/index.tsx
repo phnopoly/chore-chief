@@ -16,7 +16,7 @@ const Home: React.FC = () => {
             Simplify household management, track accountability, and gamify chores.
           </Text>
 
-          <ChoreForm></ChoreForm>
+          <ChoreForm filePath={"/chores.json"}></ChoreForm>
         </Stack>
       </Container>
     </Box>
