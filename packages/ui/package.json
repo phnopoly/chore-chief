@@ -3,7 +3,6 @@
   "main": "dist/index.js",
   "name": "@chore-champ/ui",
   "peerDependencies": {
-    "@chakra-ui/react": "^3",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
   },
