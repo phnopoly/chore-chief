@@ -90,7 +90,6 @@
         "name": "Bedroom",
         "description": "Bedroom tasks",
         "chores": [
-          { "id": "bedroom-make-bed", "name": "Make beds", "frequency": "daily", "points": 1 },
           { "id": "bedroom-dust", "name": "Dust surfaces", "frequency": "weekly", "points": 2 },
           { "id": "bedroom-vacuum", "name": "Vacuum/mop floors", "frequency": "weekly", "points": 2 },
           { "id": "bedroom-change-sheets", "name": "Change sheets", "frequency": "weekly", "points": 2 },

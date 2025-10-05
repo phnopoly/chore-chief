@@ -1,37 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// --- Types ---
-interface ChoresData {
-  [categoryKey: string]: Category;
-}
-
-interface SelectedItems {
-  [itemKey: string]: boolean;
-}
-
-interface SelectedCategories {
-  [categoryKey: string]: boolean;
-}
-
-interface Chore {
-  id: string;
-  name: string;
-  frequency: string;
-  points: number;
-}
-
-interface Item {
-  name: string;
-  description: string;
-  chores: Chore[];
-}
-
-interface Category {
-  name: string;
-  description: string;
-  items: Record<string, Item>;
-}
-
 export const useChores = () => {
   const [chores, setChores] = useState<ChoresData | null>(null);
 
@@ -169,7 +137,12 @@ const ChoreForm: React.FC = () => {
                               type="checkbox"
                               checked={selected}
                               onChange={(e) =>
-                                handleChoreChange(chore.id, item.categoryKey, item.key, e.target.checked)
+                                handleChoreChange(
+                                  String(chore.id),
+                                  String(item.categoryKey),
+                                  String(item.key),
+                                  e.target.checked,
+                                )
                               }
                             />
                             <span>
