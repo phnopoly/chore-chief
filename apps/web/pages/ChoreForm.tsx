@@ -1,150 +1,91 @@
+"use client";
 import React, { useEffect, useState } from "react";
-
-export const useChores = (filePath: string) => {
-  const [chores, setChores] = useState<ChoresData | null>(null);
-
-  useEffect(() => {
-    fetch(filePath)
-      .then((res) => res.json())
-      .then((data) => setChores(data))
-      .catch((err) => console.error("Failed to load chores:", err));
-  }, [filePath]);
-
-  return chores;
-};
+import { Box, Button, Heading, Stack, Text, Spinner, Flex } from "@chakra-ui/react";
 
 interface Chore {
   id: string;
   name: string;
   points: number;
-  category: string;
+  frequency?: string;
+  category?: string;
 }
 
-interface CategoryFrequencies {
-  [frequency: string]: Chore[];
-}
-
-interface ChoresData {
-  [category: string]: CategoryFrequencies;
-}
 interface ChoreFormProps {
   filePath: string;
-  defaultChecked?: string[];
+  selectedCategories: string[];
 }
 
-const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, defaultChecked = [] }) => {
-  const choresData = useChores(filePath);
-  const [selectedCategories, setSelectedCategories] = useState<SelectedCategories>(
-    Object.fromEntries((defaultChecked || []).map((key) => [key, true])),
-  );
-  const [selectedChores, setSelectedChores] = useState<Record<string, boolean>>({});
+const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, selectedCategories }) => {
+  const [groupedByFrequency, setGroupedByFrequency] = useState<Record<string, Chore[]>>({});
+  const [loading, setLoading] = useState(true);
 
-  if (!choresData) {
-    return <div className="text-center py-20 text-gray-500">Loading chores...</div>;
-  }
+  useEffect(() => {
+    fetch(filePath)
+      .then((res) => res.json())
+      .then((data: Record<string, Record<string, Chore[]>>) => {
+        const grouped: Record<string, Chore[]> = {};
 
-  const frequencyOrder = ["daily", "after use", "weekly", "monthly", "quarterly", "semiannual", "annual", "as needed"];
+        selectedCategories.forEach((catKey) => {
+          const categoryData = data[catKey];
+          if (categoryData) {
+            Object.entries(categoryData).forEach(([frequency, chores]) => {
+              if (!grouped[frequency]) grouped[frequency] = [];
+              chores.forEach((chore: Chore) => grouped[frequency].push({ ...chore, category: catKey, frequency }));
+            });
+          }
+        });
 
-  const handleCategoryToggle = (category: string, checked: boolean) => {
-    setSelectedCategories((prev) => ({ ...prev, [category]: checked }));
-
-    if (!checked) {
-      setSelectedChores((prev) => {
-        const updated = { ...prev };
-        const freqMap = choresData[category];
-        if (freqMap) {
-          Object.values(freqMap)
-            .flat()
-            .forEach((chore) => delete updated[chore.id]);
-        }
-        return updated;
+        setGroupedByFrequency(grouped);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error loading chores.json:", err);
+        setLoading(false);
       });
-    }
-  };
+  }, [filePath, selectedCategories]);
 
-  const handleChoreToggle = (choreId: string, checked: boolean) => {
-    setSelectedChores((prev) => ({ ...prev, [choreId]: checked }));
-  };
-
-  const handleSubmit = () => {
-    const chosenCategories = Object.entries(selectedCategories)
-      .filter(([, selected]) => selected)
-      .map(([key]) => key);
-
-    const chosenChores = Object.entries(selectedChores)
-      .filter(([, selected]) => selected)
-      .map(([id]) => {
-        const found = Object.entries(choresData)
-          .flatMap(([cat, freqMap]) =>
-            Object.entries(freqMap).flatMap(([freq, chores]) =>
-              chores.map((chore) => ({ ...chore, category: cat, freq })),
-            ),
-          )
-          .find((c) => c.id === id);
-        return found ? `${found.category} - ${found.name} (${found.freq}, ${found.points} pts)` : `Unknown chore ${id}`;
-      });
-
-    alert(`Selected Categories: ${chosenCategories.join(", ")}\nSelected Chores:\n${chosenChores.join("\n")}`);
-  };
+  if (loading)
+    return (
+      <Box textAlign="center" mt={8}>
+        <Spinner size="lg" color="teal.500" />
+        <Text mt={2}>Loading chores...</Text>
+      </Box>
+    );
 
   return (
-    <div className="min-h-screen bg-gray-50 px-8 py-10 box-border mx-auto max-w-5xl">
-      <h1 className="text-3xl font-bold mb-8 text-center">Chore Selection Form</h1>
+    <Box bg="white" p={6} borderRadius="xl" boxShadow="sm" w="full" maxW="xl" textAlign="left">
+      <Heading as="h2" fontFamily="'Merriweather', serif" color="teal.700" mb={4}>
+        All Chores by Frequency
+      </Heading>
 
-      {/* Step 1: Category selection */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-10">
-        {Object.keys(choresData).map((category) => (
-          <label key={category} className="border rounded-lg p-3 shadow-sm bg-white flex items-center space-x-2">
-            <input
-              type="checkbox"
-              checked={selectedCategories[category] || false}
-              onChange={(e) => handleCategoryToggle(category, e.target.checked)}
-            />
-            <span className="capitalize font-medium">{category}</span>
-          </label>
-        ))}
-      </div>
+      {Object.entries(groupedByFrequency).map(([frequency, chores]) => (
+        <Box key={frequency} mb={8}>
+          <Heading as="h3" size="sm" color="teal.600" fontFamily="'Merriweather', serif" mb={3} letterSpacing="wide">
+            {frequency.toUpperCase()}
+          </Heading>
 
-      {/* Step 2: Frequencies and chores */}
-      {Object.entries(choresData).map(([category, freqMap]) => {
-        if (!selectedCategories[category]) return null;
-        return (
-          <div key={category} className="mb-8">
-            <h2 className="text-xl font-semibold mb-4 capitalize">{category}</h2>
-            {frequencyOrder
-              .filter((freq) => freqMap[freq])
-              .map((freq) => (
-                <div key={freq} className="mb-6">
-                  <h3 className="text-lg font-medium mb-2 capitalize">
-                    ({freqMap[freq].length}) {freq}
-                  </h3>
-                  {freqMap[freq].map((chore) => (
-                    <label key={chore.id} className="flex items-center space-x-2 ml-4 mb-2">
-                      <input
-                        type="checkbox"
-                        checked={selectedChores[chore.id] || false}
-                        onChange={(e) => handleChoreToggle(chore.id, e.target.checked)}
-                      />
-                      <span>
-                        {chore.name}{" "}
-                        <span className="text-xs text-gray-500">
-                          ({chore.points} pts, {chore.category})
-                        </span>
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              ))}
-          </div>
-        );
-      })}
+          <Box divideY="1px" divideColor="gray.200">
+            {chores.map((chore) => (
+              <Flex key={chore.id} align="center" justify="space-between" py={1} px={2}>
+                <Text flex="1" fontFamily="'Public Sans', sans-serif" fontSize="sm" color="gray.800">
+                  {chore.name}
+                </Text>
 
-      <div className="text-center mt-10">
-        <button onClick={handleSubmit} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-          Submit
-        </button>
-      </div>
-    </div>
+                <Text ml={3} minW="fit-content" fontSize="sm" color="gray.600" fontFamily="'Public Sans', sans-serif">
+                  {chore.category?.toUpperCase()} • {chore.points} pts
+                </Text>
+              </Flex>
+            ))}
+          </Box>
+        </Box>
+      ))}
+
+      <Stack align="center" mt={6}>
+        <Button colorScheme="teal" size="sm" px={8}>
+          Save
+        </Button>
+      </Stack>
+    </Box>
   );
 };
 

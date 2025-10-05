@@ -11,6 +11,12 @@ enum Frequency {
   AS_NEEDED = "as needed",
 }
 
+interface Category {
+  name: string;
+  description?: string;
+  chores: Chore[];
+}
+
 interface Chore {
   id: string;
   name: string;

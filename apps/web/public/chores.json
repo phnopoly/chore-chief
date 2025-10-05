@@ -1,401 +1,128 @@
 {
   "kitchen": {
     "daily": [
-      {
-        "id": "kitchen-wipe-counters",
-        "name": "Wipe counters and stovetop",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-wash-dishes",
-        "name": "Wash dishes or load dishwasher",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-clean-sink",
-        "name": "Clean sink and faucet",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-sweep-mop",
-        "name": "Sweep and mop floor",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-empty-trash",
-        "name": "Empty trash and recycling",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-wipe-table",
-        "name": "Wipe down dining table and chairs",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "dishwasher-load-unload",
-        "name": "Load/unload dishes",
-        "points": 2,
-        "category": "dishwasher"
-      },
-      {
-        "id": "stove-wipe-stovetop",
-        "name": "Wipe stovetop after use",
-        "points": 2,
-        "category": "oven_stove"
-      }
+      { "id": "kitchen-wipe-counters", "name": "Wipe counters and stovetop", "points": 2 },
+      { "id": "kitchen-wash-dishes", "name": "Wash dishes or load dishwasher", "points": 2 },
+      { "id": "kitchen-clean-sink", "name": "Clean sink and faucet", "points": 1 },
+      { "id": "kitchen-sweep-mop", "name": "Sweep and mop floor", "points": 2 },
+      { "id": "kitchen-empty-trash", "name": "Empty trash and recycling", "points": 1 },
+      { "id": "kitchen-wipe-table", "name": "Wipe down dining table and chairs", "points": 1 },
+      { "id": "dishwasher-load-unload", "name": "Load/unload dishes", "points": 2 },
+      { "id": "stove-wipe-stovetop", "name": "Wipe stovetop after use", "points": 2 }
     ],
     "weekly": [
-      {
-        "id": "kitchen-wipe-cabinets",
-        "name": "Wipe cabinet doors and handles",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-clean-microwave",
-        "name": "Clean microwave interior and exterior",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-clean-fridge",
-        "name": "Wipe refrigerator shelves and handles",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-disinfect-cuttingboards",
-        "name": "Disinfect cutting boards",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-wipe-appliances",
-        "name": "Wipe small appliances",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-clean-dishrack",
-        "name": "Clean and dry dish rack",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-replace-sponges",
-        "name": "Replace sponges and towels",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-refill-supplies",
-        "name": "Refill soap and cleaning supplies",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "dishwasher-wipe-door",
-        "name": "Wipe door/seals",
-        "points": 1,
-        "category": "dishwasher"
-      },
-      {
-        "id": "oven-clean-spills",
-        "name": "Clean oven spills",
-        "points": 3,
-        "category": "oven_stove"
-      },
-      {
-        "id": "microwave-wipe",
-        "name": "Wipe inside/outside",
-        "points": 1,
-        "category": "microwave"
-      },
-      {
-        "id": "microwave-turntable",
-        "name": "Clean turntable plate",
-        "points": 1,
-        "category": "microwave"
-      },
-      {
-        "id": "fridge-toss-expired",
-        "name": "Toss expired food",
-        "points": 2,
-        "category": "fridge_freezer"
-      }
+      { "id": "kitchen-wipe-cabinets", "name": "Wipe cabinet doors and handles", "points": 2 },
+      { "id": "kitchen-clean-microwave", "name": "Clean microwave interior and exterior", "points": 2 },
+      { "id": "kitchen-clean-fridge", "name": "Wipe refrigerator shelves and handles", "points": 2 },
+      { "id": "kitchen-disinfect-cuttingboards", "name": "Disinfect cutting boards", "points": 1 },
+      { "id": "kitchen-wipe-appliances", "name": "Wipe small appliances", "points": 2 },
+      { "id": "kitchen-clean-dishrack", "name": "Clean and dry dish rack", "points": 1 },
+      { "id": "kitchen-replace-sponges", "name": "Replace sponges and towels", "points": 1 },
+      { "id": "kitchen-refill-supplies", "name": "Refill soap and cleaning supplies", "points": 1 },
+      { "id": "dishwasher-wipe-door", "name": "Wipe door/seals", "points": 1 },
+      { "id": "oven-clean-spills", "name": "Clean oven spills", "points": 3 },
+      { "id": "microwave-wipe", "name": "Wipe inside/outside", "points": 1 },
+      { "id": "microwave-turntable", "name": "Clean turntable plate", "points": 1 },
+      { "id": "fridge-toss-expired", "name": "Toss expired food", "points": 2 }
     ],
     "monthly": [
-      {
-        "id": "kitchen-clean-oven",
-        "name": "Clean oven and range hood",
-        "points": 3,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-reorganize-pantry",
-        "name": "Reorganize pantry and wipe shelves",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-check-expiry",
-        "name": "Check and discard expired food",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-wipe-backsplash",
-        "name": "Wipe backsplash and walls",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-scrub-grout",
-        "name": "Scrub grout or edges around sink and counters",
-        "points": 2,
-        "category": "kitchen"
-      },
-      {
-        "id": "kitchen-polish-steel",
-        "name": "Polish stainless steel appliances",
-        "points": 1,
-        "category": "kitchen"
-      },
-      {
-        "id": "dishwasher-clean-filter",
-        "name": "Clean filter",
-        "points": 3,
-        "category": "dishwasher"
-      },
-      {
-        "id": "dishwasher-cleaning-cycle",
-        "name": "Run cleaning cycle with vinegar/cleaner",
-        "points": 4,
-        "category": "dishwasher"
-      },
-      {
-        "id": "stove-scrub-burners",
-        "name": "Scrub burners/grates",
-        "points": 4,
-        "category": "oven_stove"
-      },
-      {
-        "id": "microwave-deodorize",
-        "name": "Deodorize with lemon/vinegar steam",
-        "points": 2,
-        "category": "microwave"
-      },
-      {
-        "id": "fridge-wipe-shelves",
-        "name": "Wipe shelves/drawers",
-        "points": 3,
-        "category": "fridge_freezer"
-      },
-      {
-        "id": "pantry-check-expiry",
-        "name": "Check expiration dates",
-        "points": 2,
-        "category": "pantry"
-      }
+      { "id": "kitchen-clean-oven", "name": "Clean oven and range hood", "points": 3 },
+      { "id": "kitchen-reorganize-pantry", "name": "Reorganize pantry and wipe shelves", "points": 2 },
+      { "id": "kitchen-check-expiry", "name": "Check and discard expired food", "points": 2 },
+      { "id": "kitchen-wipe-backsplash", "name": "Wipe backsplash and walls", "points": 1 },
+      { "id": "kitchen-scrub-grout", "name": "Scrub grout or edges around sink and counters", "points": 2 },
+      { "id": "kitchen-polish-steel", "name": "Polish stainless steel appliances", "points": 1 },
+      { "id": "dishwasher-clean-filter", "name": "Clean filter", "points": 3 },
+      { "id": "dishwasher-cleaning-cycle", "name": "Run cleaning cycle with vinegar/cleaner", "points": 4 },
+      { "id": "stove-scrub-burners", "name": "Scrub burners/grates", "points": 4 },
+      { "id": "microwave-deodorize", "name": "Deodorize with lemon/vinegar steam", "points": 2 },
+      { "id": "fridge-wipe-shelves", "name": "Wipe shelves/drawers", "points": 3 },
+      { "id": "pantry-check-expiry", "name": "Check expiration dates", "points": 2 }
     ],
     "quarterly": [
-      {
-        "id": "oven-deep-clean",
-        "name": "Deep clean oven",
-        "points": 5,
-        "category": "oven_stove"
-      },
-      {
-        "id": "fridge-deep-clean",
-        "name": "Deep clean interior",
-        "points": 4,
-        "category": "fridge_freezer"
-      },
-      {
-        "id": "pantry-wipe-shelves",
-        "name": "Wipe shelves",
-        "points": 3,
-        "category": "pantry"
-      },
-      {
-        "id": "pantry-organize",
-        "name": "Organize categories",
-        "points": 3,
-        "category": "pantry"
-      }
+      { "id": "oven-deep-clean", "name": "Deep clean oven", "points": 5 },
+      { "id": "fridge-deep-clean", "name": "Deep clean interior", "points": 4 },
+      { "id": "pantry-wipe-shelves", "name": "Wipe shelves", "points": 3 },
+      { "id": "pantry-organize", "name": "Organize categories", "points": 3 }
     ],
     "semiannual": [
-      {
-        "id": "freezer-defrost",
-        "name": "Defrost freezer",
-        "points": 4,
-        "category": "fridge_freezer"
-      },
-      {
-        "id": "pantry-declutter",
-        "name": "Declutter/rotate stock",
-        "points": 4,
-        "category": "pantry"
-      }
+      { "id": "freezer-defrost", "name": "Defrost freezer", "points": 4 },
+      { "id": "pantry-declutter", "name": "Declutter/rotate stock", "points": 4 }
     ]
   },
   "bathroom": {
-    "daily": [
-      {
-        "id": "bathroom-wipe-sink",
-        "name": "Wipe sink/counter/mirror",
-        "points": 2,
-        "category": "bathroom_general"
-      }
-    ],
+    "daily": [{ "id": "bathroom-wipe-sink", "name": "Wipe sink/counter/mirror", "points": 2 }],
     "weekly": [
-      {
-        "id": "bathroom-clean-toilet",
-        "name": "Clean toilet bowl/seat",
-        "points": 3,
-        "category": "bathroom_general"
-      },
-      {
-        "id": "bathroom-scrub-shower",
-        "name": "Scrub shower/tub/tiles",
-        "points": 3,
-        "category": "bathroom_general"
-      },
-      {
-        "id": "bathroom-mop-floor",
-        "name": "Mop floor",
-        "points": 2,
-        "category": "bathroom_general"
-      },
-      {
-        "id": "bathroom-wash-towels",
-        "name": "Wash towels/bath mats",
-        "points": 1,
-        "category": "bathroom_general"
-      },
-      {
-        "id": "bathroom-restock",
-        "name": "Restock toiletries",
-        "points": 1,
-        "category": "bathroom_general"
-      }
+      { "id": "bathroom-clean-toilet", "name": "Clean toilet bowl/seat", "points": 3 },
+      { "id": "bathroom-scrub-shower", "name": "Scrub shower/tub/tiles", "points": 3 },
+      { "id": "bathroom-mop-floor", "name": "Mop floor", "points": 2 },
+      { "id": "bathroom-wash-towels", "name": "Wash towels/bath mats", "points": 1 },
+      { "id": "bathroom-restock", "name": "Restock toiletries", "points": 1 }
     ]
   },
   "bedrooms": {
     "weekly": [
-      { "id": "bedroom-dust", "name": "Dust surfaces", "points": 2, "category": "bedroom_general" },
-      { "id": "bedroom-vacuum", "name": "Vacuum/mop floors", "points": 2, "category": "bedroom_general" },
-      { "id": "bedroom-change-sheets", "name": "Change sheets", "points": 2, "category": "bedroom_general" }
+      { "id": "bedroom-dust", "name": "Dust surfaces", "points": 2 },
+      { "id": "bedroom-vacuum", "name": "Vacuum/mop floors", "points": 2 },
+      { "id": "bedroom-change-sheets", "name": "Change sheets", "points": 2 }
     ],
-    "monthly": [
-      { "id": "bedroom-declutter", "name": "Declutter closets/drawers", "points": 3, "category": "bedroom_general" }
-    ]
+    "monthly": [{ "id": "bedroom-declutter", "name": "Declutter closets/drawers", "points": 3 }]
   },
   "living room": {
     "weekly": [
-      { "id": "living-dust", "name": "Dust surfaces", "points": 2, "category": "living_room_general" },
-      { "id": "living-vacuum", "name": "Vacuum/mop floors", "points": 2, "category": "living_room_general" },
-      { "id": "living-fluff-cushions", "name": "Fluff cushions", "points": 1, "category": "living_room_general" },
-      {
-        "id": "living-wipe-electronics",
-        "name": "Wipe electronics/remotes",
-        "points": 2,
-        "category": "living_room_general"
-      }
+      { "id": "living-dust", "name": "Dust surfaces", "points": 2 },
+      { "id": "living-vacuum", "name": "Vacuum/mop floors", "points": 2 },
+      { "id": "living-fluff-cushions", "name": "Fluff cushions", "points": 1 },
+      { "id": "living-wipe-electronics", "name": "Wipe electronics/remotes", "points": 2 }
     ],
-    "monthly": [
-      {
-        "id": "living-wash-covers",
-        "name": "Wash cushion covers/throws",
-        "points": 3,
-        "category": "living_room_general"
-      }
-    ]
+    "monthly": [{ "id": "living-wash-covers", "name": "Wash cushion covers/throws", "points": 3 }]
   },
   "dining room": {
     "daily": [
-      { "id": "dining-wipe-table", "name": "Wipe table/chairs", "points": 1, "category": "dining_room_general" },
-      { "id": "dining-sweep-floor", "name": "Sweep/mop floor", "points": 2, "category": "dining_room_general" }
+      { "id": "dining-wipe-table", "name": "Wipe table/chairs", "points": 1 },
+      { "id": "dining-sweep-floor", "name": "Sweep/mop floor", "points": 2 }
     ],
     "weekly": [
-      { "id": "dining-dust", "name": "Dust furniture/fixtures", "points": 2, "category": "dining_room_general" },
-      { "id": "dining-wash-linens", "name": "Wash table linens", "points": 2, "category": "dining_room_general" }
+      { "id": "dining-dust", "name": "Dust furniture/fixtures", "points": 2 },
+      { "id": "dining-wash-linens", "name": "Wash table linens", "points": 2 }
     ]
   },
   "outdoor": {
     "daily": [
-      { "id": "yard-water", "name": "Water plants", "points": 2, "category": "yard_garden" },
-      { "id": "pool-skim", "name": "Skim debris", "points": 2, "category": "pool" }
+      { "id": "yard-water", "name": "Water plants", "points": 2 },
+      { "id": "pool-skim", "name": "Skim debris", "points": 2 }
     ],
-    "after use": [{ "id": "grill-scrape", "name": "Scrape grill grates", "points": 2, "category": "grill" }],
+    "after use": [{ "id": "grill-scrape", "name": "Scrape grill grates", "points": 2 }],
     "weekly": [
-      { "id": "yard-mow-lawn", "name": "Mow lawn", "points": 3, "category": "yard_garden" },
-      { "id": "yard-weed", "name": "Weed flower beds", "points": 3, "category": "yard_garden" },
-      { "id": "pool-test", "name": "Test water balance", "points": 3, "category": "pool" },
-      { "id": "pool-add-chemicals", "name": "Add chlorine/chemicals", "points": 3, "category": "pool" },
-      { "id": "grill-empty-tray", "name": "Empty drip tray/ash pan", "points": 2, "category": "grill" },
-      { "id": "grill-wipe", "name": "Wipe exterior surfaces", "points": 1, "category": "grill" }
+      { "id": "yard-mow-lawn", "name": "Mow lawn", "points": 3 },
+      { "id": "yard-weed", "name": "Weed flower beds", "points": 3 },
+      { "id": "pool-test", "name": "Test water balance", "points": 3 },
+      { "id": "pool-add-chemicals", "name": "Add chlorine/chemicals", "points": 3 },
+      { "id": "grill-empty-tray", "name": "Empty drip tray/ash pan", "points": 2 },
+      { "id": "grill-wipe", "name": "Wipe exterior surfaces", "points": 1 }
     ],
     "monthly": [
-      { "id": "yard-trim", "name": "Trim bushes/trees", "points": 4, "category": "yard_garden" },
-      { "id": "pool-clean-filter", "name": "Clean filter", "points": 4, "category": "pool" },
-      { "id": "grill-deep-clean", "name": "Deep clean burners/grates", "points": 4, "category": "grill" }
+      { "id": "yard-trim", "name": "Trim bushes/trees", "points": 4 },
+      { "id": "pool-clean-filter", "name": "Clean filter", "points": 4 },
+      { "id": "grill-deep-clean", "name": "Deep clean burners/grates", "points": 4 }
     ],
-    "annual": [{ "id": "pool-drain", "name": "Drain/refill", "points": 5, "category": "pool" }],
-    "seasonal": [{ "id": "yard-rake-leaves", "name": "Rake leaves", "points": 3, "category": "yard_garden" }]
+    "annual": [{ "id": "pool-drain", "name": "Drain/refill", "points": 5 }],
+    "seasonal": [{ "id": "yard-rake-leaves", "name": "Rake leaves", "points": 3 }]
   },
   "systems": {
     "monthly": [
-      { "id": "hvac-wipe-thermostat", "name": "Wipe thermostat", "points": 1, "category": "hvac" },
-      { "id": "fireplace-wipe-glass", "name": "Wipe glass doors", "points": 2, "category": "fireplace" }
+      { "id": "hvac-wipe-thermostat", "name": "Wipe thermostat", "points": 1 },
+      { "id": "fireplace-wipe-glass", "name": "Wipe glass doors", "points": 2 }
     ],
     "quarterly": [
-      { "id": "hvac-replace-filter", "name": "Replace air filter", "points": 3, "category": "hvac" },
-      { "id": "hvac-vacuum", "name": "Vacuum vents/registers", "points": 2, "category": "hvac" }
+      { "id": "hvac-replace-filter", "name": "Replace air filter", "points": 3 },
+      { "id": "hvac-vacuum", "name": "Vacuum vents/registers", "points": 2 }
     ],
     "annual": [
-      { "id": "hvac-service", "name": "Professional service", "points": 5, "category": "hvac" },
-      { "id": "fireplace-inspect", "name": "Inspect chimney", "points": 4, "category": "fireplace" },
-      { "id": "fireplace-sweep", "name": "Professional chimney sweep", "points": 5, "category": "fireplace" }
+      { "id": "hvac-service", "name": "Professional service", "points": 5 },
+      { "id": "fireplace-inspect", "name": "Inspect chimney", "points": 4 },
+      { "id": "fireplace-sweep", "name": "Professional chimney sweep", "points": 5 }
     ],
-    "as needed": [{ "id": "fireplace-remove-ashes", "name": "Remove ashes", "points": 2, "category": "fireplace" }]
-  },
-  "pets": {
-    "daily": [{ "id": "aquarium-feed", "name": "Feed animals", "points": 1, "category": "aquarium" }],
-    "weekly": [
-      { "id": "aquarium-change-water", "name": "Change water / clean tank", "points": 3, "category": "aquarium" },
-      { "id": "aquarium-wipe-glass", "name": "Wipe glass", "points": 2, "category": "aquarium" }
-    ],
-    "monthly": [
-      { "id": "aquarium-clean-filter", "name": "Clean filter", "points": 3, "category": "aquarium" },
-      { "id": "aquarium-replace-bedding", "name": "Replace bedding/substrate", "points": 3, "category": "aquarium" }
-    ]
-  },
-  "other areas": {
-    "weekly": [
-      { "id": "office-dust", "name": "Dust desk/shelves", "points": 2, "category": "office_area" },
-      { "id": "office-wipe", "name": "Wipe keyboard/mouse/screens", "points": 2, "category": "office_area" },
-      { "id": "patio-sweep", "name": "Sweep debris", "points": 2, "category": "porch_patio" },
-      { "id": "patio-wipe-furniture", "name": "Wipe furniture", "points": 2, "category": "porch_patio" }
-    ],
-    "monthly": [
-      { "id": "office-organize", "name": "Organize papers/cables", "points": 3, "category": "office_area" },
-      { "id": "basement-sweep", "name": "Sweep/vacuum", "points": 3, "category": "basement_attic" },
-      { "id": "basement-check", "name": "Check for pests/moisture", "points": 4, "category": "basement_attic" },
-      { "id": "patio-wash-cushions", "name": "Wash cushions", "points": 3, "category": "porch_patio" }
-    ],
-    "quarterly": [
-      { "id": "basement-organize", "name": "Organize storage bins", "points": 4, "category": "basement_attic" },
-      { "id": "patio-power-wash", "name": "Power wash deck/patio", "points": 4, "category": "porch_patio" }
-    ],
-    "semiannual": [
-      { "id": "basement-declutter", "name": "Declutter unused items", "points": 4, "category": "basement_attic" }
-    ]
+    "as needed": [{ "id": "fireplace-remove-ashes", "name": "Remove ashes", "points": 2 }]
   }
 }
