@@ -1,267 +1,244 @@
 {
-  "categories": {
-    "kitchen": {
-      "name": "Kitchen",
-      "description": "Kitchen appliances and pantry maintenance",
-      "items": {
-        "dishwasher": {
-          "name": "Dishwasher",
-          "description": "Dishwasher maintenance and cleaning",
-          "chores": [
-            { "id": "dishwasher-load-unload", "name": "Load/unload dishes", "frequency": "daily", "points": 2 },
-            { "id": "dishwasher-wipe-door", "name": "Wipe door/seals", "frequency": "weekly", "points": 1 },
-            { "id": "dishwasher-clean-filter", "name": "Clean filter", "frequency": "monthly", "points": 3 },
-            {
-              "id": "dishwasher-cleaning-cycle",
-              "name": "Run cleaning cycle with vinegar/cleaner",
-              "frequency": "monthly",
-              "points": 4
-            }
-          ]
-        },
-        "oven_stove": {
-          "name": "Oven / Stove",
-          "description": "Oven and stovetop maintenance",
-          "chores": [
-            { "id": "stove-wipe-stovetop", "name": "Wipe stovetop after use", "frequency": "daily", "points": 2 },
-            { "id": "oven-clean-spills", "name": "Clean oven spills", "frequency": "weekly", "points": 3 },
-            { "id": "stove-scrub-burners", "name": "Scrub burners/grates", "frequency": "monthly", "points": 4 },
-            { "id": "oven-deep-clean", "name": "Deep clean oven", "frequency": "quarterly", "points": 5 }
-          ]
-        },
-        "microwave": {
-          "name": "Microwave",
-          "description": "Microwave cleaning and maintenance",
-          "chores": [
-            { "id": "microwave-wipe", "name": "Wipe inside/outside", "frequency": "weekly", "points": 1 },
-            {
-              "id": "microwave-deodorize",
-              "name": "Deodorize with lemon/vinegar steam",
-              "frequency": "monthly",
-              "points": 2
-            },
-            { "id": "microwave-turntable", "name": "Clean turntable plate", "frequency": "weekly", "points": 1 }
-          ]
-        },
-        "fridge_freezer": {
-          "name": "Fridge / Freezer",
-          "description": "Refrigerator and freezer maintenance",
-          "chores": [
-            { "id": "fridge-toss-expired", "name": "Toss expired food", "frequency": "weekly", "points": 2 },
-            { "id": "fridge-wipe-shelves", "name": "Wipe shelves/drawers", "frequency": "monthly", "points": 3 },
-            { "id": "fridge-deep-clean", "name": "Deep clean interior", "frequency": "quarterly", "points": 4 },
-            { "id": "freezer-defrost", "name": "Defrost freezer", "frequency": "biannual", "points": 4 }
-          ]
-        },
-        "pantry": {
-          "name": "Pantry",
-          "description": "Pantry organization and cleaning",
-          "chores": [
-            { "id": "pantry-check-expiry", "name": "Check expiration dates", "frequency": "monthly", "points": 2 },
-            { "id": "pantry-wipe-shelves", "name": "Wipe shelves", "frequency": "quarterly", "points": 3 },
-            { "id": "pantry-organize", "name": "Organize categories", "frequency": "quarterly", "points": 3 },
-            { "id": "pantry-declutter", "name": "Declutter/rotate stock", "frequency": "biannual", "points": 4 }
-          ]
-        }
+  "kitchen": {
+    "name": "Kitchen",
+    "description": "Kitchen appliances and pantry maintenance",
+    "items": {
+      "dishwasher": {
+        "name": "Dishwasher",
+        "description": "Dishwasher maintenance and cleaning",
+        "chores": [
+          { "id": "dishwasher-load-unload", "name": "Load/unload dishes", "frequency": "daily", "points": 2 },
+          { "id": "dishwasher-wipe-door", "name": "Wipe door/seals", "frequency": "weekly", "points": 1 },
+          { "id": "dishwasher-clean-filter", "name": "Clean filter", "frequency": "monthly", "points": 3 },
+          {
+            "id": "dishwasher-cleaning-cycle",
+            "name": "Run cleaning cycle with vinegar/cleaner",
+            "frequency": "monthly",
+            "points": 4
+          }
+        ]
+      },
+      "oven_stove": {
+        "name": "Oven / Stove",
+        "description": "Oven and stovetop maintenance",
+        "chores": [
+          { "id": "stove-wipe-stovetop", "name": "Wipe stovetop after use", "frequency": "daily", "points": 2 },
+          { "id": "oven-clean-spills", "name": "Clean oven spills", "frequency": "weekly", "points": 3 },
+          { "id": "stove-scrub-burners", "name": "Scrub burners/grates", "frequency": "monthly", "points": 4 },
+          { "id": "oven-deep-clean", "name": "Deep clean oven", "frequency": "quarterly", "points": 5 }
+        ]
+      },
+      "microwave": {
+        "name": "Microwave",
+        "description": "Microwave cleaning and maintenance",
+        "chores": [
+          { "id": "microwave-wipe", "name": "Wipe inside/outside", "frequency": "weekly", "points": 1 },
+          {
+            "id": "microwave-deodorize",
+            "name": "Deodorize with lemon/vinegar steam",
+            "frequency": "monthly",
+            "points": 2
+          },
+          { "id": "microwave-turntable", "name": "Clean turntable plate", "frequency": "weekly", "points": 1 }
+        ]
+      },
+      "fridge_freezer": {
+        "name": "Fridge / Freezer",
+        "description": "Refrigerator and freezer maintenance",
+        "chores": [
+          { "id": "fridge-toss-expired", "name": "Toss expired food", "frequency": "weekly", "points": 2 },
+          { "id": "fridge-wipe-shelves", "name": "Wipe shelves/drawers", "frequency": "monthly", "points": 3 },
+          { "id": "fridge-deep-clean", "name": "Deep clean interior", "frequency": "quarterly", "points": 4 },
+          { "id": "freezer-defrost", "name": "Defrost freezer", "frequency": "biannual", "points": 4 }
+        ]
+      },
+      "pantry": {
+        "name": "Pantry",
+        "description": "Pantry organization and cleaning",
+        "chores": [
+          { "id": "pantry-check-expiry", "name": "Check expiration dates", "frequency": "monthly", "points": 2 },
+          { "id": "pantry-wipe-shelves", "name": "Wipe shelves", "frequency": "quarterly", "points": 3 },
+          { "id": "pantry-organize", "name": "Organize categories", "frequency": "quarterly", "points": 3 },
+          { "id": "pantry-declutter", "name": "Declutter/rotate stock", "frequency": "biannual", "points": 4 }
+        ]
       }
-    },
-    "bathrooms": {
-      "name": "Bathrooms",
-      "description": "Bathroom cleaning and maintenance",
-      "items": {
-        "bathroom_general": {
-          "name": "Bathroom",
-          "description": "Toilet, shower, tub, sink",
-          "chores": [
-            { "id": "bathroom-clean-toilet", "name": "Clean toilet bowl/seat", "frequency": "weekly", "points": 3 },
-            { "id": "bathroom-wipe-sink", "name": "Wipe sink/counter/mirror", "frequency": "daily", "points": 2 },
-            { "id": "bathroom-scrub-shower", "name": "Scrub shower/tub/tiles", "frequency": "weekly", "points": 3 },
-            { "id": "bathroom-mop-floor", "name": "Mop floor", "frequency": "weekly", "points": 2 },
-            { "id": "bathroom-wash-towels", "name": "Wash towels/bath mats", "frequency": "weekly", "points": 1 },
-            { "id": "bathroom-restock", "name": "Restock toiletries", "frequency": "weekly", "points": 1 }
-          ]
-        }
+    }
+  },
+  "bathrooms": {
+    "name": "Bathrooms",
+    "description": "Bathroom cleaning and maintenance",
+    "items": {
+      "bathroom_general": {
+        "name": "Bathroom",
+        "description": "Toilet, shower, tub, sink",
+        "chores": [
+          { "id": "bathroom-clean-toilet", "name": "Clean toilet bowl/seat", "frequency": "weekly", "points": 3 },
+          { "id": "bathroom-wipe-sink", "name": "Wipe sink/counter/mirror", "frequency": "daily", "points": 2 },
+          { "id": "bathroom-scrub-shower", "name": "Scrub shower/tub/tiles", "frequency": "weekly", "points": 3 },
+          { "id": "bathroom-mop-floor", "name": "Mop floor", "frequency": "weekly", "points": 2 },
+          { "id": "bathroom-wash-towels", "name": "Wash towels/bath mats", "frequency": "weekly", "points": 1 },
+          { "id": "bathroom-restock", "name": "Restock toiletries", "frequency": "weekly", "points": 1 }
+        ]
       }
-    },
-    "bedrooms": {
-      "name": "Bedrooms",
-      "description": "Bedroom cleaning and organization",
-      "items": {
-        "bedroom_general": {
-          "name": "Bedroom",
-          "description": "Bedroom tasks",
-          "chores": [
-            { "id": "bedroom-make-bed", "name": "Make beds", "frequency": "daily", "points": 1 },
-            { "id": "bedroom-dust", "name": "Dust surfaces", "frequency": "weekly", "points": 2 },
-            { "id": "bedroom-vacuum", "name": "Vacuum/mop floors", "frequency": "weekly", "points": 2 },
-            { "id": "bedroom-change-sheets", "name": "Change sheets", "frequency": "weekly", "points": 2 },
-            { "id": "bedroom-declutter", "name": "Declutter closets/drawers", "frequency": "monthly", "points": 3 }
-          ]
-        }
+    }
+  },
+  "bedrooms": {
+    "name": "Bedrooms",
+    "description": "Bedroom cleaning and organization",
+    "items": {
+      "bedroom_general": {
+        "name": "Bedroom",
+        "description": "Bedroom tasks",
+        "chores": [
+          { "id": "bedroom-make-bed", "name": "Make beds", "frequency": "daily", "points": 1 },
+          { "id": "bedroom-dust", "name": "Dust surfaces", "frequency": "weekly", "points": 2 },
+          { "id": "bedroom-vacuum", "name": "Vacuum/mop floors", "frequency": "weekly", "points": 2 },
+          { "id": "bedroom-change-sheets", "name": "Change sheets", "frequency": "weekly", "points": 2 },
+          { "id": "bedroom-declutter", "name": "Declutter closets/drawers", "frequency": "monthly", "points": 3 }
+        ]
       }
-    },
-    "living_dining": {
-      "name": "Living & Dining",
-      "description": "Shared living and dining spaces",
-      "items": {
-        "dining_room": {
-          "name": "Dining Room",
-          "description": "Dining room cleaning",
-          "chores": [
-            { "id": "dining-wipe-table", "name": "Wipe table/chairs", "frequency": "daily", "points": 1 },
-            { "id": "dining-sweep-floor", "name": "Sweep/mop floor", "frequency": "daily", "points": 2 },
-            { "id": "dining-dust", "name": "Dust furniture/fixtures", "frequency": "weekly", "points": 2 },
-            { "id": "dining-wash-linens", "name": "Wash table linens", "frequency": "weekly", "points": 2 }
-          ]
-        },
-        "living_room": {
-          "name": "Living Room",
-          "description": "Living room cleaning",
-          "chores": [
-            { "id": "living-dust", "name": "Dust surfaces", "frequency": "weekly", "points": 2 },
-            { "id": "living-vacuum", "name": "Vacuum/mop floors", "frequency": "weekly", "points": 2 },
-            { "id": "living-fluff-cushions", "name": "Fluff cushions", "frequency": "weekly", "points": 1 },
-            { "id": "living-wipe-electronics", "name": "Wipe electronics/remotes", "frequency": "weekly", "points": 2 },
-            { "id": "living-wash-covers", "name": "Wash cushion covers/throws", "frequency": "monthly", "points": 3 }
-          ]
-        }
+    }
+  },
+  "living_dining": {
+    "name": "Living & Dining",
+    "description": "Shared living and dining spaces",
+    "items": {
+      "dining_room": {
+        "name": "Dining Room",
+        "description": "Dining room cleaning",
+        "chores": [
+          { "id": "dining-wipe-table", "name": "Wipe table/chairs", "frequency": "daily", "points": 1 },
+          { "id": "dining-sweep-floor", "name": "Sweep/mop floor", "frequency": "daily", "points": 2 },
+          { "id": "dining-dust", "name": "Dust furniture/fixtures", "frequency": "weekly", "points": 2 },
+          { "id": "dining-wash-linens", "name": "Wash table linens", "frequency": "weekly", "points": 2 }
+        ]
+      },
+      "living_room": {
+        "name": "Living Room",
+        "description": "Living room cleaning",
+        "chores": [
+          { "id": "living-dust", "name": "Dust surfaces", "frequency": "weekly", "points": 2 },
+          { "id": "living-vacuum", "name": "Vacuum/mop floors", "frequency": "weekly", "points": 2 },
+          { "id": "living-fluff-cushions", "name": "Fluff cushions", "frequency": "weekly", "points": 1 },
+          { "id": "living-wipe-electronics", "name": "Wipe electronics/remotes", "frequency": "weekly", "points": 2 },
+          { "id": "living-wash-covers", "name": "Wash cushion covers/throws", "frequency": "monthly", "points": 3 }
+        ]
       }
-    },
-    "other_areas": {
-      "name": "Other Areas",
-      "description": "Office, basement, patio, etc.",
-      "items": {
-        "office_area": {
-          "name": "Office Area",
-          "description": "Home office maintenance",
-          "chores": [
-            { "id": "office-dust", "name": "Dust desk/shelves", "frequency": "weekly", "points": 2 },
-            { "id": "office-wipe", "name": "Wipe keyboard/mouse/screens", "frequency": "weekly", "points": 2 },
-            { "id": "office-organize", "name": "Organize papers/cables", "frequency": "monthly", "points": 3 }
-          ]
-        },
-        "basement_attic": {
-          "name": "Basement / Attic",
-          "description": "Storage areas",
-          "chores": [
-            { "id": "basement-sweep", "name": "Sweep/vacuum", "frequency": "monthly", "points": 3 },
-            { "id": "basement-check", "name": "Check for pests/moisture", "frequency": "monthly", "points": 4 },
-            { "id": "basement-organize", "name": "Organize storage bins", "frequency": "quarterly", "points": 4 },
-            { "id": "basement-declutter", "name": "Declutter unused items", "frequency": "biannual", "points": 4 }
-          ]
-        },
-        "porch_patio": {
-          "name": "Porch / Deck / Patio",
-          "description": "Outdoor sitting areas",
-          "chores": [
-            { "id": "patio-sweep", "name": "Sweep debris", "frequency": "weekly", "points": 2 },
-            { "id": "patio-wipe-furniture", "name": "Wipe furniture", "frequency": "weekly", "points": 2 },
-            { "id": "patio-wash-cushions", "name": "Wash cushions", "frequency": "monthly", "points": 3 },
-            { "id": "patio-power-wash", "name": "Power wash deck/patio", "frequency": "quarterly", "points": 4 }
-          ]
-        }
+    }
+  },
+  "outdoor": {
+    "name": "Outdoor",
+    "description": "Yard, garden, pool, grill, etc.",
+    "items": {
+      "yard_garden": {
+        "name": "Yard / Garden / Trees",
+        "description": "Garden and lawn maintenance",
+        "chores": [
+          { "id": "yard-mow-lawn", "name": "Mow lawn", "frequency": "weekly", "points": 3 },
+          { "id": "yard-weed", "name": "Weed flower beds", "frequency": "weekly", "points": 3 },
+          { "id": "yard-trim", "name": "Trim bushes/trees", "frequency": "monthly", "points": 4 },
+          { "id": "yard-water", "name": "Water plants", "frequency": "daily", "points": 2 },
+          { "id": "yard-rake-leaves", "name": "Rake leaves", "frequency": "seasonal", "points": 3 }
+        ]
+      },
+      "pool": {
+        "name": "Pool / Hot tub",
+        "description": "Pool and hot tub maintenance",
+        "chores": [
+          { "id": "pool-skim", "name": "Skim debris", "frequency": "daily", "points": 2 },
+          { "id": "pool-test", "name": "Test water balance", "frequency": "weekly", "points": 3 },
+          { "id": "pool-add-chemicals", "name": "Add chlorine/chemicals", "frequency": "weekly", "points": 3 },
+          { "id": "pool-clean-filter", "name": "Clean filter", "frequency": "monthly", "points": 4 },
+          { "id": "pool-drain", "name": "Drain/refill", "frequency": "annual", "points": 5 }
+        ]
+      },
+      "grill": {
+        "name": "Grill / Outdoor Kitchen",
+        "description": "Grill and outdoor cooking",
+        "chores": [
+          { "id": "grill-scrape", "name": "Scrape grill grates", "frequency": "after use", "points": 2 },
+          { "id": "grill-empty-tray", "name": "Empty drip tray/ash pan", "frequency": "weekly", "points": 2 },
+          { "id": "grill-wipe", "name": "Wipe exterior surfaces", "frequency": "weekly", "points": 1 },
+          { "id": "grill-deep-clean", "name": "Deep clean burners/grates", "frequency": "monthly", "points": 4 }
+        ]
       }
-    },
-    "outdoor": {
-      "name": "Outdoor",
-      "description": "Yard, garden, pool, grill, etc.",
-      "items": {
-        "yard_garden": {
-          "name": "Yard / Garden / Trees",
-          "description": "Garden and lawn maintenance",
-          "chores": [
-            { "id": "yard-mow-lawn", "name": "Mow lawn", "frequency": "weekly", "points": 3 },
-            { "id": "yard-weed", "name": "Weed flower beds", "frequency": "weekly", "points": 3 },
-            { "id": "yard-trim", "name": "Trim bushes/trees", "frequency": "monthly", "points": 4 },
-            { "id": "yard-water", "name": "Water plants", "frequency": "daily", "points": 2 },
-            { "id": "yard-rake-leaves", "name": "Rake leaves", "frequency": "seasonal", "points": 3 }
-          ]
-        },
-        "pool": {
-          "name": "Pool / Hot tub",
-          "description": "Pool and hot tub maintenance",
-          "chores": [
-            { "id": "pool-skim", "name": "Skim debris", "frequency": "daily", "points": 2 },
-            { "id": "pool-test", "name": "Test water balance", "frequency": "weekly", "points": 3 },
-            { "id": "pool-add-chemicals", "name": "Add chlorine/chemicals", "frequency": "weekly", "points": 3 },
-            { "id": "pool-clean-filter", "name": "Clean filter", "frequency": "monthly", "points": 4 },
-            { "id": "pool-drain", "name": "Drain/refill", "frequency": "annual", "points": 5 }
-          ]
-        },
-        "grill": {
-          "name": "Grill / Outdoor Kitchen",
-          "description": "Grill and outdoor cooking",
-          "chores": [
-            { "id": "grill-scrape", "name": "Scrape grill grates", "frequency": "after use", "points": 2 },
-            { "id": "grill-empty-tray", "name": "Empty drip tray/ash pan", "frequency": "weekly", "points": 2 },
-            { "id": "grill-wipe", "name": "Wipe exterior surfaces", "frequency": "weekly", "points": 1 },
-            { "id": "grill-deep-clean", "name": "Deep clean burners/grates", "frequency": "monthly", "points": 4 }
-          ]
-        }
+    }
+  },
+  "systems": {
+    "name": "Home Systems",
+    "description": "HVAC, fireplace, utilities",
+    "items": {
+      "hvac": {
+        "name": "HVAC System",
+        "description": "Heating and cooling systems",
+        "chores": [
+          { "id": "hvac-replace-filter", "name": "Replace air filter", "frequency": "quarterly", "points": 3 },
+          { "id": "hvac-vacuum", "name": "Vacuum vents/registers", "frequency": "quarterly", "points": 2 },
+          { "id": "hvac-wipe-thermostat", "name": "Wipe thermostat", "frequency": "monthly", "points": 1 },
+          { "id": "hvac-service", "name": "Professional service", "frequency": "annual", "points": 5 }
+        ]
+      },
+      "fireplace": {
+        "name": "Fireplace / Chimney",
+        "description": "Fireplace and chimney care",
+        "chores": [
+          { "id": "fireplace-remove-ashes", "name": "Remove ashes", "frequency": "as needed", "points": 2 },
+          { "id": "fireplace-wipe-glass", "name": "Wipe glass doors", "frequency": "monthly", "points": 2 },
+          { "id": "fireplace-inspect", "name": "Inspect chimney", "frequency": "annual", "points": 4 },
+          { "id": "fireplace-sweep", "name": "Professional chimney sweep", "frequency": "annual", "points": 5 }
+        ]
       }
-    },
-    "systems": {
-      "name": "Home Systems",
-      "description": "HVAC, fireplace, utilities",
-      "items": {
-        "hvac": {
-          "name": "HVAC System",
-          "description": "Heating and cooling systems",
-          "chores": [
-            { "id": "hvac-replace-filter", "name": "Replace air filter", "frequency": "quarterly", "points": 3 },
-            { "id": "hvac-vacuum", "name": "Vacuum vents/registers", "frequency": "quarterly", "points": 2 },
-            { "id": "hvac-wipe-thermostat", "name": "Wipe thermostat", "frequency": "monthly", "points": 1 },
-            { "id": "hvac-service", "name": "Professional service", "frequency": "annual", "points": 5 }
-          ]
-        },
-        "fireplace": {
-          "name": "Fireplace / Chimney",
-          "description": "Fireplace and chimney care",
-          "chores": [
-            { "id": "fireplace-remove-ashes", "name": "Remove ashes", "frequency": "as needed", "points": 2 },
-            { "id": "fireplace-wipe-glass", "name": "Wipe glass doors", "frequency": "monthly", "points": 2 },
-            { "id": "fireplace-inspect", "name": "Inspect chimney", "frequency": "annual", "points": 4 },
-            { "id": "fireplace-sweep", "name": "Professional chimney sweep", "frequency": "annual", "points": 5 }
-          ]
-        }
+    }
+  },
+  "pets": {
+    "name": "Pets & Animals",
+    "description": "Aquarium, terrarium, birdcage, etc.",
+    "items": {
+      "aquarium": {
+        "name": "Aquarium / Terrarium / Birdcage",
+        "description": "Pet care and cleaning",
+        "chores": [
+          { "id": "aquarium-feed", "name": "Feed animals", "frequency": "daily", "points": 1 },
+          { "id": "aquarium-change-water", "name": "Change water / clean tank", "frequency": "weekly", "points": 3 },
+          { "id": "aquarium-clean-filter", "name": "Clean filter", "frequency": "monthly", "points": 3 },
+          { "id": "aquarium-wipe-glass", "name": "Wipe glass", "frequency": "weekly", "points": 2 },
+          { "id": "aquarium-replace-bedding", "name": "Replace bedding/substrate", "frequency": "monthly", "points": 3 }
+        ]
       }
-    },
-    "pets": {
-      "name": "Pets & Animals",
-      "description": "Aquarium, terrarium, birdcage, etc.",
-      "items": {
-        "aquarium": {
-          "name": "Aquarium / Terrarium / Birdcage",
-          "description": "Pet care and cleaning",
-          "chores": [
-            { "id": "aquarium-feed", "name": "Feed animals", "frequency": "daily", "points": 1 },
-            { "id": "aquarium-change-water", "name": "Change water / clean tank", "frequency": "weekly", "points": 3 },
-            { "id": "aquarium-clean-filter", "name": "Clean filter", "frequency": "monthly", "points": 3 },
-            { "id": "aquarium-wipe-glass", "name": "Wipe glass", "frequency": "weekly", "points": 2 },
-            {
-              "id": "aquarium-replace-bedding",
-              "name": "Replace bedding/substrate",
-              "frequency": "monthly",
-              "points": 3
-            }
-          ]
-        }
-      }
-    },
-    "fitness": {
-      "name": "Fitness",
-      "description": "Home gym and exercise equipment",
-      "items": {
-        "home_gym": {
-          "name": "Home Gym / Exercise Equipment",
-          "description": "Gym maintenance and cleaning",
-          "chores": [
-            { "id": "gym-wipe-machines", "name": "Wipe machines/benches after use", "frequency": "daily", "points": 1 },
-            { "id": "gym-sweep", "name": "Sweep/vacuum gym floor", "frequency": "weekly", "points": 2 },
-            { "id": "gym-disinfect", "name": "Disinfect weights/handles", "frequency": "weekly", "points": 3 },
-            { "id": "gym-inspect", "name": "Inspect equipment for wear", "frequency": "monthly", "points": 3 }
-          ]
-        }
+    }
+  },
+  "other_areas": {
+    "name": "Other Areas",
+    "description": "Office, basement, patio, etc.",
+    "items": {
+      "office_area": {
+        "name": "Office Area",
+        "description": "Home office maintenance",
+        "chores": [
+          { "id": "office-dust", "name": "Dust desk/shelves", "frequency": "weekly", "points": 2 },
+          { "id": "office-wipe", "name": "Wipe keyboard/mouse/screens", "frequency": "weekly", "points": 2 },
+          { "id": "office-organize", "name": "Organize papers/cables", "frequency": "monthly", "points": 3 }
+        ]
+      },
+      "basement_attic": {
+        "name": "Basement / Attic",
+        "description": "Storage areas",
+        "chores": [
+          { "id": "basement-sweep", "name": "Sweep/vacuum", "frequency": "monthly", "points": 3 },
+          { "id": "basement-check", "name": "Check for pests/moisture", "frequency": "monthly", "points": 4 },
+          { "id": "basement-organize", "name": "Organize storage bins", "frequency": "quarterly", "points": 4 },
+          { "id": "basement-declutter", "name": "Declutter unused items", "frequency": "biannual", "points": 4 }
+        ]
+      },
+      "porch_patio": {
+        "name": "Porch / Deck / Patio",
+        "description": "Outdoor sitting areas",
+        "chores": [
+          { "id": "patio-sweep", "name": "Sweep debris", "frequency": "weekly", "points": 2 },
+          { "id": "patio-wipe-furniture", "name": "Wipe furniture", "frequency": "weekly", "points": 2 },
+          { "id": "patio-wash-cushions", "name": "Wash cushions", "frequency": "monthly", "points": 3 },
+          { "id": "patio-power-wash", "name": "Power wash deck/patio", "frequency": "quarterly", "points": 4 }
+        ]
       }
     }
   }

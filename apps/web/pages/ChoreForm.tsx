@@ -1,23 +1,10 @@
 import React, { useEffect, useState } from "react";
 
+// --- Types ---
 interface ChoresData {
-  categories: Record<string, Category>;
+  [categoryKey: string]: Category;
 }
 
-export const useChores = () => {
-  const [chores, setChores] = useState<ChoresData | null>(null);
-
-  useEffect(() => {
-    fetch("/chores.json")
-      .then((res) => res.json())
-      .then((data) => setChores(data))
-      .catch((err) => console.error("Failed to load chores:", err));
-  }, []);
-
-  return chores;
-};
-
-// --- Types ---
 interface SelectedItems {
   [itemKey: string]: boolean;
 }
@@ -45,7 +32,19 @@ interface Category {
   items: Record<string, Item>;
 }
 
-// --- Main Component ---
+export const useChores = () => {
+  const [chores, setChores] = useState<ChoresData | null>(null);
+
+  useEffect(() => {
+    fetch("/chores.json")
+      .then((res) => res.json())
+      .then((data) => setChores(data))
+      .catch((err) => console.error("Failed to load chores:", err));
+  }, []);
+
+  return chores;
+};
+
 const ChoreForm: React.FC = () => {
   const choresData = useChores();
   const [selectedCategories, setSelectedCategories] = useState<SelectedCategories>({});
@@ -55,9 +54,9 @@ const ChoreForm: React.FC = () => {
     return <div className="text-center py-20 text-gray-500">Loading chores...</div>;
   }
 
-  type CategoryKey = keyof typeof choresData.categories;
+  type CategoryKey = keyof typeof choresData;
 
-  const categories = Object.entries(choresData.categories).map(([key, category]) => ({
+  const categories = Object.entries(choresData).map(([key, category]) => ({
     key: key as CategoryKey,
     name: category.name,
     description: category.description,
@@ -70,7 +69,7 @@ const ChoreForm: React.FC = () => {
   const currentCategoryItems =
     selectedCategoryKeys.length > 0
       ? selectedCategoryKeys.flatMap((categoryKey) => {
-          const category = choresData.categories[categoryKey];
+          const category = choresData[categoryKey];
           if (!category || !category.items) return [];
           return Object.entries(category.items).map(([key, item]) => ({
             key,
@@ -103,7 +102,7 @@ const ChoreForm: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    const selectedCategoryNames = selectedCategoryKeys.map((key) => choresData.categories[key].name);
+    const selectedCategoryNames = selectedCategoryKeys.map((key) => choresData[key].name);
     const selectedItemDetails = Object.entries(selectedItems)
       .filter(([, isSelected]) => isSelected)
       .map(([fullKey]) => {
@@ -112,10 +111,12 @@ const ChoreForm: React.FC = () => {
           const categoryKey = parts[0];
           const choreId = parts[parts.length - 1];
           const itemKey = parts.slice(1, -1).join("_");
-          const category = choresData.categories[categoryKey];
+          const category = choresData[categoryKey];
           const item = category?.items?.[itemKey];
           const chore = item?.chores.find((c) => c.id === choreId);
-          return `${category?.name || "Unknown"} - ${item?.name || "Unknown"} - ${chore?.name || "Unknown"} (${chore?.frequency}, ${chore?.points} pts)`;
+          return `${category?.name || "Unknown"} - ${item?.name || "Unknown"} - ${
+            chore?.name || "Unknown"
+          } (${chore?.frequency}, ${chore?.points} pts)`;
         } else return `Invalid Key: ${fullKey}`;
       });
 
@@ -153,7 +154,7 @@ const ChoreForm: React.FC = () => {
             const categoryItems = currentCategoryItems.filter((i) => i.categoryKey === categoryKey);
             return (
               <div key={categoryKey} className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">{choresData.categories[categoryKey].name}</h2>
+                <h2 className="text-xl font-semibold mb-4">{choresData[categoryKey].name}</h2>
                 {categoryItems.map((item) => (
                   <div key={item.key} className="mb-6 border-b pb-3">
                     <h4 className="font-medium">{item.name}</h4>
