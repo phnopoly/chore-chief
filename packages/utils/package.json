@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "mongoose": "^8.18.0",
-    "zod": "4.1.4"
+    "mongoose": "^8.19.0",
+    "zod": "4.1.11"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/node": "^20.19.11",
-    "typescript": "^5.9.2"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.6.2",
+    "typescript": "^5.9.3"
   },
   "exports": "./src/index.ts",
   "main": "dist/index.js",
