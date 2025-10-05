@@ -49,7 +49,7 @@
           { "id": "fridge-toss-expired", "name": "Toss expired food", "frequency": "weekly", "points": 2 },
           { "id": "fridge-wipe-shelves", "name": "Wipe shelves/drawers", "frequency": "monthly", "points": 3 },
           { "id": "fridge-deep-clean", "name": "Deep clean interior", "frequency": "quarterly", "points": 4 },
-          { "id": "freezer-defrost", "name": "Defrost freezer", "frequency": "biannual", "points": 4 }
+          { "id": "freezer-defrost", "name": "Defrost freezer", "frequency": "semiannual", "points": 4 }
         ]
       },
       "pantry": {
@@ -59,7 +59,7 @@
           { "id": "pantry-check-expiry", "name": "Check expiration dates", "frequency": "monthly", "points": 2 },
           { "id": "pantry-wipe-shelves", "name": "Wipe shelves", "frequency": "quarterly", "points": 3 },
           { "id": "pantry-organize", "name": "Organize categories", "frequency": "quarterly", "points": 3 },
-          { "id": "pantry-declutter", "name": "Declutter/rotate stock", "frequency": "biannual", "points": 4 }
+          { "id": "pantry-declutter", "name": "Declutter/rotate stock", "frequency": "semiannual", "points": 4 }
         ]
       }
     }
@@ -226,7 +226,7 @@
           { "id": "basement-sweep", "name": "Sweep/vacuum", "frequency": "monthly", "points": 3 },
           { "id": "basement-check", "name": "Check for pests/moisture", "frequency": "monthly", "points": 4 },
           { "id": "basement-organize", "name": "Organize storage bins", "frequency": "quarterly", "points": 4 },
-          { "id": "basement-declutter", "name": "Declutter unused items", "frequency": "biannual", "points": 4 }
+          { "id": "basement-declutter", "name": "Declutter unused items", "frequency": "semiannual", "points": 4 }
         ]
       },
       "porch_patio": {

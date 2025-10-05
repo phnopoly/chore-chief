@@ -1,7 +1,19 @@
+enum Frequency {
+  DAILY = "daily",
+  WEEKLY = "weekly",
+  BIMONTHLY = "bimonthly",
+  MONTHLY = "monthly",
+  QUARTERLY = "quarterly",
+  SEMIANNUAL = "semiannual",
+  ANNUAL = "annual",
+  AS_NEEDED = "as needed",
+  AFTER_USE = "after use",
+  SEASONAL = "seasonal",
+}
 interface Chore {
   id: string;
   name: string;
-  frequency: string;
+  frequency: Frequency;
   points: number;
 }
 
