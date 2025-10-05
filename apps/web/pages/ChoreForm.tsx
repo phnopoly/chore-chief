@@ -125,76 +125,74 @@ const ChoreForm: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-4xl px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">Chore Selection Form</h1>
+    <div className="min-h-screen bg-gray-50 px-8 py-10 box-border mx-auto max-w-5xl">
+      <h1 className="text-3xl font-bold mb-8 text-center">Chore Selection Form</h1>
 
-        {/* Step 1: Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          {categories.map((category) => (
-            <label key={category.key} className="border rounded-lg p-4 shadow-sm bg-white flex items-start space-x-3">
-              <input
-                type="checkbox"
-                checked={selectedCategories[String(category.key)] || false}
-                onChange={(e) => handleCategoryChange(String(category.key), e.target.checked)}
-                className="mt-1"
-              />
-              <div>
-                <h3 className="font-semibold">{category.name}</h3>
-                <p className="text-sm text-gray-600">{category.description}</p>
-              </div>
-            </label>
-          ))}
-        </div>
+      {/* Step 1: Categories */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        {categories.map((category) => (
+          <label key={category.key} className="border rounded-lg p-4 shadow-sm bg-white flex items-start space-x-3">
+            <input
+              type="checkbox"
+              checked={selectedCategories[String(category.key)] || false}
+              onChange={(e) => handleCategoryChange(String(category.key), e.target.checked)}
+              className="mt-1"
+            />
+            <div>
+              <h3 className="font-semibold">{category.name}</h3>
+              <p className="text-sm text-gray-600">{category.description}</p>
+            </div>
+          </label>
+        ))}
+      </div>
 
-        {/* Step 2: Items */}
-        {selectedCategoryKeys.length > 0 && (
-          <div>
-            {selectedCategoryKeys.map((categoryKey) => {
-              const categoryItems = currentCategoryItems.filter((i) => i.categoryKey === categoryKey);
-              return (
-                <div key={categoryKey} className="mb-8">
-                  <h2 className="text-xl font-semibold mb-4">{choresData.categories[categoryKey].name}</h2>
-                  {categoryItems.map((item) => (
-                    <div key={item.key} className="mb-6 border-b pb-3">
-                      <h4 className="font-medium">{item.name}</h4>
-                      <p className="text-sm text-gray-600 mb-2">{item.description}</p>
-                      {item.chores.map((chore) => {
-                        const fullKey = `${item.categoryKey}_${item.key}_${chore.id}`;
-                        const selected = selectedItems[fullKey] || false;
-                        return (
-                          <div key={chore.id} className="ml-4 mb-2">
-                            <label className="flex items-center space-x-2">
-                              <input
-                                type="checkbox"
-                                checked={selected}
-                                onChange={(e) =>
-                                  handleChoreChange(chore.id, item.categoryKey, item.key, e.target.checked)
-                                }
-                              />
-                              <span>
-                                {chore.name}{" "}
-                                <span className="text-xs text-gray-500">
-                                  ({chore.frequency}, {chore.points} pts)
-                                </span>
+      {/* Step 2: Items */}
+      {selectedCategoryKeys.length > 0 && (
+        <div>
+          {selectedCategoryKeys.map((categoryKey) => {
+            const categoryItems = currentCategoryItems.filter((i) => i.categoryKey === categoryKey);
+            return (
+              <div key={categoryKey} className="mb-8">
+                <h2 className="text-xl font-semibold mb-4">{choresData.categories[categoryKey].name}</h2>
+                {categoryItems.map((item) => (
+                  <div key={item.key} className="mb-6 border-b pb-3">
+                    <h4 className="font-medium">{item.name}</h4>
+                    <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+                    {item.chores.map((chore) => {
+                      const fullKey = `${item.categoryKey}_${item.key}_${chore.id}`;
+                      const selected = selectedItems[fullKey] || false;
+                      return (
+                        <div key={chore.id} className="ml-4 mb-2">
+                          <label className="flex items-center space-x-2">
+                            <input
+                              type="checkbox"
+                              checked={selected}
+                              onChange={(e) =>
+                                handleChoreChange(chore.id, item.categoryKey, item.key, e.target.checked)
+                              }
+                            />
+                            <span>
+                              {chore.name}{" "}
+                              <span className="text-xs text-gray-500">
+                                ({chore.frequency}, {chore.points} pts)
                               </span>
-                            </label>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        <div className="text-center">
-          <button onClick={handleSubmit} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-            Submit
-          </button>
+                            </span>
+                          </label>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            );
+          })}
         </div>
+      )}
+
+      <div className="text-center">
+        <button onClick={handleSubmit} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Submit
+        </button>
       </div>
     </div>
   );
