@@ -15,7 +15,7 @@ const HouseholdForm: React.FC<HouseholdFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-8 py-10 box-border mx-auto max-w-3xl flex justify-center items-center">
+    <div className="bg-gray-50 px-8 py-10 mx-auto max-w-3xl flex justify-center">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-md w-full max-w-xs">
         <h1 className="text-3xl font-bold text-center mb-8">Household Info</h1>
         <div className="mb-6">
