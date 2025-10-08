@@ -27,6 +27,13 @@ export default [
     files: ["**/*.{js,ts,jsx,tsx}"],
     languageOptions: {
       globals: {
+        it: "readonly",
+        test: "readonly",
+        describe: "readonly",
+        expect: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        jest: "readonly",
         console: "readonly",
         fetch: "readonly",
         window: "readonly",
@@ -62,7 +69,7 @@ export default [
       "**/*config.cjs",
       "**/*rc.cjs",
       "apps/**/jest.config.cjs",
-      "jest.config.cjs",
+      "**/jest.*.{js,ts,cjs,mjs}",
       "cypress.config.*",
       "turbo.config.*",
     ],
