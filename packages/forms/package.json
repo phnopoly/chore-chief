@@ -1,12 +1,13 @@
 {
   "dependencies": {},
   "devDependencies": {},
+  "exports": "./dist/index.js",
   "main": "dist/index.js",
-  "name": "forms",
+  "name": "@chore-champ/forms",
   "scripts": {
     "build": "tsc -p tsconfig.json --outDir dist",
     "clean": "rimraf dist"
   },
   "types": "dist/index.d.ts",
-  "version": "0.1.0"
+  "version": "0.0.0"
 }
