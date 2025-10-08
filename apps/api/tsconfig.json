@@ -35,7 +35,6 @@
     "next.config.*",
     "postcss.config.*",
     "src/**/*",
-    "tailwind.config.*",
     ".next/types/**/*.ts"
   ]
 }

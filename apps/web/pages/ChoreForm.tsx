@@ -18,6 +18,7 @@ interface ChoreFormProps {
 const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, selectedCategories }) => {
   const [groupedByFrequency, setGroupedByFrequency] = useState<Record<string, Chore[]>>({});
   const [loading, setLoading] = useState(true);
+  console.log(filePath);
 
   useEffect(() => {
     fetch(filePath)

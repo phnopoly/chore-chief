@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Box, Heading, Grid, Button, Text, Checkbox } from "@chakra-ui/react";
 
 const COMMON_CATEGORIES = ["kitchen", "bathroom", "bedrooms", "living room", "dining room", "laundry room"];
-const ADDITIONAL_CATEGORIES = ["garage / workshop", "outdoor", "systems", "entryway / hallways", "kids room / nursery"];
+
+const ADDITIONAL_CATEGORIES = ["garage", "outdoors", "systems", "hallways"];
 
 interface CategoryFormProps {
   defaultChecked?: string[];
@@ -9,70 +11,102 @@ interface CategoryFormProps {
 }
 
 const CategoryForm: React.FC<CategoryFormProps> = ({ defaultChecked = [], onSubmit }) => {
-  const [selectedCategories, setSelectedCategories] = useState<Record<string, boolean>>(
-    Object.fromEntries(defaultChecked.map((key) => [key, true])),
+  const [selected, setSelected] = useState<Record<string, boolean>>(
+    Object.fromEntries(defaultChecked.map((k) => [k, true])),
   );
 
-  const handleCategoryToggle = (category: string, checked: boolean) =>
-    setSelectedCategories((prev) => ({ ...prev, [category]: checked }));
+  const toggle = (category: string) => setSelected((prev) => ({ ...prev, [category]: !prev[category] }));
 
   const handleSubmit = () => {
-    const chosen = Object.entries(selectedCategories)
+    const chosen = Object.entries(selected)
       .filter(([, checked]) => checked)
       .map(([key]) => key);
     onSubmit(chosen);
   };
 
+  const CategoryTile = ({ label }: { label: string }) => {
+    const isChecked = !!selected[label];
+    const displayLabel = label
+      .split(" ")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+
+    return (
+      <Checkbox.Root checked={isChecked} onCheckedChange={() => toggle(label)} w="full">
+        <Checkbox.HiddenInput />
+        <Box
+          borderWidth="2px"
+          borderColor={isChecked ? "blue.500" : "gray.300"}
+          borderRadius="md"
+          bg={isChecked ? "blue.50" : "white"}
+          p={3}
+          w="100%"
+          h="90px" // uniform tile height across all
+          display="flex"
+          alignItems="center"
+          justifyContent="flex-start"
+          cursor="pointer"
+          transition="background 0.2s, border-color 0.2s"
+          _hover={{ bg: isChecked ? "blue.100" : "gray.50" }}
+          boxSizing="border-box"
+        >
+          {/* @ts-expect-error chakra types not yet exposed */}
+          <Checkbox.Control
+            boxSize="18px"
+            borderWidth="2px"
+            borderColor={isChecked ? "blue.500" : "gray.300"}
+            borderRadius="sm"
+            bg={isChecked ? "blue.500" : "white"}
+            flexShrink={0}
+            mr={3}
+          >
+            <Checkbox.Indicator color="white" />
+          </Checkbox.Control>
+
+          {/* @ts-expect-error chakra types not yet exposed */}
+          <Checkbox.Label asChild>
+            <Text
+              fontSize="sm"
+              fontWeight="medium"
+              color={isChecked ? "blue.800" : "gray.800"}
+              whiteSpace="normal"
+              textAlign="left"
+              lineHeight="1.3"
+            >
+              {displayLabel}
+            </Text>
+          </Checkbox.Label>
+        </Box>
+      </Checkbox.Root>
+    );
+  };
+
   return (
-    <div className="bg-gray-50 px-8 py-10 mx-auto max-w-5xl">
-      <h1 className="text-3xl font-bold mb-8 text-center">Select Chore Categories</h1>
+    <Box bg="gray.50" px={8} py={10} mx="auto" maxW="5xl" rounded="lg">
+      <Heading as="h1" size="lg" textAlign="center" mb={8}>
+        Select Chore Categories
+      </Heading>
 
-      {/* Common Areas */}
-      <div className="space-y-6 mb-10">
-        <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">Common Areas</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {COMMON_CATEGORIES.map((category) => (
-            <label
-              key={category}
-              className="border rounded-lg p-3 shadow-sm bg-white flex items-center space-x-2 hover:bg-gray-50 transition"
-            >
-              <input
-                type="checkbox"
-                checked={selectedCategories[category] || false}
-                onChange={(e) => handleCategoryToggle(category, e.target.checked)}
-              />
-              <span className="font-medium capitalize">{category}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+      <Grid
+        templateColumns={{
+          base: "repeat(2, 1fr)",
+          md: "repeat(3, 1fr)",
+          lg: "repeat(4, 1fr)",
+        }}
+        gap={4}
+        alignItems="stretch"
+      >
+        {[...COMMON_CATEGORIES, ...ADDITIONAL_CATEGORIES].map((c) => (
+          <CategoryTile key={c} label={c} />
+        ))}
+      </Grid>
 
-      {/* Additional Areas */}
-      <div className="space-y-6">
-        <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">Additional Areas</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {ADDITIONAL_CATEGORIES.map((category) => (
-            <label
-              key={category}
-              className="border rounded-lg p-3 shadow-sm bg-white flex items-center space-x-2 hover:bg-gray-50 transition"
-            >
-              <input
-                type="checkbox"
-                checked={selectedCategories[category] || false}
-                onChange={(e) => handleCategoryToggle(category, e.target.checked)}
-              />
-              <span className="font-medium capitalize">{category}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div className="text-center mt-10">
-        <button onClick={handleSubmit} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+      <Box textAlign="center" mt={10}>
+        <Button colorScheme="blue" onClick={handleSubmit}>
           Continue
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
