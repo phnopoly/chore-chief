@@ -1,4 +1,5 @@
 import path from "path";
+import process from "node:process";
 import withTM from "next-transpile-modules";
 
 const baseConfig = {
@@ -6,11 +7,13 @@ const baseConfig = {
   swcMinify: true,
 };
 
+const repoRoot = path.join(process.cwd(), "../../");
+const formsPath = path.join(repoRoot, "packages/forms");
+
 let nextConfig = baseConfig;
 
-// eslint-disable-next-line no-undef
 if (process.env.NEXT_IGNORE_TRANSPILE !== "1") {
-  const withTranspile = withTM([path.resolve("./packages/forms")], {
+  const withTranspile = withTM([formsPath], {
     resolveSymlinks: true,
   });
   nextConfig = withTranspile(baseConfig);
