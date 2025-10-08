@@ -1,13 +1,6 @@
 {
-  "dependencies": {
-    "mongoose": "^8.19.1",
-    "zod": "4.1.12"
-  },
-  "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.7.0",
-    "typescript": "^5.9.3"
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "exports": "./src/index.ts",
   "main": "dist/index.js",
   "name": "@chore-champ/utils",

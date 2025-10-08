@@ -1,17 +1,8 @@
 {
-  "dependencies": {
-    "zod": "^4.1.12"
-  },
-  "devDependencies": {
-    "@hookform/resolvers": "^5.2.2",
-    "react-hook-form": "^7.64.0",
-    "typescript": "^5.9.3"
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "main": "dist/index.js",
   "name": "forms",
-  "peerDependencies": {
-    "react": ">=18"
-  },
   "scripts": {
     "build": "tsc -p tsconfig.json --outDir dist",
     "clean": "rimraf dist"

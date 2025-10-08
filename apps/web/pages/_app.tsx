@@ -1,11 +1,21 @@
-import React from "react";
+import { ChakraProvider, extendTheme, ThemeConfig } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
+import React from "react";
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => (
-  <ChakraProvider value={defaultSystem}>
-    <Component {...pageProps} />
-  </ChakraProvider>
-);
+// optional: define theme for full type safety
+const config: ThemeConfig = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme({ config });
+
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
+};
 
 export default App;

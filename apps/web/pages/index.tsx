@@ -10,13 +10,17 @@ import {
   Button,
   SimpleGrid,
   Link,
-  Portal,
-  CloseButton,
-  Dialog,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
 } from "@chakra-ui/react";
-import HouseholdForm from "./HouseholdForm";
-import CategoryForm from "./CategoryForm";
-import ChoreForm from "./ChoreForm";
+import CategoryForm from "../../../packages/forms/src/CategoryForm";
+import ChoreForm from "../../../packages/forms/src/ChoreForm";
+import HouseholdForm from "../../../packages/forms/src/HouseholdForm";
 
 const Feature = ({ title, text }: { title: string; text: string }) => (
   <Stack className="card" p={6}>
@@ -147,59 +151,40 @@ const Home: React.FC = () => {
           </Box>
         </Container>
       </Box>
-      <Dialog.Root
-        open={open}
-        onOpenChange={(details: { open: unknown }) => {
-          if (!details.open) handleClose();
-        }}
-        size="xl"
-        placement="center"
-      >
-        <Portal>
-          <Dialog.Backdrop />
-          {/* @ts-expect-error chakra types not yet exposed */}
-          <Dialog.Positioner>
-            {/* @ts-expect-error chakra types not yet exposed */}
-            <Dialog.Content borderRadius="xl" boxShadow="2xl" p={0}>
-              {/* @ts-expect-error chakra types not yet exposed */}
-              <Dialog.CloseTrigger asChild>
-                <CloseButton size="sm" />
-              </Dialog.CloseTrigger>
+      <Modal isOpen={open} onClose={handleClose} size="xl" isCentered>
+        <ModalOverlay />
+        <ModalContent borderRadius="xl" boxShadow="2xl" p={0}>
+          <ModalCloseButton size="sm" />
 
-              <Dialog.Header>
-                {/* @ts-expect-error chakra types not yet exposed */}
-                <Dialog.Title>
-                  <Text fontWeight="bold">
-                    {step === 0 && "Household Info"}
-                    {step === 1 && "Select Chore Categories"}
-                    {step === 2 && "Chore List"}
-                  </Text>
-                </Dialog.Title>
-              </Dialog.Header>
+          <ModalHeader>
+            <Text fontWeight="bold">
+              {step === 0 && "Household Info"}
+              {step === 1 && "Select Chore Categories"}
+              {step === 2 && "Chore List"}
+            </Text>
+          </ModalHeader>
 
-              <Dialog.Body p={0}>
-                {step === 0 && <HouseholdForm onSubmit={() => setStep(1)} />}
-                {step === 1 && (
-                  <CategoryForm
-                    defaultChecked={[]}
-                    onSubmit={(selected) => {
-                      setCategories(selected);
-                      setStep(2);
-                    }}
-                  />
-                )}
-                {step === 2 && <ChoreForm filePath="/chores.json" selectedCategories={categories} />}
-              </Dialog.Body>
+          <ModalBody p={0}>
+            {step === 0 && <HouseholdForm onSubmit={() => setStep(1)} />}
+            {step === 1 && (
+              <CategoryForm
+                defaultChecked={[]}
+                onSubmit={(selected: React.SetStateAction<string[]>) => {
+                  setCategories(selected);
+                  setStep(2);
+                }}
+              />
+            )}
+            {step === 2 && <ChoreForm filePath="/chores.json" selectedCategories={categories} />}
+          </ModalBody>
 
-              <Dialog.Footer justifyContent="flex-end" gap={3}>
-                <Button variant="outline" onClick={handleClose}>
-                  Cancel
-                </Button>
-              </Dialog.Footer>
-            </Dialog.Content>
-          </Dialog.Positioner>
-        </Portal>
-      </Dialog.Root>
+          <ModalFooter justifyContent="flex-end" gap={3}>
+            <Button variant="outline" onClick={handleClose}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };

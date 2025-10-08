@@ -1,21 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState } from "react";
-import {
-  Box,
-  Heading,
-  VStack,
-  Input,
-  Button,
-  MenuRoot,
-  MenuTrigger,
-  MenuPositioner,
-  MenuContent,
-  MenuItem,
-} from "@chakra-ui/react";
-
-interface HouseholdFormProps {
-  onSubmit: (data: { householdSize: number; houseType: string }) => void;
-}
+import { Box, Heading, VStack, Input, Button, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 
 const HOUSE_TYPES = [
   { value: "apartment", label: "Apartment / Condo" },
@@ -24,6 +8,10 @@ const HOUSE_TYPES = [
   { value: "townhouse", label: "Townhouse" },
   { value: "dorm", label: "Dorm / Studio" },
 ];
+
+interface HouseholdFormProps {
+  onSubmit: (data: { householdSize: number; houseType: string }) => void;
+}
 
 const HouseholdForm: React.FC<HouseholdFormProps> = ({ onSubmit }) => {
   const [householdSize, setHouseholdSize] = useState<number>(1);
@@ -42,7 +30,7 @@ const HouseholdForm: React.FC<HouseholdFormProps> = ({ onSubmit }) => {
           Household Info
         </Heading>
 
-        <VStack gap={6} align="stretch">
+        <VStack spacing={6} align="stretch">
           <Input
             placeholder="Number of people"
             type="number"
@@ -54,28 +42,20 @@ const HouseholdForm: React.FC<HouseholdFormProps> = ({ onSubmit }) => {
             w="full"
           />
 
-          <MenuRoot>
-            {/* @ts-expect-error */}
-            <MenuTrigger asChild>
-              <Button variant="outline" justifyContent="space-between" w="full">
-                {houseType ? HOUSE_TYPES.find((t) => t.value === houseType)?.label : "Select home type"}
-              </Button>
-            </MenuTrigger>
-            {/* @ts-expect-error */}
-            <MenuPositioner>
-              {/* @ts-expect-error */}
-              <MenuContent>
-                {HOUSE_TYPES.map((type) => (
-                  //  @ts-expect-error
-                  <MenuItem key={type.value} onClick={() => setHouseType(type.value)}>
-                    {type.label}
-                  </MenuItem>
-                ))}
-              </MenuContent>
-            </MenuPositioner>
-          </MenuRoot>
+          <Menu>
+            <MenuButton as={Button} variant="outline" justifyContent="space-between" w="full">
+              {houseType ? HOUSE_TYPES.find((t) => t.value === houseType)?.label : "Select home type"}
+            </MenuButton>
+            <MenuList>
+              {HOUSE_TYPES.map((type) => (
+                <MenuItem key={type.value} onClick={() => setHouseType(type.value)}>
+                  {type.label}
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
 
-          <Button type="submit" colorScheme="blue" disabled={!houseType} alignSelf="center">
+          <Button type="submit" colorScheme="blue" isDisabled={!houseType} alignSelf="center">
             Continue
           </Button>
         </VStack>
