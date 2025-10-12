@@ -10,6 +10,12 @@ interface Chore {
   category?: string;
 }
 
+interface ChoreFile {
+  [category: string]: {
+    [frequency: string]: Chore[];
+  };
+}
+
 interface ChoreFormProps {
   filePath: string;
   selectedCategories: string[];
@@ -17,41 +23,54 @@ interface ChoreFormProps {
 
 const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, selectedCategories }) => {
   const [groupedByFrequency, setGroupedByFrequency] = useState<Record<string, Chore[]>>({});
-  const [loading, setLoading] = useState(true);
-  console.log(filePath);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch(filePath)
-      .then((res) => res.json())
-      .then((data: Record<string, Record<string, Chore[]>>) => {
+    const loadChores = async (): Promise<void> => {
+      try {
+        const res = await fetch(filePath);
+        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+        const data: ChoreFile = await res.json();
+
         const grouped: Record<string, Chore[]> = {};
 
-        selectedCategories.forEach((catKey) => {
+        for (const catKey of selectedCategories) {
           const categoryData = data[catKey];
-          if (categoryData) {
-            Object.entries(categoryData).forEach(([frequency, chores]) => {
-              if (!grouped[frequency]) grouped[frequency] = [];
-              chores.forEach((chore: Chore) => grouped[frequency].push({ ...chore, category: catKey, frequency }));
-            });
+          if (!categoryData) continue;
+
+          for (const [frequency, chores] of Object.entries(categoryData)) {
+            const safeFrequency = frequency ?? "unspecified";
+            grouped[safeFrequency] ??= [];
+
+            for (const chore of chores) {
+              grouped[safeFrequency].push({
+                ...chore,
+                category: catKey,
+                frequency: safeFrequency,
+              });
+            }
           }
-        });
+        }
 
         setGroupedByFrequency(grouped);
-        setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error("Error loading chores.json:", err);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    void loadChores();
   }, [filePath, selectedCategories]);
 
-  if (loading)
+  if (loading) {
     return (
       <Box textAlign="center" mt={8}>
         <Spinner size="lg" color="teal.500" />
         <Text mt={2}>Loading chores...</Text>
       </Box>
     );
+  }
 
   return (
     <Box bg="white" p={6} borderRadius="xl" boxShadow="sm" w="full" maxW="xl" textAlign="left">
@@ -59,13 +78,13 @@ const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, selectedCategories }) =
         All Chores by Frequency
       </Heading>
 
-      {Object.entries(groupedByFrequency).map(([frequency, chores]) => (
+      {Object.entries(groupedByFrequency).map(([frequency, chores]: [string, Chore[]]) => (
         <Box key={frequency} mb={8}>
           <Heading as="h3" size="sm" color="teal.600" fontFamily="'Merriweather', serif" mb={3} letterSpacing="wide">
             {frequency.toUpperCase()}
           </Heading>
 
-          <Box borderColor="gray.200">
+          <Box>
             {chores.map((chore) => (
               <Flex key={chore.id} align="center" justify="space-between" py={1} px={2}>
                 <Text flex="1" fontFamily="'Public Sans', sans-serif" fontSize="sm" color="gray.800">

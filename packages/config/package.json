@@ -1,9 +1,5 @@
 {
-  "devDependencies": {
-    "eslint": "^9.37.0",
-    "eslint-config-next": "^15.5.4",
-    "prettier": "^3.6.2"
-  },
+  "devDependencies": {},
   "exports": {
     "./eslint": "./eslint.cjs",
     "./prettier": "./prettier.json"

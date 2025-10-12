@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "isolatedModules": false,
-    "noEmit": true
-  },
-  "extends": "./tsconfig.json",
-  "include": ["**/*.spec.ts", "**/*.test.ts", "**/__tests__/**/*.ts"]
-}

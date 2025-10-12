@@ -1,21 +1,17 @@
 {
-  "dependencies": {
-    "zod": "^4.1.11"
-  },
-  "devDependencies": {
-    "@hookform/resolvers": "^5.2.2",
-    "react-hook-form": "^7.64.0",
-    "typescript": "^5.9.3"
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "main": "dist/index.js",
-  "name": "forms",
-  "peerDependencies": {
-    "react": ">=18"
-  },
+  "name": "@chore-champ/forms",
   "scripts": {
     "build": "tsc -p tsconfig.json --outDir dist",
     "clean": "rimraf dist"
   },
   "types": "dist/index.d.ts",
-  "version": "0.1.0"
+  "version": "0.0.0"
 }

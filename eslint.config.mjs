@@ -1,5 +1,6 @@
 import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsparser from "@typescript-eslint/parser";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 
@@ -21,14 +22,35 @@ export default [
     ],
   },
 
-  // Base JS rules for code files
+  js.configs.recommended,
   {
-    files: ["**/*.{js,cjs,mjs,jsx,ts,tsx}"],
-    ...js.configs.recommended,
+    files: ["**/*.{js,ts,jsx,tsx}"],
+    languageOptions: {
+      globals: {
+        it: "readonly",
+        test: "readonly",
+        describe: "readonly",
+        expect: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        jest: "readonly",
+        console: "readonly",
+        fetch: "readonly",
+        window: "readonly",
+        document: "readonly",
+        navigator: "readonly",
+        process: "readonly",
+      },
+    },
   },
-
-  ...tseslint.configs.recommended,
-
+  {
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: { parser: tsparser },
+    plugins: { "@typescript-eslint": tseslint },
+    rules: {
+      ...tseslint.configs.recommended.rules,
+    },
+  },
   {
     files: ["**/*.{jsx,tsx}"],
     plugins: { react, "react-hooks": reactHooks },
@@ -43,12 +65,11 @@ export default [
   },
   {
     files: [
-      "**/*.config.{js,cjs,mjs,ts}",
+      "**/*.config.{js,cjs,ts}",
       "**/*config.cjs",
       "**/*rc.cjs",
       "apps/**/jest.config.cjs",
-      "jest.config.cjs",
-      "next.config.*",
+      "**/jest.*.{js,ts,cjs,mjs}",
       "cypress.config.*",
       "turbo.config.*",
     ],
@@ -60,6 +81,13 @@ export default [
         __dirname: "readonly",
         process: "readonly",
       },
+    },
+  },
+  {
+    files: ["**/*.mjs", "next.config.mjs", "apps/**/next.config.mjs"],
+    languageOptions: {
+      sourceType: "module",
+      parserOptions: { ecmaVersion: "latest" },
     },
   },
 ];

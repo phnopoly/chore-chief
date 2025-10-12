@@ -13,6 +13,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
     "outDir": "dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipLibCheck": true,
@@ -28,14 +30,5 @@
   },
   "exclude": [".next", ".turbo", "build", "coverage", "dist", "node_modules"],
   "extends": "../../tsconfig.base.json",
-  "include": [
-    "__tests__/**/*",
-    "env.d.ts",
-    "next-env.d.ts",
-    "next.config.*",
-    "postcss.config.*",
-    "src/**/*",
-    "tailwind.config.*",
-    ".next/types/**/*.ts"
-  ]
+  "include": ["__tests__/**/*", "env.d.ts", "next-env.d.ts", "postcss.config.*", "src/**/*", ".next/types/**/*.ts"]
 }
