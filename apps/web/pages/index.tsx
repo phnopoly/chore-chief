@@ -20,7 +20,7 @@ import HouseholdInfo from "../forms/getstarted/HouseholdInfo";
 import ChoreCategories from "../forms/getstarted/ChoreCategories";
 import Overview from "../forms/getstarted/Overview";
 
-const Hello: React.FC = () => {
+const Landing: React.FC = () => {
   const [getStartedOpen, setGetStartedOpen] = useState(false);
   const [getStartedStep, setGetStartedStep] = useState<0 | 1 | 2 | 3>(0);
   const [numMembers, setNumMembers] = useState<number | null>(null);
@@ -41,13 +41,16 @@ const Hello: React.FC = () => {
         <title>ChoreChamp - Fair, Fast, and Fun Household Management</title>
       </Head>
       <main>
-        <Container py={12} px={6} maxW="5xl">
+        <Container py={16} px={6} maxW="5xl">
           <Box as="header" mb={16}>
             <Flex align="center" justify="space-between" flexWrap="wrap" rowGap={2} columnGap={10}>
               <Image src="/assets/logo-vector.svg" alt="ChoreChamp Logo" maxWidth="100dvw" />
-              <Heading fontWeight="normal" fontSize="1.5rem" lineHeight="1.625rem" maxWidth="20rem">
-                Fair, Fast, and Fun Household Management
-              </Heading>
+              <Box>
+                <Button variant="plain" color="green.400" mr={4} onClick={() => setGetStartedOpen(true)}>
+                  Get Started
+                </Button>
+                <Button variant="plain">Log In</Button>
+              </Box>
             </Flex>
           </Box>
           <Box as="section">
@@ -55,10 +58,13 @@ const Hello: React.FC = () => {
               align={{ base: "flex-start", md: "center" }}
               justify="space-between"
               columnGap={8}
-              rowGap={6}
+              rowGap={10}
               direction={{ base: "column", md: "row" }}
             >
               <Box flex="1" fontSize="1.75rem">
+                <Heading fontWeight="normal" fontSize="2rem" mb={6}>
+                  Fair, Fast, and Fun Household Management
+                </Heading>
                 <Text fontWeight="bold">
                   End the chore wars.{" "}
                   <Box
@@ -71,7 +77,20 @@ const Hello: React.FC = () => {
                     verticalAlign="middle"
                   />
                 </Text>
-                <Text>Win your weekend back.</Text>
+                <Text
+                  position="relative"
+                  _before={{
+                    content: '""',
+                    position: "absolute",
+                    left: "0",
+                    bottom: "-10px",
+                    w: "50%",
+                    h: 2,
+                    bg: "green.400",
+                  }}
+                >
+                  Win your weekend back.
+                </Text>
               </Box>
               <Flex flex="1" direction="column" align="flex-start" gap={6}>
                 <Box
@@ -105,10 +124,35 @@ const Hello: React.FC = () => {
             </Flex>
           </Box>
         </Container>
-        <Box bgColor="green.400">
-          <Container>hi</Container>
+        <Box bgColor="green.400" color="whiteAlpha.800">
+          <Container py={16} px={6} maxW="5xl">
+            <Heading fontWeight="medium">Everything You Need for a Tidy Home</Heading>
+            <Text mt={4} fontSize="1.25rem">
+              From the kitchen to the backyard, ChoreChamp helps you manage it all.
+            </Text>
+            <Flex columnGap={6} rowGap={8} mt={8} direction={{ base: "column", md: "row" }}>
+              <Box border="1px solid white" borderRadius="md" p={6} flex="1">
+                <Text fontWeight="bold" fontSize="1.25rem">
+                  Custom Chore Lists
+                </Text>
+                <Text>Generate tailored chore lists based on your home type and needs.</Text>
+              </Box>
+              <Box border="1px solid white" borderRadius="md" p={6} flex="1">
+                <Text fontWeight="bold" fontSize="1.25rem">
+                  Fair Assignments
+                </Text>
+                <Text>Assign tasks fairly and track who’s doing what.</Text>
+              </Box>
+              <Box border="1px solid white" borderRadius="md" p={6} flex="1">
+                <Text fontWeight="bold" fontSize="1.25rem">
+                  Progress Tracking
+                </Text>
+                <Text>Mark chores complete and see progress at a glance.</Text>
+              </Box>
+            </Flex>
+          </Container>
         </Box>
-        <Modal isOpen={getStartedOpen} onClose={handleCancelModal} size="xl" isCentered>
+        <Modal isOpen={getStartedOpen} onClose={handleCancelModal} scrollBehavior="inside" size="xl" isCentered>
           <ModalOverlay />
           <ModalContent
             borderRadius="md"
@@ -145,7 +189,9 @@ const Hello: React.FC = () => {
                   setGetStartedStep={setGetStartedStep}
                 />
               )}
-              {getStartedStep === 2 && <Overview setGetStartedStep={setGetStartedStep} />}
+              {getStartedStep === 2 && (
+                <Overview setGetStartedStep={setGetStartedStep} selectedChoreCategories={selectedChoreCategories} />
+              )}
             </ModalBody>
             <ModalFooter borderTop="1px solid rgba(0, 0, 0, 0.1)" justifyContent="flex-end" p={0}>
               <Button variant="ghost" borderRadius={0} onClick={handleCancelModal}>
@@ -159,4 +205,4 @@ const Hello: React.FC = () => {
   );
 };
 
-export default Hello;
+export default Landing;

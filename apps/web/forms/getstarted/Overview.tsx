@@ -1,9 +1,551 @@
 import React from "react";
 import { Box, Button, Container, Stack, Text, Flex } from "@chakra-ui/react";
 
+const DEFAULT_FREQUENCIES = {
+  kitchen: {
+    daily: [
+      {
+        id: "kitchen-wipe-counters",
+        name: "Wipe counters and stovetop",
+        points: 2,
+      },
+      {
+        id: "kitchen-wash-dishes",
+        name: "Wash dishes or load dishwasher",
+        points: 2,
+      },
+      {
+        id: "kitchen-clean-sink",
+        name: "Clean sink and faucet",
+        points: 1,
+      },
+      {
+        id: "kitchen-sweep-mop",
+        name: "Sweep and mop floor",
+        points: 2,
+      },
+      {
+        id: "kitchen-empty-trash",
+        name: "Empty trash and recycling",
+        points: 1,
+      },
+      {
+        id: "kitchen-wipe-table",
+        name: "Wipe down dining table and chairs",
+        points: 1,
+      },
+      {
+        id: "dishwasher-load-unload",
+        name: "Load/unload dishes",
+        points: 2,
+      },
+      {
+        id: "stove-wipe-stovetop",
+        name: "Wipe stovetop after use",
+        points: 2,
+      },
+    ],
+    weekly: [
+      {
+        id: "kitchen-wipe-cabinets",
+        name: "Wipe cabinet doors and handles",
+        points: 2,
+      },
+      {
+        id: "kitchen-clean-microwave",
+        name: "Clean microwave interior and exterior",
+        points: 2,
+      },
+      {
+        id: "kitchen-clean-fridge",
+        name: "Wipe refrigerator shelves and handles",
+        points: 2,
+      },
+      {
+        id: "kitchen-disinfect-cuttingboards",
+        name: "Disinfect cutting boards",
+        points: 1,
+      },
+      {
+        id: "kitchen-wipe-appliances",
+        name: "Wipe small appliances",
+        points: 2,
+      },
+      {
+        id: "kitchen-clean-dishrack",
+        name: "Clean and dry dish rack",
+        points: 1,
+      },
+      {
+        id: "kitchen-replace-sponges",
+        name: "Replace sponges and towels",
+        points: 1,
+      },
+      {
+        id: "kitchen-refill-supplies",
+        name: "Refill soap and cleaning supplies",
+        points: 1,
+      },
+      {
+        id: "dishwasher-wipe-door",
+        name: "Wipe door/seals",
+        points: 1,
+      },
+      {
+        id: "oven-clean-spills",
+        name: "Clean oven spills",
+        points: 3,
+      },
+      {
+        id: "microwave-wipe",
+        name: "Wipe inside/outside",
+        points: 1,
+      },
+      {
+        id: "microwave-turntable",
+        name: "Clean turntable plate",
+        points: 1,
+      },
+      {
+        id: "fridge-toss-expired",
+        name: "Toss expired food",
+        points: 2,
+      },
+    ],
+    monthly: [
+      {
+        id: "kitchen-clean-oven",
+        name: "Clean oven and range hood",
+        points: 3,
+      },
+      {
+        id: "kitchen-reorganize-pantry",
+        name: "Reorganize pantry and wipe shelves",
+        points: 2,
+      },
+      {
+        id: "kitchen-check-expiry",
+        name: "Check and discard expired food",
+        points: 2,
+      },
+      {
+        id: "kitchen-wipe-backsplash",
+        name: "Wipe backsplash and walls",
+        points: 1,
+      },
+      {
+        id: "kitchen-scrub-grout",
+        name: "Scrub grout or edges around sink and counters",
+        points: 2,
+      },
+      {
+        id: "kitchen-polish-steel",
+        name: "Polish stainless steel appliances",
+        points: 1,
+      },
+      {
+        id: "dishwasher-clean-filter",
+        name: "Clean filter",
+        points: 3,
+      },
+      {
+        id: "dishwasher-cleaning-cycle",
+        name: "Run cleaning cycle with vinegar/cleaner",
+        points: 4,
+      },
+      {
+        id: "stove-scrub-burners",
+        name: "Scrub burners/grates",
+        points: 4,
+      },
+      {
+        id: "microwave-deodorize",
+        name: "Deodorize with lemon/vinegar steam",
+        points: 2,
+      },
+      {
+        id: "fridge-wipe-shelves",
+        name: "Wipe shelves/drawers",
+        points: 3,
+      },
+      {
+        id: "pantry-check-expiry",
+        name: "Check expiration dates",
+        points: 2,
+      },
+    ],
+    quarterly: [
+      {
+        id: "oven-deep-clean",
+        name: "Deep clean oven",
+        points: 5,
+      },
+      {
+        id: "fridge-deep-clean",
+        name: "Deep clean interior",
+        points: 4,
+      },
+      {
+        id: "pantry-wipe-shelves",
+        name: "Wipe shelves",
+        points: 3,
+      },
+      {
+        id: "pantry-organize",
+        name: "Organize categories",
+        points: 3,
+      },
+    ],
+    semiannual: [
+      {
+        id: "freezer-defrost",
+        name: "Defrost freezer",
+        points: 4,
+      },
+      {
+        id: "pantry-declutter",
+        name: "Declutter/rotate stock",
+        points: 4,
+      },
+    ],
+  },
+  bathroom: {
+    daily: [
+      {
+        id: "bathroom-wipe-sink",
+        name: "Wipe sink/counter/mirror",
+        points: 2,
+      },
+    ],
+    weekly: [
+      {
+        id: "bathroom-clean-toilet",
+        name: "Clean toilet bowl/seat",
+        points: 3,
+      },
+      {
+        id: "bathroom-scrub-shower",
+        name: "Scrub shower/tub/tiles",
+        points: 3,
+      },
+      {
+        id: "bathroom-mop-floor",
+        name: "Mop floor",
+        points: 2,
+      },
+      {
+        id: "bathroom-wash-towels",
+        name: "Wash towels/bath mats",
+        points: 1,
+      },
+      {
+        id: "bathroom-restock",
+        name: "Restock toiletries",
+        points: 1,
+      },
+    ],
+  },
+  bedrooms: {
+    weekly: [
+      {
+        id: "bedroom-dust",
+        name: "Dust surfaces",
+        points: 2,
+      },
+      {
+        id: "bedroom-vacuum",
+        name: "Vacuum/mop floors",
+        points: 2,
+      },
+      {
+        id: "bedroom-change-sheets",
+        name: "Change sheets",
+        points: 2,
+      },
+    ],
+    monthly: [
+      {
+        id: "bedroom-declutter",
+        name: "Declutter closets/drawers",
+        points: 3,
+      },
+    ],
+  },
+  "living room": {
+    weekly: [
+      {
+        id: "living-dust",
+        name: "Dust surfaces",
+        points: 2,
+      },
+      {
+        id: "living-vacuum",
+        name: "Vacuum/mop floors",
+        points: 2,
+      },
+      {
+        id: "living-fluff-cushions",
+        name: "Fluff cushions",
+        points: 1,
+      },
+      {
+        id: "living-wipe-electronics",
+        name: "Wipe electronics/remotes",
+        points: 2,
+      },
+    ],
+    monthly: [
+      {
+        id: "living-wash-covers",
+        name: "Wash cushion covers/throws",
+        points: 3,
+      },
+    ],
+  },
+  "dining room": {
+    daily: [
+      {
+        id: "dining-wipe-table",
+        name: "Wipe table/chairs",
+        points: 1,
+      },
+      {
+        id: "dining-sweep-floor",
+        name: "Sweep/mop floor",
+        points: 2,
+      },
+    ],
+    weekly: [
+      {
+        id: "dining-dust",
+        name: "Dust furniture/fixtures",
+        points: 2,
+      },
+      {
+        id: "dining-wash-linens",
+        name: "Wash table linens",
+        points: 2,
+      },
+    ],
+  },
+  "laundry room": {
+    weekly: [
+      {
+        id: "laundry-sort-clothes",
+        name: "Sort clothes",
+        points: 1,
+      },
+      {
+        id: "laundry-wash-dry",
+        name: "Wash and dry clothes",
+        points: 3,
+      },
+      {
+        id: "laundry-fold-putaway",
+        name: "Fold and put away clothes",
+        points: 2,
+      },
+      {
+        id: "laundry-clean-lint-trap",
+        name: "Clean lint trap",
+        points: 1,
+      },
+    ],
+    monthly: [
+      {
+        id: "laundry-clean-machine",
+        name: "Clean washing machine/dryer",
+        points: 3,
+      },
+      {
+        id: "laundry-organize-supplies",
+        name: "Organize laundry supplies",
+        points: 2,
+      },
+    ],
+  },
+  garage: {
+    monthly: [
+      {
+        id: "garage-sweep",
+        name: "Sweep floor",
+        points: 2,
+      },
+      {
+        id: "garage-organize",
+        name: "Organize tools/supplies",
+        points: 3,
+      },
+    ],
+    quarterly: [
+      {
+        id: "garage-declutter",
+        name: "Declutter items",
+        points: 4,
+      },
+    ],
+  },
+  outdoor: {
+    daily: [
+      {
+        id: "yard-water",
+        name: "Water plants",
+        points: 2,
+      },
+      {
+        id: "pool-skim",
+        name: "Skim debris",
+        points: 2,
+      },
+    ],
+    "after use": [
+      {
+        id: "grill-scrape",
+        name: "Scrape grill grates",
+        points: 2,
+      },
+    ],
+    weekly: [
+      {
+        id: "yard-mow-lawn",
+        name: "Mow lawn",
+        points: 3,
+      },
+      {
+        id: "yard-weed",
+        name: "Weed flower beds",
+        points: 3,
+      },
+      {
+        id: "pool-test",
+        name: "Test water balance",
+        points: 3,
+      },
+      {
+        id: "pool-add-chemicals",
+        name: "Add chlorine/chemicals",
+        points: 3,
+      },
+      {
+        id: "grill-empty-tray",
+        name: "Empty drip tray/ash pan",
+        points: 2,
+      },
+      {
+        id: "grill-wipe",
+        name: "Wipe exterior surfaces",
+        points: 1,
+      },
+    ],
+    monthly: [
+      {
+        id: "yard-trim",
+        name: "Trim bushes/trees",
+        points: 4,
+      },
+      {
+        id: "pool-clean-filter",
+        name: "Clean filter",
+        points: 4,
+      },
+      {
+        id: "grill-deep-clean",
+        name: "Deep clean burners/grates",
+        points: 4,
+      },
+    ],
+    annual: [
+      {
+        id: "pool-drain",
+        name: "Drain/refill",
+        points: 5,
+      },
+    ],
+    seasonal: [
+      {
+        id: "yard-rake-leaves",
+        name: "Rake leaves",
+        points: 3,
+      },
+    ],
+  },
+  systems: {
+    monthly: [
+      {
+        id: "hvac-wipe-thermostat",
+        name: "Wipe thermostat",
+        points: 1,
+      },
+      {
+        id: "fireplace-wipe-glass",
+        name: "Wipe glass doors",
+        points: 2,
+      },
+    ],
+    quarterly: [
+      {
+        id: "hvac-replace-filter",
+        name: "Replace air filter",
+        points: 3,
+      },
+      {
+        id: "hvac-vacuum",
+        name: "Vacuum vents/registers",
+        points: 2,
+      },
+    ],
+    annual: [
+      {
+        id: "hvac-service",
+        name: "Professional service",
+        points: 5,
+      },
+      {
+        id: "fireplace-inspect",
+        name: "Inspect chimney",
+        points: 4,
+      },
+      {
+        id: "fireplace-sweep",
+        name: "Professional chimney sweep",
+        points: 5,
+      },
+    ],
+    "as needed": [
+      {
+        id: "fireplace-remove-ashes",
+        name: "Remove ashes",
+        points: 2,
+      },
+    ],
+  },
+  hallways: {
+    weekly: [
+      {
+        id: "hallway-dust",
+        name: "Dust surfaces",
+        points: 2,
+      },
+      {
+        id: "hallway-vacuum",
+        name: "Vacuum/mop floors",
+        points: 2,
+      },
+    ],
+    monthly: [
+      {
+        id: "hallway-clean-walls",
+        name: "Clean walls/light switches",
+        points: 2,
+      },
+    ],
+  },
+};
+
 const ChoreCategories: React.FC<{
   setGetStartedStep: (step: 0 | 1 | 2 | 3) => void;
-}> = ({ setGetStartedStep }) => {
+  selectedChoreCategories: string[];
+}> = ({ setGetStartedStep, selectedChoreCategories }) => {
   return (
     <Container py={4} px={0}>
       <Stack spacing={6}>
@@ -13,8 +555,37 @@ const ChoreCategories: React.FC<{
           </Text>
           <Text fontSize="sm" color="gray.500">
             The suggested frequency for chores in each category will be set based on typical household needs. The
-            frequency for each chore can be customized later.
+            frequency or number of points for each chore can be customized later.
           </Text>
+        </Box>
+        <Box>
+          <Stack spacing={4}>
+            {selectedChoreCategories.map((category) => (
+              <Box key={category} p={4} borderWidth="1px" borderRadius="md">
+                <Text fontSize="md" fontWeight="semibold" mb={2} textTransform="capitalize">
+                  {category}
+                </Text>
+                <Stack spacing={2}>
+                  {Object.entries(DEFAULT_FREQUENCIES[category as keyof typeof DEFAULT_FREQUENCIES] || {}).map(
+                    ([frequency, chores]) => (
+                      <Box key={frequency}>
+                        <Text fontSize="sm" fontWeight="medium" textTransform="capitalize" mb={1}>
+                          {frequency}
+                        </Text>
+                        <Stack spacing={1} pl={4}>
+                          {chores.map((chore) => (
+                            <Text key={chore.id} fontSize="sm">
+                              - {chore.name} ({chore.points} point{chore.points > 1 ? "s" : ""})
+                            </Text>
+                          ))}
+                        </Stack>
+                      </Box>
+                    ),
+                  )}
+                </Stack>
+              </Box>
+            ))}
+          </Stack>
         </Box>
         <Flex columnGap={4}>
           <Button type="button" onClick={() => setGetStartedStep(1)}>
