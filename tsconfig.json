@@ -17,6 +17,7 @@
     { "path": "packages/api-client" },
     { "path": "packages/config" },
     { "path": "packages/forms" },
+    { "path": "packages/mirage" },
     { "path": "packages/types" },
     { "path": "packages/ui" },
     { "path": "packages/utils" }
