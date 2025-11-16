@@ -1,4 +1,5 @@
 {
+  "cSpell.ignorePaths": ["pnpm-lock.yaml"],
   "cSpell.words": [
     "backsplash",
     "chakra",
