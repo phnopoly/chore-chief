@@ -1,16 +1,16 @@
 {
-  "name": "@chore-champ/mirage",
-  "version": "0.0.1",
-  "private": true,
+  "dependencies": {
+    "@chore-champ/types": "workspace:*",
+    "miragejs": "^0.1.48"
+  },
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "name": "@chore-champ/mirage",
+  "private": true,
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "clean": "rimraf dist tsconfig.tsbuildinfo",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "dependencies": {
-    "miragejs": "^0.1.48",
-    "@chore-champ/types": "workspace:*"
-  }
+  "types": "dist/index.d.ts",
+  "version": "1.0.0"
 }
