@@ -14,7 +14,7 @@
     "types": ["node"]
   },
   "exclude": ["node_modules"],
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "include": [
     "__tests__/**/*.ts",
     "__tests__/**/*.tsx",

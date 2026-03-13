@@ -8,6 +8,7 @@
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
     "chore-champ": "link:",
+    "cypress": "^15.11.0",
     "eslint": "8.57.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
@@ -19,8 +20,7 @@
     "rimraf": "^6.1.3",
     "ts-jest": "^29.4.6",
     "turbo": "^2.8.16",
-    "typescript": "5.9.3",
-    "web": "^0.0.2"
+    "typescript": "5.9.3"
   },
   "engines": {
     "node": ">=20",
@@ -40,7 +40,8 @@
     "prepare": "husky",
     "test": "jest -c ./jest.config.cjs --passWithNoTests",
     "test:watch": "jest -c ./jest.config.cjs --watch",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "husky:pre-commit": "sh .husky/pre-commit"
   },
   "version": "1.0.0",
   "workspaces": [

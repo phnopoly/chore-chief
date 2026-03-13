@@ -6,6 +6,6 @@
     "rootDir": "src",
     "tsBuildInfoFile": "tsconfig.tsbuildinfo"
   },
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "include": ["src"]
 }
