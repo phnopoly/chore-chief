@@ -1,8 +1,5 @@
 {
-  "dependencies": {
-    "mongoose": "^8.19.1",
-    "zod": "^4.1.12"
-  },
+  "dependencies": {},
   "exports": "./src/index.ts",
   "main": "dist/index.js",
   "name": "@chore-champ/utils",

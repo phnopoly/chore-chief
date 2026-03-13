@@ -16,8 +16,7 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-import HouseholdInfo from "@chore-champ/forms/HouseholdInfo";
-import ChoreCategories from "@chore-champ/forms/ChoreCategories";
+import { ChoreCategories, HouseholdInfo } from "@chore-champ/forms";
 import Overview from "./Overview";
 
 const Landing: React.FC = () => {
