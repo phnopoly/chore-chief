@@ -6,8 +6,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
     "noEmit": false,
     "resolveJsonModule": true,
     "target": "ES2022",

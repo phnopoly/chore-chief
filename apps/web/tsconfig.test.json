@@ -2,7 +2,6 @@
   "compilerOptions": {
     "isolatedModules": false,
     "jsx": "react-jsx",
-    "moduleResolution": "Node",
     "noEmit": true,
     "rootDir": ".",
     "types": ["@testing-library/jest-dom", "jest", "node"]

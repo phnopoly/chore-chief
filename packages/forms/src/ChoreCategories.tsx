@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Box,
-  Button,
   Container,
   Stack,
   FormControl,
@@ -12,6 +11,7 @@ import {
   Checkbox,
   Flex,
 } from "@chakra-ui/react";
+import { Button } from "@chore-champ/ui";
 
 const CATEGORIES = [
   "kitchen",
@@ -65,12 +65,13 @@ const ChoreCategories: React.FC<{
           </CheckboxGroup>
           <FormHelperText>Select at least one category.</FormHelperText>
         </FormControl>
-        <Flex columnGap={4}>
-          <Button type="button" onClick={() => setGetStartedStep(0)}>
+        <Flex columnGap={4} alignSelf="flex-end">
+          <Button type="button" size="md" onClick={() => setGetStartedStep(0)}>
             Back
           </Button>
           <Button
             type="submit"
+            size="md"
             onClick={() => {
               if (selectedChoreCategories.length > 0) {
                 setGetStartedStep(2);

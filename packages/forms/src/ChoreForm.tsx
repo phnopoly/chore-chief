@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Heading, Stack, Text, Spinner, Flex } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Spinner, Flex } from "@chakra-ui/react";
+import { Button } from "@chore-champ/ui";
 
 interface Chore {
   id: string;
@@ -47,20 +48,20 @@ const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, selectedCategories }) =
   if (loading)
     return (
       <Box textAlign="center" mt={8}>
-        <Spinner size="lg" color="teal.500" />
+        <Spinner size="lg" />
         <Text mt={2}>Loading chores...</Text>
       </Box>
     );
 
   return (
     <Box bg="white" p={6} borderRadius="xl" boxShadow="sm" w="full" maxW="xl" textAlign="left">
-      <Heading as="h2" fontFamily="'Merriweather', serif" color="teal.700" mb={4}>
+      <Heading as="h2" mb={4}>
         All Chores by Frequency
       </Heading>
 
       {Object.entries(groupedByFrequency).map(([frequency, chores]) => (
         <Box key={frequency} mb={8}>
-          <Heading as="h3" size="sm" color="teal.600" fontFamily="'Merriweather', serif" mb={3} letterSpacing="wide">
+          <Heading as="h3" size="sm" mb={3} letterSpacing="wide">
             {frequency.toUpperCase()}
           </Heading>
 
@@ -81,9 +82,7 @@ const ChoreForm: React.FC<ChoreFormProps> = ({ filePath, selectedCategories }) =
       ))}
 
       <Stack align="center" mt={6}>
-        <Button colorScheme="teal" size="sm" px={8}>
-          Save
-        </Button>
+        <Button size="md">Save</Button>
       </Stack>
     </Box>
   );

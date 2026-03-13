@@ -2,6 +2,7 @@
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
     "@chore-champ/forms": "workspace:*",
+    "@chore-champ/ui": "workspace:*",
     "@chore-champ/mirage": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",

@@ -7,14 +7,12 @@
     "outDir": "dist",
     "rootDir": "src",
     "tsBuildInfoFile": "tsconfig.tsbuildinfo",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "noEmit": false,
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "include": ["src"]
 }

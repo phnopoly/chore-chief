@@ -112,6 +112,9 @@ importers:
       '@chore-champ/mirage':
         specifier: workspace:*
         version: link:../../packages/mirage
+      '@chore-champ/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.14)(react@18.3.1)
@@ -150,6 +153,9 @@ importers:
       '@chakra-ui/react':
         specifier: 2.8.2
         version: 2.8.2(@emotion/react@11.14.0(@types/react@19.2.14)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@18.3.1))(@types/react@19.2.14)(react@18.3.1))(@types/react@19.2.14)(framer-motion@12.36.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@chore-champ/ui':
+        specifier: workspace:*
+        version: link:../ui
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -181,7 +187,23 @@ importers:
 
   packages/types: {}
 
-  packages/ui: {}
+  packages/ui:
+    dependencies:
+      '@chakra-ui/react':
+        specifier: 2.8.2
+        version: 2.8.2(@emotion/react@11.14.0(@types/react@19.2.14)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@18.3.1))(@types/react@19.2.14)(react@18.3.1))(@types/react@19.2.14)(framer-motion@12.36.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@types/react':
+        specifier: ^19.2.14
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.14)
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
   packages/utils: {}
 

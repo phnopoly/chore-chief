@@ -1,6 +1,7 @@
 import React from "react";
 import useSWR from "swr";
-import { Box, Button, Container, Stack, Text, Flex } from "@chakra-ui/react";
+import { Box, Container, Stack, Text, Flex } from "@chakra-ui/react";
+import { Button } from "@chore-champ/ui";
 import { Chore } from "@chore-champ/mirage/src/schema";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -67,9 +68,13 @@ const Overview: React.FC<{
           </Stack>
         </Box>
 
-        <Flex columnGap={4}>
-          <Button onClick={() => setGetStartedStep(1)}>Back</Button>
-          <Button onClick={() => setGetStartedStep(3)}>Next</Button>
+        <Flex columnGap={4} alignSelf="flex-end">
+          <Button size="md" onClick={() => setGetStartedStep(1)}>
+            Back
+          </Button>
+          <Button size="md" onClick={() => setGetStartedStep(3)}>
+            Next
+          </Button>
         </Flex>
       </Stack>
     </Container>

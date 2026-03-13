@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Box, Heading, Grid, Button, Text, Checkbox } from "@chakra-ui/react";
+import { Box, Heading, Grid, Text, Checkbox, Flex } from "@chakra-ui/react";
+import { Button } from "@chore-champ/ui";
 
 const COMMON_CATEGORIES = ["kitchen", "bathroom", "bedrooms", "living room", "dining room", "laundry room"];
-
 const ADDITIONAL_CATEGORIES = ["garage", "outdoors", "systems", "hallways"];
 
 const CategoryForm: React.FC<{
@@ -47,14 +47,7 @@ const CategoryForm: React.FC<{
         _hover={{ bg: isChecked ? "blue.100" : "gray.50" }}
         boxSizing="border-box"
       >
-        <Checkbox
-          isChecked={isChecked}
-          onChange={() => toggle(label)}
-          colorScheme="blue"
-          size="md"
-          mr={3}
-          flexShrink={0}
-        />
+        <Checkbox isChecked={isChecked} onChange={() => toggle(label)} size="md" mr={3} flexShrink={0} />
         <Text
           fontSize="sm"
           fontWeight="medium"
@@ -70,7 +63,7 @@ const CategoryForm: React.FC<{
   };
 
   return (
-    <Box bg="gray.50" px={8} py={10} mx="auto" maxW="5xl" rounded="lg">
+    <Flex bg="gray.50" px={8} py={10} mx="auto" maxW="5xl" rounded="lg">
       <Heading as="h1" size="lg" textAlign="center" mb={8}>
         Select Chore Categories
       </Heading>
@@ -89,12 +82,12 @@ const CategoryForm: React.FC<{
         ))}
       </Grid>
 
-      <Box textAlign="center" mt={10}>
-        <Button colorScheme="blue" onClick={handleSubmit}>
+      <Flex textAlign="center" mt={10} alignSelf="flex-end">
+        <Button onClick={handleSubmit} size="md">
           Continue
         </Button>
-      </Box>
-    </Box>
+      </Flex>
+    </Flex>
   );
 };
 

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
+    "@chore-champ/ui": "workspace:*",
     "react": "18.3.1",
     "react-hook-form": "^7.51.0"
   },

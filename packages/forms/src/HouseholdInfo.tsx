@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Button, Container, Stack, FormControl, FormLabel, Input, Select, Text } from "@chakra-ui/react";
+import { Box, Container, Stack, FormControl, FormLabel, Input, Select, Text, Flex } from "@chakra-ui/react";
+import { Button } from "@chore-champ/ui";
 
 const HOUSE_TYPES = [
   { value: "apartment", label: "Apartment | Condo" },
@@ -63,17 +64,19 @@ const HouseholdInfo: React.FC<{
           </Select>
         </FormControl>
 
-        <Button
-          type="submit"
-          alignSelf="flex-start"
-          onClick={() => {
-            if (numMembers !== null && homeType !== null) {
-              setGetStartedStep(1);
-            }
-          }}
-        >
-          Next
-        </Button>
+        <Flex alignSelf="flex-end">
+          <Button
+            type="submit"
+            size="md"
+            onClick={() => {
+              if (numMembers !== null && homeType !== null) {
+                setGetStartedStep(1);
+              }
+            }}
+          >
+            Next
+          </Button>
+        </Flex>
       </Stack>
     </Container>
   );
