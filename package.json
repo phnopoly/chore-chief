@@ -1,14 +1,19 @@
 {
   "dependencies": {
+    "@auth/core": "^0.34.3",
     "@chakra-ui/react": "2.8.2",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
+    "bcrypt": "^6.0.0",
     "framer-motion": "10.16.4",
+    "googleapis": "^166.0.0",
     "miragejs": "^0.1.48",
     "next": "14.2.5",
+    "next-auth": "^4.24.13",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rimraf": "^6.1.0"
+    "rimraf": "^6.1.0",
+    "swr": "^2.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
@@ -57,6 +62,7 @@
   "name": "chore-champ",
   "packageManager": "pnpm@10.18.0",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
     "build": "turbo run build",
     "build:ci": "turbo run build --cache-dir=.turbo",

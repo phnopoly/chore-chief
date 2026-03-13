@@ -190,7 +190,7 @@ const Landing: React.FC = () => {
                 />
               )}
               {getStartedStep === 2 && (
-                <Overview setGetStartedStep={setGetStartedStep} selectedChoreCategories={selectedChoreCategories} />
+                <Overview setGetStartedStep={setGetStartedStep} selectedCategories={selectedChoreCategories} />
               )}
             </ModalBody>
             <ModalFooter borderTop="1px solid rgba(0, 0, 0, 0.1)" justifyContent="flex-end" p={0}>
