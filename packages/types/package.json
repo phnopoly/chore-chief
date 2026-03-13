@@ -4,7 +4,7 @@
     "dist"
   ],
   "main": "dist/index.js",
-  "name": "types",
+  "name": "@chore-champ/types",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "clean": "rimraf dist tsconfig.tsbuildinfo",

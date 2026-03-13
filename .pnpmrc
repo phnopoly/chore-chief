@@ -1,6 +1,10 @@
 engine-strict=true
 fund=false
 audit=true
+
 package-lock=false
 use-lockfile=true
 shared-workspace-lockfile=true
+
+ignore-workspace-root-check=true
+strict-peer-dependencies=false

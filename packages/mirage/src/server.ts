@@ -1,42 +1,47 @@
-import { createServer } from "miragejs";
-import { choresSeed } from "./chores";
-import { Chore, choreModel } from "./schema";
+import { createServer, Model, Registry } from "miragejs";
+import type { ModelDefinition } from "miragejs/-types";
+import { Chore } from "./schema";
+import { loadChoresFromSheet } from "./loadChoresFromSheet";
 
-export const makeServer = () =>
-  createServer({
+export const choreModel: ModelDefinition<Partial<Chore>> = Model.extend({});
+
+type Models = {
+  chore: typeof choreModel;
+};
+
+type Factories = Record<string, never>;
+
+export type AppRegistry = Registry<Models, Factories>;
+
+export type AppSchema = AppRegistry & {
+  db: {
+    chores: Chore[];
+  };
+};
+
+export const makeServer = (options?: { sheetUrl?: string }) => {
+  console.log(options);
+  console.log(options?.sheetUrl);
+  const server = createServer({
     models: {
-      chore: choreModel,
-    },
-
-    seeds(server) {
-      Object.entries(choresSeed).forEach(([room, frequencies]) => {
-        Object.entries(frequencies).forEach(([frequency, items]) => {
-          items.forEach((task) =>
-            server.create("chore", {
-              ...task,
-              room,
-              frequency,
-            } as Chore),
-          );
-        });
-      });
+      chore: Model,
     },
 
     routes() {
+      this.passthrough("https://docs.google.com/**");
+      this.passthrough("https://\*.googleusercontent.com/**");
       this.namespace = "api";
-
       this.get("/chores", (schema) => schema.all("chore"));
-
-      this.get("/chores/:room", (schema, req) => {
-        const room = req.params.room;
-        return schema.all("chore").models.filter((c) => (c.attrs as Chore).room === room);
-      });
-
-      this.get("/chores/:room/:frequency", (schema, req) => {
-        const { room, frequency } = req.params;
-        return schema
-          .all("chore")
-          .models.filter((c) => (c.attrs as Chore).room === room && (c.attrs as Chore).frequency === frequency);
-      });
     },
   });
+  console.log("ab");
+  if (options?.sheetUrl) {
+    loadChoresFromSheet(server, options.sheetUrl)
+      .then(() => {
+        console.info("[Mirage] chores loaded:", server.db.chores.length);
+      })
+      .catch(console.error);
+  }
+
+  return server;
+};

@@ -1,15 +1,14 @@
-import { Model, Registry } from "miragejs";
-import type { ModelDefinition } from "miragejs/-types";
+import { Registry, Model } from "miragejs";
+import { ModelDefinition } from "miragejs/-types";
 
+// temporary here until we figure out a way for packages to depend on each other in dev
 export interface Chore {
   id: string;
   name: string;
   points: number;
-  room: string;
-  frequency: string;
+  frequency?: string;
+  category?: string;
 }
-
-export const choreModel: ModelDefinition<Partial<Chore>> = Model.extend({});
 
 type Models = {
   chore: typeof choreModel;
@@ -19,12 +18,10 @@ type Factories = Record<string, never>;
 
 export type AppRegistry = Registry<Models, Factories>;
 
-export type AppSchema = {
-  all: <K extends keyof Models>(
-    modelName: K,
-  ) => {
-    models: Array<{
-      attrs: Chore;
-    }>;
+export type AppSchema = AppRegistry & {
+  db: {
+    chores: Chore[];
   };
 };
+
+export const choreModel: ModelDefinition<Partial<Chore>> = Model.extend({});
