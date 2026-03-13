@@ -32,6 +32,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:ci": "turbo run build --cache-dir=.turbo",
+    "ci:local": "pnpm install --frozen-lockfile && pnpm typecheck && pnpm lint && pnpm test",
     "clean": "rimraf node_modules **/node_modules **/dist",
     "dev": "turbo run dev --parallel",
     "format": "prettier -w .",
@@ -40,8 +41,7 @@
     "prepare": "husky",
     "test": "jest -c ./jest.config.cjs --passWithNoTests",
     "test:watch": "jest -c ./jest.config.cjs --watch",
-    "typecheck": "turbo run typecheck",
-    "husky:pre-commit": "sh .husky/pre-commit"
+    "typecheck": "turbo run typecheck"
   },
   "version": "1.0.0",
   "workspaces": [
