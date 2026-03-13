@@ -16,9 +16,9 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-import HouseholdInfo from "../forms/getstarted/HouseholdInfo";
-import ChoreCategories from "../forms/getstarted/ChoreCategories";
-import Overview from "../forms/getstarted/Overview";
+import HouseholdInfo from "@chore-champ/forms/HouseholdInfo";
+import ChoreCategories from "@chore-champ/forms/ChoreCategories";
+import Overview from "./Overview";
 
 const Landing: React.FC = () => {
   const [getStartedOpen, setGetStartedOpen] = useState(false);

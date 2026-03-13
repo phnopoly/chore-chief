@@ -3,7 +3,7 @@
     "@chore-champ/types": "workspace:*",
     "miragejs": "^0.1.48"
   },
-  "main": "dist/index.js",
+  "main": "init.ts",
   "name": "@chore-champ/mirage",
   "private": true,
   "scripts": {

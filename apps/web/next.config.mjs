@@ -6,7 +6,13 @@ const nextConfig = {
   experimental: {
     externalDir: true,
   },
-
+  transpilePackages: [
+    "@chore-champ/forms",
+    "@chore-champ/mirage",
+    "@chore-champ/ui",
+    "@chore-champ/utils",
+    "@chore-champ/types",
+  ],
   typescript: { ignoreBuildErrors: true },
   eslint: { ignoreDuringBuilds: true },
 

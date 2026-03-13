@@ -1,47 +1,32 @@
-import { createServer, Model, Registry } from "miragejs";
+import { createServer, Model, Server } from "miragejs";
 import type { ModelDefinition } from "miragejs/-types";
 import { Chore } from "./schema";
-import { loadChoresFromSheet } from "./loadChoresFromSheet";
+import { choresSeed } from "./chores";
 
 export const choreModel: ModelDefinition<Partial<Chore>> = Model.extend({});
 
-type Models = {
-  chore: typeof choreModel;
+const seedChores = (server: Server): void => {
+  for (const [category, frequencies] of Object.entries(choresSeed)) {
+    for (const [frequency, chores] of Object.entries(frequencies)) {
+      for (const chore of chores) {
+        server.create("chore", { ...chore, category, frequency });
+      }
+    }
+  }
 };
 
-type Factories = Record<string, never>;
-
-export type AppRegistry = Registry<Models, Factories>;
-
-export type AppSchema = AppRegistry & {
-  db: {
-    chores: Chore[];
-  };
-};
-
-export const makeServer = (options?: { sheetUrl?: string }) => {
-  console.log(options);
-  console.log(options?.sheetUrl);
+export const makeServer = (): Server => {
   const server = createServer({
     models: {
-      chore: Model,
+      chore: choreModel,
     },
-
     routes() {
-      this.passthrough("https://docs.google.com/**");
-      this.passthrough("https://\*.googleusercontent.com/**");
+      this.passthrough();
       this.namespace = "api";
       this.get("/chores", (schema) => schema.all("chore"));
     },
   });
-  console.log("ab");
-  if (options?.sheetUrl) {
-    loadChoresFromSheet(server, options.sheetUrl)
-      .then(() => {
-        console.info("[Mirage] chores loaded:", server.db.chores.length);
-      })
-      .catch(console.error);
-  }
-
+  seedChores(server);
+  console.info("[Mirage] Loaded chores:", server.db.chores.length);
   return server;
 };

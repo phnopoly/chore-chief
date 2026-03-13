@@ -1,7 +1,7 @@
 import React from "react";
 import useSWR from "swr";
 import { Box, Button, Container, Stack, Text, Flex } from "@chakra-ui/react";
-import { Chore } from "../../../../packages/mirage/src/schema";
+import { Chore } from "@chore-champ/mirage/src/schema";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -16,15 +16,14 @@ const Overview: React.FC<{
   const choresArray = data.chores;
   const grouped: Record<string, Record<string, Chore[]>> = {};
 
-  choresArray.forEach((model: Chore) => {
-    const c = model;
+  choresArray.forEach((c: Chore) => {
+    if (!c.category || !c.frequency) return;
+    if (!selectedCategories.includes(c.category)) return;
 
-    if (!selectedCategories.includes(c.room)) return;
+    if (!grouped[c.category]) grouped[c.category] = {};
+    if (!grouped[c.category][c.frequency]) grouped[c.category][c.frequency] = [];
 
-    if (!grouped[c.room]) grouped[c.room] = {};
-    if (!grouped[c.room][c.frequency]) grouped[c.room][c.frequency] = [];
-
-    grouped[c.room][c.frequency].push(c);
+    grouped[c.category][c.frequency].push(c);
   });
 
   return (

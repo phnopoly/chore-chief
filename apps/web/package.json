@@ -1,15 +1,19 @@
 {
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
+    "@chore-champ/forms": "workspace:*",
+    "@chore-champ/mirage": "workspace:*",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "framer-motion": "10.16.4",
     "next": "14.2.5",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "swr": "^2.4.1"
   },
   "devDependencies": {
-    "@chore-champ/mirage": "workspace:*"
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
   },
   "name": "web",
   "private": true,

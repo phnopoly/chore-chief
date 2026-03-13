@@ -7,10 +7,31 @@
     "esModuleInterop": true,
     "jsx": "react",
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@chore-champ/api-client": ["packages/api-client/src"],
+      "@chore-champ/api-client/*": ["packages/api-client/src/*"],
+      "@chore-champ/config": ["packages/config/src"],
+      "@chore-champ/config/*": ["packages/config/src/*"],
+      "@chore-champ/forms": ["packages/forms/src"],
+      "@chore-champ/forms/*": ["packages/forms/src/*"],
+      "@chore-champ/mirage": ["packages/mirage/src"],
+      "@chore-champ/mirage/*": ["packages/mirage/src/*"],
+      "@chore-champ/types": ["packages/types/src"],
+      "@chore-champ/types/*": ["packages/types/src/*"],
+      "@chore-champ/ui": ["packages/ui/src"],
+      "@chore-champ/ui/*": ["packages/ui/src/*"],
+      "@chore-champ/utils": ["packages/utils/src"],
+      "@chore-champ/utils/*": ["packages/utils/src/*"]
+    }
   },
+
   "files": [],
-  "include": ["apps", "jest.setup.*.ts", "packages", "tests"],
+
+  "include": ["apps", "packages", "tests", "jest.setup.*.ts"],
+
   "references": [
     { "path": "apps/web" },
     { "path": "apps/api" },
