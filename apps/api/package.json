@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
     "build": "rimraf dist && tsc -p tsconfig.json",
     "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint .",
     "rebuild": "pnpm run clean && pnpm run build",
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit"

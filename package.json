@@ -36,6 +36,7 @@
     "@typescript-eslint/parser": "^8.57.0",
     "chore-champ": "link:",
     "cypress": "^15.11.0",
+    "eslint": "8.57.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "husky": "^9.1.7",

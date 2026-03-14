@@ -8,8 +8,8 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "clean": "rimraf dist tsconfig.tsbuildinfo",
-    "rebuild": "pnpm run clean && pnpm run build",
     "lint": "eslint .",
+    "rebuild": "pnpm run clean && pnpm run build",
     "test": "jest --passWithNoTests",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   }
