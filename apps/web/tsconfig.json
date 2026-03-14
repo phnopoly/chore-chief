@@ -1,25 +1,14 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "allowJs": true,
     "composite": true,
     "incremental": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "noEmit": false,
-    "resolveJsonModule": true,
-    "target": "ES2022",
-    "types": ["node"]
+    "noEmit": true,
+    "types": ["node"],
+    "jsx": "preserve"
   },
-  "exclude": ["node_modules"],
-  "extends": "../../tsconfig.base.json",
-  "include": [
-    "__tests__/**/*.ts",
-    "__tests__/**/*.tsx",
-    "jest.setup.web.ts",
-    "next-env.d.ts",
-    "src",
-    "src/**/*.(test|spec).ts",
-    "src/**/*.(test|spec).tsx"
-  ]
+  "include": ["next-env.d.ts", "src", "__tests__", "jest.setup.web.ts"],
+  "exclude": ["node_modules"]
 }

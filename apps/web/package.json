@@ -1,9 +1,20 @@
 {
+  "name": "web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "cross-env NEXT_DISABLE_ESLINT=1 next build",
+    "start": "next start -p 3000",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest -c ./jest.config.cjs --passWithNoTests"
+  },
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
     "@chore-champ/forms": "workspace:*",
-    "@chore-champ/ui": "workspace:*",
     "@chore-champ/mirage": "workspace:*",
+    "@chore-champ/ui": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "framer-motion": "^12.36.0",
@@ -13,18 +24,8 @@
     "swr": "^2.4.1"
   },
   "devDependencies": {
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
-  },
-  "name": "web",
-  "private": true,
-  "scripts": {
-    "build": "cross-env NEXT_DISABLE_ESLINT=1 next build",
-    "dev": "next dev -p 3000",
-    "lint": "pnpm exec eslint .",
-    "start": "next start -p 3000",
-    "test": "cross-env jest -c ./jest.config.cjs --passWithNoTests",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
-  },
-  "version": "1.0.0"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.3",
+    "cross-env": "^10.1.0"
+  }
 }

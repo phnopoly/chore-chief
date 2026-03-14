@@ -1,4 +1,4 @@
-import { makeServer } from "./src/server";
+import { makeServer } from "./server";
 
 declare global {
   interface Window {
@@ -9,3 +9,5 @@ declare global {
 if (process.env.NODE_ENV === "development") {
   makeServer();
 }
+
+export { makeServer };

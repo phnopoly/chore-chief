@@ -1,7 +1,9 @@
 {
-  "compilerOptions": {
-    "types": ["cypress","node"]
-  },
   "extends": "../tsconfig.base.json",
-  "include": ["**/*.ts"]
+  "compilerOptions": {
+    "types": ["cypress", "node"],
+    "lib": ["DOM", "ES2022"],
+    "isolatedModules": false
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
 }

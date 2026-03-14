@@ -1,7 +1,7 @@
 import { ChakraProvider, extendTheme, ThemeConfig } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 import React from "react";
-import "@chore-champ/mirage/init";
+import "@chore-champ/mirage";
 
 const config: ThemeConfig = {
   initialColorMode: "light",

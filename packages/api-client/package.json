@@ -1,16 +1,15 @@
 {
-  "devDependencies": {},
+  "name": "@chore-champ/api-client",
+  "version": "1.0.0",
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "name": "@chore-champ/api-client",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": "./dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "clean": "rimraf dist tsconfig.tsbuildinfo",
-    "codegen": "graphql-codegen",
     "typecheck": "tsc -p tsconfig.json --noEmit"
-  },
-  "types": "dist/index.d.ts",
-  "version": "1.0.0"
+  }
 }

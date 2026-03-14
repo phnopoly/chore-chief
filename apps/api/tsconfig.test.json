@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
     "noEmit": true,
     "rootDir": ".",
     "types": ["@testing-library/jest-dom", "jest", "node"]

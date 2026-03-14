@@ -1,27 +1,13 @@
 {
-  "compilerOptions": {
-    "allowJs": false,
-    "baseUrl": ".",
-    "composite": true,
-    "esModuleInterop": true,
-    "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "noEmit": false,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "rootDir": ".",
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "types": ["jest", "node"],
-    "useUnknownInCatchVariables": true,
-    "verbatimModuleSyntax": false
-  },
-  "exclude": [".turbo", "build", "coverage", "dist", "node_modules"],
   "extends": "../../tsconfig.base.json",
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "src/**/*"]
+  "compilerOptions": {
+    "composite": true,
+    "incremental": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "noEmit": false,
+    "types": ["node", "jest"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "coverage", ".turbo", "build"]
 }

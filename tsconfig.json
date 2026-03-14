@@ -1,16 +1,6 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "jsx": "react",
-    "lib": ["DOM", "DOM.Iterable", "ES2022", "ESNext"],
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "ES2022"
-  },
-  "include": ["apps", "jest.setup.*.ts", "packages", "tests"],
+  "files": [],
   "references": [
-    { "path": "apps/web" },
     { "path": "apps/api" },
     { "path": "packages/api-client" },
     { "path": "packages/config" },

@@ -1,13 +1,10 @@
 {
-  "devDependencies": {},
+  "name": "@chore-champ/config",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
   "exports": {
     "./eslint": "./eslint.cjs",
     "./prettier": "./prettier.json"
-  },
-  "main": "dist/index.js",
-  "name": "@chore-champ/config",
-  "private": true,
-  "type": "commonjs",
-  "types": "dist/index.d.ts",
-  "version": "1.0.0"
+  }
 }
