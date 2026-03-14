@@ -13,6 +13,7 @@
     "eslintcache",
     "gamify",
     "getstarted",
+    "healthcheck",
     "HVAC",
     "Manideep",
     "miragejs",
@@ -39,5 +40,6 @@
     "**/coverage/**": true,
     "**/dist/**": true
   },
+  "prettier.prettierPath": "./node_modules/prettier/index.cjs",
   "typescript.tsdk": "node_modules/typescript/lib"
 }

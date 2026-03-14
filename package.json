@@ -7,6 +7,7 @@
     "@types/node": "^25.5.0",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
+    "chore-champ": "link:",
     "cypress": "^15.11.0",
     "eslint": "8.57.1",
     "eslint-plugin-react": "^7.37.5",

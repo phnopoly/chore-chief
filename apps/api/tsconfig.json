@@ -19,14 +19,9 @@
     "strictNullChecks": true,
     "types": ["jest", "node"],
     "useUnknownInCatchVariables": true,
-    "verbatimModuleSyntax": false,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "verbatimModuleSyntax": false
   },
-  "exclude": [".next", ".turbo", "build", "coverage", "dist", "node_modules"],
+  "exclude": [".turbo", "build", "coverage", "dist", "node_modules"],
   "extends": "../../tsconfig.base.json",
-  "include": ["__tests__/**/*", "env.d.ts", "next-env.d.ts", "postcss.config.*", "src/**/*", ".next/types/**/*.ts"]
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "src/**/*"]
 }
