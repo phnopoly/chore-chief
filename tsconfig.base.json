@@ -12,6 +12,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "noEmit": false,
     "baseUrl": ".",
     "paths": {
       "@api-client/*": ["packages/api-client/src/*"],

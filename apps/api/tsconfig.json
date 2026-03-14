@@ -5,7 +5,6 @@
     "incremental": true,
     "outDir": "dist",
     "rootDir": "src",
-    "noEmit": false,
     "types": ["node", "jest"]
   },
   "include": ["src"],

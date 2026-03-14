@@ -5,7 +5,6 @@
     "composite": true,
     "incremental": true,
     "isolatedModules": true,
-    "noEmit": true,
     "types": ["node"],
     "jsx": "preserve"
   },
