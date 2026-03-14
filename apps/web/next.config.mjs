@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   experimental: {
     externalDir: true,
   },
@@ -14,11 +13,11 @@ const nextConfig = {
     "@chore-champ/ui",
     "@chore-champ/utils",
   ],
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
-
   webpack(config) {
-    config.resolve.extensions.push(".ts", ".tsx");
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: ["**/node_modules/**", "!**/node_modules/@chore-champ/**"],
+    };
     return config;
   },
 };

@@ -2,24 +2,27 @@
   "name": "@chore-champ/forms",
   "version": "1.0.0",
   "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "files": [
     "dist"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "clean": "rimraf dist"
+    "build": "rimraf dist && tsc -p tsconfig.json",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "rebuild": "pnpm run clean && pnpm run build"
   },
   "dependencies": {
+    "@chore-champ/api-client": "workspace:*",
+    "@chore-champ/types": "workspace:*",
     "@chore-champ/ui": "workspace:*",
     "react-hook-form": "^7.51.0"
   },
   "peerDependencies": {
+    "@chakra-ui/react": "2.x",
     "react": "18.x",
-    "react-dom": "18.x",
-    "@chakra-ui/react": "2.x"
+    "react-dom": "18.x"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

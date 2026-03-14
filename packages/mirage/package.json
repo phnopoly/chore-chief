@@ -2,9 +2,9 @@
   "name": "@chore-champ/mirage",
   "version": "1.0.0",
   "private": true,
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": "./dist/index.js",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": "./src/index.ts",
   "files": [
     "dist"
   ],
@@ -15,6 +15,7 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "rebuild": "pnpm run clean && pnpm run build",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   }
 }

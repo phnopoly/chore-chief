@@ -3,17 +3,20 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
     "build": "cross-env NEXT_DISABLE_ESLINT=1 next build",
-    "start": "next start -p 3000",
+    "dev": "next dev --turbo -p 3000",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "test": "jest -c ./jest.config.cjs --passWithNoTests"
+    "start": "next start -p 3000",
+    "test": "jest -c ./jest.config.cjs --passWithNoTests",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
+    "@chore-champ/api-client": "workspace:*",
+    "@chore-champ/config": "workspace:*",
     "@chore-champ/forms": "workspace:*",
     "@chore-champ/mirage": "workspace:*",
+    "@chore-champ/types": "workspace:*",
     "@chore-champ/ui": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",

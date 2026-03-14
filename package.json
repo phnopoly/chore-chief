@@ -12,18 +12,19 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --parallel --continue",
-    "build": "turbo run build",
+    "build": "pnpm -r run build",
     "build:ci": "turbo run build --cache-dir=.turbo",
-    "typecheck": "turbo run typecheck",
+    "ci:local": "pnpm install --frozen-lockfile && pnpm build && pnpm typecheck && pnpm lint && pnpm test",
+    "clean": "pnpm -r run clean",
+    "dev": "turbo run dev --parallel",
+    "format": "prettier -w .",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- --fix",
+    "prepare": "husky",
+    "rebuild": "pnpm run clean && pnpm install && pnpm -r run build",
     "test": "jest -c ./jest.config.cjs --passWithNoTests",
     "test:watch": "jest -c ./jest.config.cjs --watch",
-    "format": "prettier -w .",
-    "clean": "rimraf node_modules apps/*/node_modules packages/*/node_modules apps/*/dist packages/*/dist .turbo",
-    "ci:local": "pnpm install --frozen-lockfile && pnpm build && pnpm typecheck && pnpm lint && pnpm test",
-    "prepare": "husky"
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

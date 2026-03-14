@@ -9,24 +9,27 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-import { ChoreCategories, HouseholdInfo } from "@chore-champ/forms";
+import { ChoreForm, HouseholdForm } from "@chore-champ/forms";
 import Overview from "./Overview";
 import Header from "../src/Header";
 import Body from "../src/Body";
 import Footer from "../src/Footer";
+import { useReferenceCategories } from "@chore-champ/api-client";
 
 const Landing: React.FC = () => {
   const [getStartedOpen, setGetStartedOpen] = useState(false);
   const [getStartedStep, setGetStartedStep] = useState<0 | 1 | 2 | 3>(0);
-  const [numMembers, setNumMembers] = useState<number | null>(null);
-  const [homeType, setHomeType] = useState<string | null>(null);
+  const [numMembers, setNumMembers] = React.useState(1);
+  const [bedrooms, setBedrooms] = React.useState(1);
+  const [bathrooms, setBathrooms] = React.useState(1);
   const [selectedChoreCategories, setSelectedChoreCategories] = useState<string[]>([]);
+
+  const { categories, loading } = useReferenceCategories();
 
   const handleCancelModal = () => {
     setGetStartedStep(0);
     setSelectedChoreCategories([]);
-    setNumMembers(null);
-    setHomeType(null);
+    setNumMembers(1);
     setGetStartedOpen(false);
   };
 
@@ -58,21 +61,22 @@ const Landing: React.FC = () => {
             <ModalCloseButton size="lg" borderRadius={0} position="unset" />
           </ModalHeader>
           <ModalBody>
-            {getStartedStep === 0 && (
-              <HouseholdInfo
+            {getStartedStep === 0 && !loading && (
+              <HouseholdForm
                 numMembers={numMembers}
+                categories={categories}
                 setNumMembers={setNumMembers}
-                homeType={homeType}
-                setHomeType={setHomeType}
-                setGetStartedStep={setGetStartedStep}
-              />
-            )}
-            {getStartedStep === 1 && (
-              <ChoreCategories
+                bedrooms={bedrooms}
+                setBedrooms={setBedrooms}
+                bathrooms={bathrooms}
+                setBathrooms={setBathrooms}
                 selectedChoreCategories={selectedChoreCategories}
                 setSelectedChoreCategories={setSelectedChoreCategories}
                 setGetStartedStep={setGetStartedStep}
               />
+            )}
+            {getStartedStep === 1 && (
+              <ChoreForm filePath="/data/chores.json" selectedCategories={selectedChoreCategories} />
             )}
             {getStartedStep === 2 && (
               <Overview setGetStartedStep={setGetStartedStep} selectedCategories={selectedChoreCategories} />
