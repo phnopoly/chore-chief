@@ -4,7 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["!.next/cache/**", ".next/**", "build/**", "dist/**", "lib/**"]
+      "outputs": ["dist/**", "build/**", ".next/**"]
     },
     "clean": {
       "cache": false
@@ -14,15 +14,12 @@
       "persistent": true
     },
     "lint": {
-      "dependsOn": ["^build"],
       "outputs": []
     },
     "test": {
-      "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
     },
     "typecheck": {
-      "dependsOn": ["^build"],
       "outputs": []
     }
   }

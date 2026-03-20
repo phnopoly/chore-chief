@@ -16,7 +16,7 @@
     "@chore-champ/types": "workspace:*",
     "@hono/node-server": "^1.19.11",
     "@hono/zod-validator": "^0.7.6",
-    "hono": "^4.12.7",
+    "hono": "^4.12.8",
     "zod": "^4.3.6"
   },
   "devDependencies": {
