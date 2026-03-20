@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <Flex direction={{ base: "column", md: "row" }} align="flex-start">
           <Box maxW="300px">
             <Heading fontSize="1.5rem" fontWeight="bold" mb={2}>
-              ChoreChamp
+              ChoreChief
             </Heading>
           </Box>
           <Flex ml={{ base: 0, md: "auto" }} gap={12} mt={{ base: 6, md: 0 }} direction={{ base: "column", md: "row" }}>
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
           </Flex>
         </Flex>
         <Box borderTop="2px solid" borderColor="dark.500" mt={10} pt={6} textAlign="center" fontSize="0.9rem">
-          © {new Date().getFullYear()} ChoreChamp. All rights reserved.
+          © {new Date().getFullYear()} ChoreChief. All rights reserved.
         </Box>
       </Container>
     </Box>

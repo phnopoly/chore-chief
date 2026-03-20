@@ -1,5 +1,5 @@
 {
-  "name": "@chore-champ/forms",
+  "name": "@chore-chief/forms",
   "version": "1.0.0",
   "private": true,
   "main": "./src/index.ts",
@@ -15,9 +15,9 @@
     "rebuild": "pnpm run clean && pnpm run build"
   },
   "dependencies": {
-    "@chore-champ/api-client": "workspace:*",
-    "@chore-champ/types": "workspace:*",
-    "@chore-champ/ui": "workspace:*",
+    "@chore-chief/api-client": "workspace:*",
+    "@chore-chief/types": "workspace:*",
+    "@chore-chief/ui": "workspace:*",
     "react-hook-form": "^7.51.0"
   },
   "peerDependencies": {

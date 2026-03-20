@@ -1,9 +1,9 @@
 import React from "react";
 import useSWR from "swr";
 import { Box, Container, Stack, Text, Flex } from "@chakra-ui/react";
-import { Button } from "@chore-champ/ui";
-import { templateChoresSeeds } from "@chore-champ/mirage";
-import { TemplateChoreDTO } from "@chore-champ/types";
+import { Button } from "@chore-chief/ui";
+import { templateChoresSeeds } from "@chore-chief/mirage";
+import { TemplateChoreDTO } from "@chore-chief/types";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 

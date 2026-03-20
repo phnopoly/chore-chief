@@ -4,13 +4,13 @@ const nextConfig = {
     externalDir: true,
   },
   transpilePackages: [
-    "@chore-champ/api-client",
-    "@chore-champ/config",
-    "@chore-champ/forms",
-    "@chore-champ/mirage",
-    "@chore-champ/types",
-    "@chore-champ/ui",
-    "@chore-champ/utils",
+    "@chore-chief/api-client",
+    "@chore-chief/config",
+    "@chore-chief/forms",
+    "@chore-chief/mirage",
+    "@chore-chief/types",
+    "@chore-chief/ui",
+    "@chore-chief/utils",
   ],
 };
 

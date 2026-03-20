@@ -9,7 +9,7 @@ import {
   TemplateChoreDTO,
   LookupCategoryDTO,
   LookupFrequencyDTO,
-} from "@chore-champ/types";
+} from "@chore-chief/types";
 
 export const householdModel: ModelDefinition<Partial<HouseholdDTO>> = Model.extend({});
 export const memberModel: ModelDefinition<Partial<MemberDTO>> = Model.extend({});

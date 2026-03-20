@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { Button } from "@chore-champ/ui";
+import { Button } from "@chore-chief/ui";
 
 interface BodyProps {
   setGetStartedOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,13 +32,12 @@ const Body: React.FC<BodyProps> = ({ setGetStartedOpen }) => {
 
         <Flex flex="1" direction="column" align="flex-start" gap={6}>
           <Box borderWidth="1px" borderStyle="solid" borderColor="dark.500" fontSize="1.25rem" px={4} py={2}>
-            ChoreChamp makes it easy to divide and conquer household tasks. Create custom lists, assign duties, and
+            ChoreChief makes it easy to divide and conquer household tasks. Create custom lists, assign duties, and
             track progress.
           </Box>
 
           <Flex gap={4}>
             <Button onClick={() => setGetStartedOpen(true)}>Get Started for Free</Button>
-            <Button variant="outline">Learn More</Button>
           </Flex>
         </Flex>
       </Flex>

@@ -6,7 +6,7 @@ import {
   LookupCategoryDTO,
   LookupFrequencyDTO,
   TemplateChoreDTO,
-} from "@chore-champ/types";
+} from "@chore-chief/types";
 
 export const householdSeeds: HouseholdDTO[] = [
   {

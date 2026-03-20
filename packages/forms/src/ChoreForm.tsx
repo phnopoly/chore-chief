@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Heading, Stack, Text, Spinner, Flex } from "@chakra-ui/react";
-import { Button } from "@chore-champ/ui";
+import { Button } from "@chore-chief/ui";
 
 interface Chore {
   id: string;

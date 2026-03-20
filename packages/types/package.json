@@ -1,5 +1,5 @@
 {
-  "name": "@chore-champ/types",
+  "name": "@chore-chief/types",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

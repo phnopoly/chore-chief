@@ -9,7 +9,7 @@ import {
   LookupCategoryDTO,
   LookupFrequencyDTO,
   TemplateChoreDTO,
-} from "@chore-champ/types";
+} from "@chore-chief/types";
 
 import {
   householdSeeds,

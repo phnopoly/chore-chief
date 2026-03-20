@@ -1,4 +1,4 @@
-# ChoreChamp (Monorepo)
+# ChoreChief (Monorepo)
 
 A full-stack household management app that makes chores, bills, and shopping **fair, fast, and fun**—for roommates and for solo use.
 

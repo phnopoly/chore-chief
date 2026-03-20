@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LookupCategoryDTO, LookupFrequencyDTO, TemplateChoreDTO, ReferenceDataDTO } from "@chore-champ/types";
+import { LookupCategoryDTO, LookupFrequencyDTO, TemplateChoreDTO, ReferenceDataDTO } from "@chore-chief/types";
 
 const getReferenceData = async (): Promise<ReferenceDataDTO> => {
   const res = await fetch("/api/reference-data");

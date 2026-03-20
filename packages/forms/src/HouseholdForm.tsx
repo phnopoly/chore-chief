@@ -11,9 +11,9 @@ import {
   CheckboxGroup,
   Checkbox,
 } from "@chakra-ui/react";
-import { LookupCategoryDTO } from "@chore-champ/types";
+import { LookupCategoryDTO } from "@chore-chief/types";
 
-import { Button, NumberPicker } from "@chore-champ/ui";
+import { Button, NumberPicker } from "@chore-chief/ui";
 
 const NUMBER_OPTIONS = [1, 2, 3, 4, 5, 6];
 

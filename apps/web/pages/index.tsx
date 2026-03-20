@@ -9,12 +9,12 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-import { ChoreForm, HouseholdForm } from "@chore-champ/forms";
+import { ChoreForm, HouseholdForm } from "@chore-chief/forms";
 import Overview from "./Overview";
 import Header from "../src/Header";
 import Body from "../src/Body";
 import Footer from "../src/Footer";
-import { useReferenceCategories } from "@chore-champ/api-client";
+import { useReferenceCategories } from "@chore-chief/api-client";
 
 const Landing: React.FC = () => {
   const [getStartedOpen, setGetStartedOpen] = useState(false);

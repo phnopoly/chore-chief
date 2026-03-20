@@ -1,5 +1,5 @@
 {
-  "name": "@chore-champ/utils",
+  "name": "@chore-chief/utils",
   "version": "1.0.0",
   "private": true,
   "main": "./src/index.ts",

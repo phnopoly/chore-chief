@@ -1,4 +1,4 @@
-import { Button } from "@chore-champ/ui";
+import { Button } from "@chore-chief/ui";
 
 interface FooterLinkButtonProps {
   children: React.ReactNode;

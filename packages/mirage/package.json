@@ -1,5 +1,5 @@
 {
-  "name": "@chore-champ/mirage",
+  "name": "@chore-chief/mirage",
   "version": "1.0.0",
   "private": true,
   "main": "./src/index.ts",
@@ -9,7 +9,7 @@
     "dist"
   ],
   "dependencies": {
-    "@chore-champ/types": "workspace:*",
+    "@chore-chief/types": "workspace:*",
     "miragejs": "^0.1.48"
   },
   "scripts": {

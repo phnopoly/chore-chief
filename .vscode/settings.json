@@ -5,6 +5,7 @@
     "chakra",
     "changeme",
     "chorechamp",
+    "chorechief",
     "CHOREHCAMP",
     "Cleanout",
     "cuttingboards",
@@ -25,7 +26,9 @@
     "tsparser",
     "Turborepo",
     "USERPROFILE",
-    "vercel"
+    "vercel",
+    "Vite",
+    "Vitest"
   ],
   "eslint.useFlatConfig": true,
   "eslint.workingDirectories": [
