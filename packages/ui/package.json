@@ -12,7 +12,7 @@
     "rebuild": "pnpm run clean && pnpm run build",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "jest --passWithNoTests"
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "@chakra-ui/react": "2.8.2"

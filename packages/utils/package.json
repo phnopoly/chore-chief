@@ -10,7 +10,6 @@
     "clean": "rimraf dist tsconfig.tsbuildinfo",
     "lint": "eslint .",
     "rebuild": "pnpm run clean && pnpm run build",
-    "test": "jest --passWithNoTests",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   }
 }

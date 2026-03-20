@@ -5,7 +5,7 @@
     "incremental": true,
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["node", "jest"]
+    "types": ["vitest/globals", "node"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "coverage", ".turbo", "build"]
