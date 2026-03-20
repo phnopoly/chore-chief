@@ -1,13 +1,15 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "allowJs": true,
     "composite": true,
     "incremental": true,
     "isolatedModules": true,
+    "jsx": "preserve",
     "types": ["node"],
-    "jsx": "preserve"
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "include": ["next-env.d.ts", "src", "__tests__"],
-  "exclude": ["node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"]
 }
