@@ -1,19 +1,17 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-
   experimental: {
     externalDir: true,
   },
-
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
-
-  webpack(config) {
-    config.resolve.extensions.push(".ts", ".tsx");
-    return config;
-  },
+  transpilePackages: [
+    "@chore-chief/api-client",
+    "@chore-chief/config",
+    "@chore-chief/forms",
+    "@chore-chief/mirage",
+    "@chore-chief/types",
+    "@chore-chief/ui",
+    "@chore-chief/utils",
+  ],
 };
 
 export default nextConfig;

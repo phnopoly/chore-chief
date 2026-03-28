@@ -1,20 +1,10 @@
 {
   "compilerOptions": {
-    "isolatedModules": false,
     "jsx": "react-jsx",
-    "moduleResolution": "Node",
-    "noEmit": true,
-    "rootDir": ".",
-    "types": ["@testing-library/jest-dom", "jest", "node"]
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "extends": "./tsconfig.json",
-  "include": [
-    "__tests__/**/*.ts",
-    "__tests__/**/*.tsx",
-    "jest.setup.web.ts",
-    "next-env.d.ts",
-    "src",
-    "src/**/*.(test|spec).ts",
-    "src/**/*.(test|spec).tsx"
-  ]
+  "exclude": ["dist", "node_modules"],
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"]
 }

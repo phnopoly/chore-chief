@@ -1,14 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "esModuleInterop": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "jsx": "react-jsx",
+    "strict": true,
     "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
-    "lib": ["DOM", "ES2022"],
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "baseUrl": ".",
     "paths": {
       "@api-client/*": ["packages/api-client/src/*"],
       "@config/*": ["packages/config/src/*"],
@@ -17,11 +22,6 @@
       "@types/*": ["packages/types/src/*"],
       "@ui/*": ["packages/ui/src/*"],
       "@utils/*": ["packages/utils/src/*"]
-    },
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "target": "ES2022"
+    }
   }
 }

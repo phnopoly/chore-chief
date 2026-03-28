@@ -1,20 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "composite": true,
     "declaration": true,
+    "declarationMap": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "noEmit": false,
-    "isolatedModules": true,
-    "skipLibCheck": true
+    "rootDir": "src"
   },
-  "extends": "../../tsconfig.json",
+  "exclude": ["dist", "node_modules"],
+  "extends": "../../tsconfig.base.json",
   "include": ["src"]
 }

@@ -1,9 +1,13 @@
 {
   "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": ["eslint.config.mjs", "package.json", "tsconfig.base.json"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["!.next/cache/**", ".next/**", "dist/**"]
+      "outputs": ["dist/**", "build/**", ".next/**"]
+    },
+    "clean": {
+      "cache": false
     },
     "dev": {
       "cache": false,

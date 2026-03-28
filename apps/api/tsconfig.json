@@ -1,34 +1,12 @@
 {
   "compilerOptions": {
-    "allowJs": false,
-    "baseUrl": ".",
     "composite": true,
-    "esModuleInterop": true,
-    "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "isolatedModules": true,
-    "noEmit": false,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
     "outDir": "dist",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "resolveJsonModule": true,
-    "rootDir": ".",
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "types": ["jest", "node"],
-    "useUnknownInCatchVariables": true,
-    "verbatimModuleSyntax": false,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "rootDir": "src",
+    "types": ["node", "vitest/globals"]
   },
-  "exclude": [".next", ".turbo", "build", "coverage", "dist", "node_modules"],
+  "exclude": ["dist", "node_modules"],
   "extends": "../../tsconfig.base.json",
-  "include": ["__tests__/**/*", "env.d.ts", "next-env.d.ts", "postcss.config.*", "src/**/*", ".next/types/**/*.ts"]
+  "include": ["src"]
 }

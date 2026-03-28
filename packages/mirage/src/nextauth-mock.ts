@@ -1,3 +1,5 @@
+import type { Server } from "miragejs";
+
 const USERS = {
   manideep: { id: "101", name: "Manideep" },
   jesus: { id: "202", name: "Jesus" },
@@ -6,13 +8,11 @@ const USERS = {
 
 const EXP = () => new Date(Date.now() + 3600 * 1000).toISOString();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const registerAuthRoutes = function (this: any) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  this.get("/session", (_schema: any, req: { queryParams: { user: any } }) => {
+export const registerAuthRoutes = (server: Server) => {
+  server.get("/session", (_schema, req) => {
     const key = (req.queryParams.user ?? "phong") as keyof typeof USERS;
     return { user: USERS[key], expires: EXP() };
   });
 
-  this.post("/signout", () => ({ ok: true }));
+  server.post("/signout", () => ({ ok: true }));
 };

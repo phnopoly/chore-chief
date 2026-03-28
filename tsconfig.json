@@ -1,18 +1,6 @@
 {
-  "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "ES2022",
-    "lib": ["DOM", "DOM.Iterable", "ESNext", "ES2022"],
-    "esModuleInterop": true,
-    "jsx": "react",
-    "skipLibCheck": true,
-    "strict": true
-  },
   "files": [],
-  "include": ["apps", "jest.setup.*.ts", "packages", "tests"],
   "references": [
-    { "path": "apps/web" },
     { "path": "apps/api" },
     { "path": "packages/api-client" },
     { "path": "packages/config" },
