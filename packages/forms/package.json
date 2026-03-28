@@ -18,6 +18,7 @@
     "@chore-chief/api-client": "workspace:*",
     "@chore-chief/types": "workspace:*",
     "@chore-chief/ui": "workspace:*",
+    "next": "14.2.5",
     "react-hook-form": "^7.51.0"
   },
   "peerDependencies": {

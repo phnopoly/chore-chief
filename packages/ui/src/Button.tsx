@@ -5,13 +5,7 @@ interface ButtonProps extends ChakraButtonProps {
   colorScheme?: "olive" | "dark";
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  colorScheme = "dark",
-  size = "lg",
-  variant = "solid",
-  ...props
-}) => {
+const Button = ({ children, colorScheme = "dark", size = "lg", variant = "solid", ...props }: ButtonProps) => {
   const isSolid = variant === "solid";
 
   return (

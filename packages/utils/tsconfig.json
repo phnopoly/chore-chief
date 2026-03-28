@@ -5,7 +5,7 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "exclude": ["**/*.test.*", "**/__tests__/**", ".turbo", "build", "coverage", "dist", "node_modules"],
+  "exclude": ["dist", "node_modules"],
   "extends": "../../tsconfig.base.json",
   "include": ["src"]
 }

@@ -7,21 +7,19 @@ interface NumberPickerProps {
   onChange: (num: number) => void;
 }
 
-const NumberPicker: React.FC<NumberPickerProps> = ({ value, options, onChange }) => {
-  return (
-    <ButtonGroup isAttached size="sm" variant="outline">
-      {options.map((option) => (
-        <Button
-          key={option}
-          variant={value === option ? "solid" : "outline"}
-          colorScheme={value === option ? "olive" : "gray"}
-          onClick={() => onChange(option)}
-        >
-          {option}
-        </Button>
-      ))}
-    </ButtonGroup>
-  );
-};
+const NumberPicker = ({ value, options, onChange }: NumberPickerProps) => (
+  <ButtonGroup isAttached size="md" variant="outline">
+    {options.map((option) => (
+      <Button
+        key={option}
+        variant={value === option ? "solid" : "outline"}
+        colorScheme={value === option ? "olive" : "gray"}
+        onClick={() => onChange(option)}
+      >
+        {option}
+      </Button>
+    ))}
+  </ButtonGroup>
+);
 
 export default NumberPicker;

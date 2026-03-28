@@ -5,12 +5,10 @@ interface FooterLinkButtonProps {
   onClick?: () => void;
 }
 
-const FooterLinkButton: React.FC<FooterLinkButtonProps> = ({ children, onClick }) => {
-  return (
-    <Button variant="link" size="sm" justifyContent="flex-start" p={0} minH="auto" h="auto" onClick={onClick}>
-      {children}
-    </Button>
-  );
-};
+const FooterLinkButton = ({ children, onClick }: FooterLinkButtonProps) => (
+  <Button variant="link" size="sm" justifyContent="flex-start" p={0} minH="auto" h="auto" onClick={onClick}>
+    {children}
+  </Button>
+);
 
 export default FooterLinkButton;

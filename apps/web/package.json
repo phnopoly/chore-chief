@@ -18,6 +18,7 @@
     "@chore-chief/mirage": "workspace:*",
     "@chore-chief/types": "workspace:*",
     "@chore-chief/ui": "workspace:*",
+    "@chore-chief/utils": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "framer-motion": "^12.38.0",

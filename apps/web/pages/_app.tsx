@@ -3,11 +3,23 @@ import type { AppProps } from "next/app";
 import React from "react";
 import "@chore-chief/mirage";
 import { uiTheme } from "@chore-chief/config";
+import { SetupProvider } from "@chore-chief/forms";
+import GlobalLayout from "../src/GlobalLayout";
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps, router }: AppProps) => {
+  const isSetupRoute = router.pathname.startsWith("/setup");
+
   return (
     <ChakraProvider theme={uiTheme}>
-      <Component {...pageProps} />
+      <GlobalLayout>
+        {isSetupRoute ? (
+          <SetupProvider>
+            <Component {...pageProps} />
+          </SetupProvider>
+        ) : (
+          <Component {...pageProps} />
+        )}
+      </GlobalLayout>
     </ChakraProvider>
   );
 };

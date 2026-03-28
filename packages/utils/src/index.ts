@@ -1,1 +1,1 @@
-export {};
+export { capitalizeFirstLetter } from "./func";
